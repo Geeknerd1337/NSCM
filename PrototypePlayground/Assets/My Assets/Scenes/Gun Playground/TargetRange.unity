@@ -1198,7 +1198,7 @@ GameObject:
   - component: {fileID: 1112174796}
   m_Layer: 0
   m_Name: WeaponsCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1270,6 +1270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437759426}
   - component: {fileID: 1437759427}
+  - component: {fileID: 1437759428}
   m_Layer: 0
   m_Name: Camera Shaker
   m_TagString: Untagged
@@ -1308,6 +1309,28 @@ MonoBehaviour:
   DefaultRotInfluence: {x: 1, y: 1, z: 1}
   RestPositionOffset: {x: 0, y: 0.8, z: 0}
   RestRotationOffset: {x: 0, y: 0, z: 0}
+  rollEffects: {fileID: 1437759428}
+--- !u!114 &1437759428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437759425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847dfb9c759822649a940edfce533ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rollVector: {x: 0, y: 0, z: 0}
+  vectorAdditions: {x: 0, y: 0, z: 0}
+  staticVectorAdditions: {x: 0, y: 0, z: 0}
+  positionalVector: {x: 0, y: 0, z: 0}
+  positionalVectorAdditions: {x: 0, y: 0, z: 0}
+  smoothing: 10
+  zeroSmoothing: 10
+  cameraPositionSpeed: 0
+  cameraPositionSmoothing: 0
 --- !u!4 &1522762489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400212, guid: 05223d8462d1c28418b215965f9ec1f0,

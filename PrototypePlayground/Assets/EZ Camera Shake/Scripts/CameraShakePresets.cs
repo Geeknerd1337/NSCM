@@ -34,6 +34,20 @@ namespace EZCameraShake
         }
 
         /// <summary>
+        /// [One-Shot] An intense and rough shake.
+        /// </summary>
+        public static CameraShakeInstance Shot
+        {
+            get
+            {
+                CameraShakeInstance c = new CameraShakeInstance(0.5f, 20, 0f, 0.5f);
+                c.PositionInfluence = Vector3.one * 1f;
+                c.RotationInfluence = new Vector3(4, 1, 1);
+                return c;
+            }
+        }
+
+        /// <summary>
         /// [Sustained] A continuous, rough shake.
         /// </summary>
         public static CameraShakeInstance Earthquake

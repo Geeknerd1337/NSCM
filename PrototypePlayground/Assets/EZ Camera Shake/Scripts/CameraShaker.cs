@@ -33,6 +33,8 @@ namespace EZCameraShake
 
         List<CameraShakeInstance> cameraShakeInstances = new List<CameraShakeInstance>();
 
+        public CameraRollEffects rollEffects;
+
         void Awake()
         {
             Instance = this;
@@ -63,8 +65,8 @@ namespace EZCameraShake
                 }
             }
 
-            transform.localPosition = posAddShake + RestPositionOffset;
-            transform.localEulerAngles = rotAddShake + RestRotationOffset;
+            transform.localPosition = posAddShake + RestPositionOffset + rollEffects.positionalVector;
+            transform.localEulerAngles = rotAddShake + RestRotationOffset + rollEffects.rollVector;
         }
 
         /// <summary>

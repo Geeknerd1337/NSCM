@@ -19,6 +19,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_StickToGroundForce;
         [SerializeField] private float m_GravityMultiplier;
         [SerializeField] private MouseLook m_MouseLook;
+        [SerializeField] public float m_MouseLook_x {
+            get { return m_MouseLook.yAdjust; }
+            set { m_MouseLook.yAdjust = value; } }
         [SerializeField] private bool m_UseFovKick;
         [SerializeField] private FOVKick m_FovKick = new FOVKick();
         [SerializeField] private bool m_UseHeadBob;

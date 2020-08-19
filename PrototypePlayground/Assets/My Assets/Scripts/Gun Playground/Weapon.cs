@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
+using EZCameraShake;
 
 public class Weapon : MonoBehaviour
 {
 
     #region Private Members
     private Animator weaponAnimator;
+    private CameraRollEffects rollEffects;
+    private Camera playerCam;
+    private FirstPersonController charController;
     #endregion
 
     [Header("Weapon Object")]
@@ -20,6 +25,12 @@ public class Weapon : MonoBehaviour
     {
         //Get the weapon's Animator
         weaponAnimator = GetComponent<Animator>();
+        //Find the roll Effects
+        rollEffects = FindObjectOfType<CameraRollEffects>();
+        //Get the main camera
+        playerCam = Camera.main;
+        //Get the first person controller
+        charController = FindObjectOfType<FirstPersonController>();
 
     }
 
@@ -27,6 +38,11 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         HandleGunInput();
+    }
+
+    private void LateUpdate()
+    {
+        playerCam.transform.localEulerAngles += new Vector3(10f, 0, 0);
     }
 
     void HandleGunInput()
@@ -61,6 +77,9 @@ public class Weapon : MonoBehaviour
             {
                 weaponAnimator.Play(weaponObject.aimFireAnimation);
             }
+            CameraShaker.Instance.Shake(CameraShakePresets.Shot);
+            charController.m_MouseLook_x += 2f;
+            rollEffects.vectorAdditions.x += -5f;
         }
     }
 
