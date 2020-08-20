@@ -13,8 +13,21 @@ MonoBehaviour:
   m_Name: Revolver
   m_EditorClassIdentifier: 
   fireAnimation: Hands|revlover_fire
-  dryFireAnimation: 
+  dryFireAnimation: Hands|revolver_dry_fire
   aimFireAnimation: Hands|revolver_aim_fire
-  aimDryFireAnimation: 
+  aimDryFireAnimation: Hands|revolver_aim_dry_fire
   reloadAnimation: Hands|revolver_reload
   damage: 
+  clipSize: 6
+  reloadSound:
+    sound: {fileID: 8300000, guid: fda2aa7997269b7419eb22c1691b8d69, type: 3}
+    pitchRange: {x: 1, y: 1}
+    volume: 1
+  fireSound:
+    sound: {fileID: 8300000, guid: 5ffd08e1a56a578478e584595a92763f, type: 3}
+    pitchRange: {x: 0.95, y: 1.05}
+    volume: 0.7
+  dryFireSound:
+    sound: {fileID: 8300000, guid: 268b265c726eaf04daccd362640bb196, type: 3}
+    pitchRange: {x: 0.95, y: 1.05}
+    volume: 0.8

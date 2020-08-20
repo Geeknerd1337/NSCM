@@ -14,5 +14,20 @@ public class Weapon_SO : ScriptableObject
 
     [Header("Stats")]
     public string damage;
+    public int clipSize;
+
+    [Header("Sounds")]
+    public WeaponSound reloadSound;
+    public WeaponSound fireSound;
+    public WeaponSound dryFireSound;
+
     
+}
+[System.Serializable]
+public class WeaponSound
+{
+    public AudioClip sound;
+    public Vector2 pitchRange;
+    public float volume;
+
 }
