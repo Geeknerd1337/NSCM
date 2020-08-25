@@ -10,27 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a66f415d74a99646ae77da311382847, type: 3}
-  m_Name: Revolver
+  m_Name: MultiGun-Shotgun
   m_EditorClassIdentifier: 
-  fireAnimation: Hands|revlover_fire
-  dryFireAnimation: Hands|revolver_dry_fire
+  fireAnimation: Hands|pistol_fire
+  dryFireAnimation: Hands|pistol_dry_fire
   aimFireAnimation: Hands|revolver_aim_fire
   aimDryFireAnimation: Hands|revolver_aim_dry_fire
-  reloadAnimation: Hands|revolver_reload
+  reloadAnimation: Hands|pistol_reload
   drawAnimation: Hands|pistol_draw
   damage: 
-  clipSize: 6
-  recoil: 0
+  clipSize: 8
+  recoil: 6
   shakeAmmount: 1
   reloadSound:
     sound: {fileID: 8300000, guid: fda2aa7997269b7419eb22c1691b8d69, type: 3}
     pitchRange: {x: 1, y: 1}
     volume: 1
   fireSound:
-    sound: {fileID: 8300000, guid: 5ffd08e1a56a578478e584595a92763f, type: 3}
+    sound: {fileID: 8300000, guid: 883101636a0a849418e4d2bc0e5d272f, type: 3}
     pitchRange: {x: 0.95, y: 1.05}
     volume: 0.7
   dryFireSound:
-    sound: {fileID: 8300000, guid: 268b265c726eaf04daccd362640bb196, type: 3}
+    sound: {fileID: 8300000, guid: 8373d18fcac653c43b674f580c83a6c9, type: 3}
     pitchRange: {x: 0.95, y: 1.05}
     volume: 0.8

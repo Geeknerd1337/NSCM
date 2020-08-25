@@ -47,6 +47,10 @@ public class Weapon : MonoBehaviour
     [Header("Event Systems")]
     [SerializeField] private UnityEvent fireEvents;
 
+    [Header("Weapon Toggles")]
+    [SerializeField] private bool allowAim;
+    [SerializeField] private bool fullAuto;
+
 
 
     // Start is called before the first frame update
@@ -83,12 +87,18 @@ public class Weapon : MonoBehaviour
 
     void HandleGunInput()
     {
-        if (Input.GetButtonDown("Fire1"))
+
+        bool IsFiring = Input.GetButtonDown("Fire1");
+        if (fullAuto)
+        {
+            IsFiring = Input.GetButton("Fire1");
+        }
+        if (IsFiring)
         {
             FireGun();
         }
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && allowAim)
         {
             //Toggle the aim animation
             weaponAnimator.SetBool("isAiming", !weaponAnimator.GetBool("isAiming"));
@@ -147,11 +157,14 @@ public class Weapon : MonoBehaviour
             if (shotsLeft > 0)
             {
                 //Shake the camera
-                CameraShaker.Instance.Shake(CameraShakePresets.Shot);
+                CameraShakeInstance c = new CameraShakeInstance(0.5f, 20, 0f, 0.5f);
+                c.PositionInfluence = Vector3.one * 1f * weaponObject.shakeAmmount;
+                c.RotationInfluence = new Vector3(4, 1, 1) * weaponObject.shakeAmmount;
+                CameraShaker.Instance.Shake(c);
                 //Move the camera up a bit for some recoil
-                charController.m_MouseLook_x += 2f;
+                charController.m_MouseLook_x += weaponObject.recoil;
                 //Add a bit of a roll up that goes down over time, gives the recoild more flavor
-                rollEffects.vectorAdditions.x += -5f;
+                rollEffects.vectorAdditions.x += weaponObject.recoil * -2.5f;
                 //Play the muzzle flash effect if it isn't null
                 if (muzzleFlash != null)
                 {
@@ -184,7 +197,15 @@ public class Weapon : MonoBehaviour
         weaponSound.clip = w.sound;
         weaponSound.pitch = Random.Range(w.pitchRange.x, w.pitchRange.y);
         weaponSound.volume = w.volume;
-        weaponSound.Play();
+        weaponSound.PlayOneShot(weaponSound.clip);
+    }
+
+    private void OnEnable()
+    {
+        if(weaponAnimator != null)
+        {
+            weaponAnimator.Play(weaponObject.drawAnimation);
+        }
     }
 
 }

@@ -11,10 +11,14 @@ public class Weapon_SO : ScriptableObject
     public string aimFireAnimation;
     public string aimDryFireAnimation;
     public string reloadAnimation;
+    public string drawAnimation;
 
     [Header("Stats")]
     public string damage;
     public int clipSize;
+    public float recoil;
+    [Range(0, 1)]
+    public float shakeAmmount;
 
     [Header("Sounds")]
     public WeaponSound reloadSound;
