@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     #region Private Members
     private Animator weaponAnimator;
     private CameraRollEffects rollEffects;
+    [SerializeField]
     private Camera playerCam;
     private FirstPersonController charController;
     private AudioSource weaponSound;
@@ -40,9 +41,13 @@ public class Weapon : MonoBehaviour
 
     [Header("Weapon Visual Effects")]
     [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private GameObject hitEffect;
 
     [Header("Weapon Stats")]
     private int shotsLeft;
+
+    [Header("Raycast Fire Setup")]
+    [SerializeField] private LayerMask bulletLayerMask;
 
     [Header("Event Systems")]
     [SerializeField] private UnityEvent fireEvents;
@@ -82,7 +87,7 @@ public class Weapon : MonoBehaviour
 
     private void LateUpdate()
     {
-        playerCam.transform.localEulerAngles += new Vector3(10f, 0, 0);
+        
     }
 
     void HandleGunInput()
@@ -122,7 +127,8 @@ public class Weapon : MonoBehaviour
                 if (shotsLeft > 0)
                 {
                     weaponAnimator.Play(weaponObject.fireAnimation);
-                    
+                    FireRayBullet();
+
                 }
                 else
                 {
@@ -134,13 +140,15 @@ public class Weapon : MonoBehaviour
                 if (shotsLeft > 0)
                 {
                     weaponAnimator.Play(weaponObject.aimFireAnimation);
-                    
+                    FireRayBullet();
+
                 }
                 else
                 {
                     weaponAnimator.Play(weaponObject.aimDryFireAnimation);
                 }
             }
+            
 
             #region Audio Effects
             if (shotsLeft > 0)
@@ -174,8 +182,51 @@ public class Weapon : MonoBehaviour
             }
             #endregion
 
+            //Invokes the event list for when the gun is fired, use this for more non-universal gun properties
             fireEvents.Invoke();
+            
         }
+    }
+
+    void FireRayBullet()
+    {
+        for(int i = 0; i < weaponObject.numberOfShots; i++)
+        {
+            RaycastHit hit;
+
+            //This handles the fire spread and is kind of black magic
+            float splash = weaponObject.maxFireAngle;
+            Vector3 direction = Random.insideUnitSphere * Mathf.Lerp(0,1,weaponObject.maxFireAngle/180f);
+            Vector3 directionActual = transform.forward + direction;
+
+            //Right now this just makes the hit effect, but will eventually handle damage
+            if (Physics.Raycast(playerCam.transform.position, directionActual, out hit, weaponObject.effectiveRange, bulletLayerMask))
+            {
+                GameObject g = Instantiate(hitEffect);
+                g.transform.position = hit.point;
+                g.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                Destroy(g, 10f);
+            }
+        }
+    }
+
+    public static Vector3 RandomInsideCone(float radius)
+    {
+        //(sqrt(1 - z^2) * cosϕ, sqrt(1 - z^2) * sinϕ, z)
+        float radradius = radius * Mathf.PI / 360;
+        float z = Random.Range(Mathf.Cos(radradius), 1);
+        float t = Random.Range(0, Mathf.PI * 2);
+        return new Vector3(Mathf.Sqrt(1 - z * z) * Mathf.Cos(t), Mathf.Sqrt(1 - z * z) * Mathf.Sin(t), z);
+    }
+
+    float CalculateFireAngle(float f) {
+        float sign = Mathf.Sign(f) * 1;
+        float amt = Mathf.Abs(f);
+        float amtActual = Mathf.Lerp(0, (1 / 360f) * weaponObject.maxFireAngle, amt);
+        Debug.Log(amtActual * sign);
+        return (amt / weaponObject.maxFireAngle) * sign;
+
+
     }
 
     void HandleWeaponSway()

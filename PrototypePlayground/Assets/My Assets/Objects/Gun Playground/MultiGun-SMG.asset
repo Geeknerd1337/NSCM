@@ -18,9 +18,12 @@ MonoBehaviour:
   aimDryFireAnimation: Hands|revolver_aim_dry_fire
   reloadAnimation: Hands|pistol_reload
   drawAnimation: Hands|pistol_draw
-  damage: 
+  damage: 0
   clipSize: 30
   recoil: 0.5
+  numberOfShots: 1
+  maxFireAngle: 11.73
+  effectiveRange: 40
   shakeAmmount: 0.16
   reloadSound:
     sound: {fileID: 8300000, guid: fda2aa7997269b7419eb22c1691b8d69, type: 3}

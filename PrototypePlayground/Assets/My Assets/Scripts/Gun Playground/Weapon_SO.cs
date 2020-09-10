@@ -14,9 +14,14 @@ public class Weapon_SO : ScriptableObject
     public string drawAnimation;
 
     [Header("Stats")]
-    public string damage;
+    public float damage;
     public int clipSize;
     public float recoil;
+    public int numberOfShots;
+    [Range(0, 30)]
+    public float maxFireAngle;
+    public float effectiveRange;
+
     [Range(0, 1)]
     public float shakeAmmount;
 
