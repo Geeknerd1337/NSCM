@@ -10,6 +10,8 @@ public class LegStepper : MonoBehaviour
     [SerializeField] float wantStepAtDistance;
     // How long a step takes to complete
     [SerializeField] float moveDuration;
+    //Sound to play when stepping
+    [SerializeField] private AudioSource sound;
     
     // Is the leg moving?
     public bool Moving;
@@ -65,7 +67,11 @@ public class LegStepper : MonoBehaviour
             // Start the step coroutine
 
                 StartCoroutine(Move());
-
+                if (sound != null && !sound.isPlaying)
+                {
+                sound.pitch = Random.Range(0.95f, 1.05f);
+                    sound.Play();
+                }
         }
     }
 

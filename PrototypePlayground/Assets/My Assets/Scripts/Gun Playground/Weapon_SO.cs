@@ -12,6 +12,7 @@ public class Weapon_SO : ScriptableObject
     public string aimDryFireAnimation;
     public string reloadAnimation;
     public string drawAnimation;
+    public string idleAnimation;
 
     [Header("Stats")]
     public float damage;

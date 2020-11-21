@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a66f415d74a99646ae77da311382847, type: 3}
+  m_Name: Revolver
+  m_EditorClassIdentifier: 
+  fireAnimation: Hands|revlover_fire
+  dryFireAnimation: Hands|revolver_dry_fire
+  aimFireAnimation: Hands|revolver_aim_fire
+  aimDryFireAnimation: Hands|revolver_aim_dry_fire
+  reloadAnimation: Hands|revolver_reload
+  drawAnimation: Hands|pistol_draw
+  idleAnimation: Hands|pistol_origin
+  damage: 0
+  clipSize: 6
+  recoil: 0
+  numberOfShots: 0
+  maxFireAngle: 0
+  effectiveRange: 0
+  shakeAmmount: 1
+  reloadSound:
+    sound: {fileID: 8300000, guid: fda2aa7997269b7419eb22c1691b8d69, type: 3}
+    pitchRange: {x: 1, y: 1}
+    volume: 1
+  fireSound:
+    sound: {fileID: 8300000, guid: 5ffd08e1a56a578478e584595a92763f, type: 3}
+    pitchRange: {x: 0.95, y: 1.05}
+    volume: 0.7
+  dryFireSound:
+    sound: {fileID: 8300000, guid: 268b265c726eaf04daccd362640bb196, type: 3}
+    pitchRange: {x: 0.95, y: 1.05}
+    volume: 0.8

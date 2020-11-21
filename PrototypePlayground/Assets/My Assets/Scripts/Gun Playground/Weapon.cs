@@ -13,21 +13,28 @@ public class Weapon : MonoBehaviour
     private CameraRollEffects rollEffects;
     [SerializeField]
     private Camera playerCam;
-    private FirstPersonController charController;
+    [SerializeField]
+    private Camera weaponCam;
+    private CyberSpaceFirstPerson charController;
     private AudioSource weaponSound;
+    private PlayerStats playerStats;
     #endregion
 
     #region Booleans
     private bool CanFire { get
         {
-            return !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.fireAnimation) &&
-                !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.aimFireAnimation) &&
-                !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.reloadAnimation) &&
-                !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.aimDryFireAnimation) &&
-                !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.dryFireAnimation);
+
+           return !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.fireAnimation) &&
+           !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.aimFireAnimation) &&
+           !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.reloadAnimation) &&
+           !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.aimDryFireAnimation) &&
+           !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.dryFireAnimation) &&
+           !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.drawAnimation);
 
         }
     }
+
+    private bool isBusy;
     #endregion
 
     [Header("Weapon Object")]
@@ -45,6 +52,16 @@ public class Weapon : MonoBehaviour
 
     [Header("Weapon Stats")]
     private int shotsLeft;
+    public int ShotsLeft
+    {
+        get { return shotsLeft; }
+    }
+    public int AmmoType
+    {
+        get { return ammoType; }
+    }
+    [SerializeField]
+    private int ammoType;
 
     [Header("Raycast Fire Setup")]
     [SerializeField] private LayerMask bulletLayerMask;
@@ -55,7 +72,10 @@ public class Weapon : MonoBehaviour
     [Header("Weapon Toggles")]
     [SerializeField] private bool allowAim;
     [SerializeField] private bool fullAuto;
-
+    [SerializeField] private bool zoomOnAim;
+    [SerializeField] private bool smoothAimTrans;
+    [SerializeField] private float zoomSpeed;
+    [SerializeField] private Vector2 minMaxFOV;
 
 
     // Start is called before the first frame update
@@ -68,13 +88,17 @@ public class Weapon : MonoBehaviour
         //Get the main camera
         playerCam = Camera.main;
         //Get the first person controller
-        charController = FindObjectOfType<FirstPersonController>();
+        charController = FindObjectOfType<CyberSpaceFirstPerson>();
         //Set the origin rotation
         originRotation = transform.localRotation;
         //Get the Audio Source for the gun
         weaponSound = GetComponent<AudioSource>();
         //Set the number of shots left to the guns clip size
         shotsLeft = weaponObject.clipSize;
+        //Get the player stats so we can handle ammo
+        playerStats = GetComponentInParent<PlayerStats>();
+        //Plays the draw animation on start
+        weaponAnimator.Play(weaponObject.drawAnimation);
 
     }
 
@@ -83,6 +107,7 @@ public class Weapon : MonoBehaviour
     {
         HandleGunInput();
         HandleWeaponSway();
+        HandleFOV();
     }
 
     private void LateUpdate()
@@ -111,15 +136,29 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetButtonDown("Reload") && !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.reloadAnimation))
         {
-            weaponAnimator.Play(weaponObject.reloadAnimation);
-            shotsLeft = weaponObject.clipSize;
-            PlayWeaponSound(weaponObject.reloadSound);
+
+            if (shotsLeft < weaponObject.clipSize && playerStats.ammoTypes[ammoType] != 0)
+            {
+                weaponAnimator.Play(weaponObject.reloadAnimation);
+                PlayWeaponSound(weaponObject.reloadSound);
+                if (playerStats.ammoTypes[ammoType] >= (weaponObject.clipSize - shotsLeft))
+                {
+                    playerStats.ammoTypes[ammoType] -= (weaponObject.clipSize - shotsLeft);
+                    shotsLeft = weaponObject.clipSize;
+
+                }
+                else
+                {
+                    playerStats.ammoTypes[ammoType] = 0;
+                    shotsLeft = weaponObject.clipSize;
+                }
+            }
         }
     }
 
     void FireGun()
     {
-        if (CanFire)
+        if (CanFire && !isBusy)
         {
             //Play the fire animation if we press the fire button
             if (!weaponAnimator.GetBool("isAiming"))
@@ -205,7 +244,15 @@ public class Weapon : MonoBehaviour
                 GameObject g = Instantiate(hitEffect);
                 g.transform.position = hit.point;
                 g.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                g.transform.parent = hit.transform;
                 Destroy(g, 10f);
+                
+
+                EntityLimb entityLimb = hit.collider.GetComponent<EntityLimb>();
+                if(entityLimb != null)
+                {
+                    entityLimb.DamageEnemy(weaponObject.damage, transform.forward);
+                }
             }
         }
     }
@@ -258,5 +305,35 @@ public class Weapon : MonoBehaviour
             weaponAnimator.Play(weaponObject.drawAnimation);
         }
     }
+
+
+    void HandleFOV()
+    {
+        if (zoomOnAim)
+        {
+            float val = minMaxFOV.x;
+            if (weaponAnimator.GetBool("isAiming"))
+            {
+                val = minMaxFOV.y;
+            }
+            if (smoothAimTrans)
+            {
+
+                weaponCam.fieldOfView = Mathf.MoveTowards(weaponCam.fieldOfView, val, zoomSpeed * Time.deltaTime);
+                playerCam.fieldOfView = Mathf.MoveTowards(weaponCam.fieldOfView, val, zoomSpeed * Time.deltaTime);
+            }
+            else
+            {
+                weaponCam.fieldOfView = val;
+                playerCam.fieldOfView = val;
+            }
+        }
+        else
+        {
+            weaponCam.fieldOfView = minMaxFOV.x;
+            playerCam.fieldOfView = minMaxFOV.x;
+        }
+    }
+
 
 }
