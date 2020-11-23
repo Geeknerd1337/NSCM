@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground 1
+  m_Name: Ground 9
   m_Shader: {fileID: 4800000, guid: 64d4e8c2bb16cd145b40c1312123c66e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -56,8 +56,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _base:
-        m_Texture: {fileID: 2800000, guid: c4680a72bc531c44dbf1207b94504f48, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Texture: {fileID: 2800000, guid: 0830e75ef1cf35f40b41c3554d62b0c1, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _firstSnow:
         m_Texture: {fileID: 2800000, guid: d196ff2f4c4c45444950dd8153174dcb, type: 3}
@@ -88,17 +88,17 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _baseInfluence: 0
-    - _base_opacity: 0
-    - _emiss: 2.16
-    - _emissOpac: 0.128
+    - _baseInfluence: 1
+    - _base_opacity: 1
+    - _emiss: 0.07
+    - _emissOpac: 0
     - _reduction: 0.228
     - _secondReduction: 0.192
-    - _speed1: 0.1
-    - _speed2: 0.15
-    - _speed3: 0.1
+    - _speed1: 0.01
+    - _speed2: 0.015
+    - _speed3: 0.01
     - _topReduction: 1
     m_Colors:
-    - _Color: {r: 0, g: 1, b: 0.992157, a: 1}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _glowColor: {r: 0.08904416, g: 0.8207547, b: 0.7625504, a: 1}
+    - _glowColor: {r: 5.3689737, g: 22.431469, b: 23.968628, a: 1}
