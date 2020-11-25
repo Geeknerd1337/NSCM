@@ -20,10 +20,10 @@ MonoBehaviour:
   drawAnimation: Hands|pistol_draw
   idleAnimation: Hands|pistol_origin
   damage: 6
-  clipSize: 12
+  clipSize: 3
   recoil: 0.25
   numberOfShots: 1
-  maxFireAngle: 3.47
+  maxFireAngle: 0
   effectiveRange: 40
   shakeAmmount: 1
   reloadSound:
@@ -38,3 +38,6 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: 8373d18fcac653c43b674f580c83a6c9, type: 3}
     pitchRange: {x: 0.95, y: 1.05}
     volume: 0.8
+  projectilePrefab: {fileID: 9210173628945987713, guid: b9cf3f4bc7a1d3840ba75b6fea836b61,
+    type: 3}
+  firesProjectile: 1

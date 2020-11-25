@@ -31,6 +31,10 @@ public class Weapon_SO : ScriptableObject
     public WeaponSound fireSound;
     public WeaponSound dryFireSound;
 
+    [Header("Projectiles")]
+    public GameObject projectilePrefab;
+    public bool firesProjectile;
+
     
 }
 [System.Serializable]

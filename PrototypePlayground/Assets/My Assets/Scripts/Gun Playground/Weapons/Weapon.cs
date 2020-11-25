@@ -49,6 +49,7 @@ public class Weapon : MonoBehaviour
     [Header("Weapon Visual Effects")]
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private GameObject hitEffect;
+    [SerializeField] private Transform projectileOrigin;
 
     [Header("Weapon Stats")]
     private int shotsLeft;
@@ -166,8 +167,15 @@ public class Weapon : MonoBehaviour
                 if (shotsLeft > 0)
                 {
                     weaponAnimator.Play(weaponObject.fireAnimation);
-                    FireRayBullet();
-
+                    //Fire a projectile if the weapon is configured to do so, otherwise use raycast bullet
+                    if (weaponObject.firesProjectile)
+                    {
+                        FireProjectile();
+                    }
+                    else
+                    {
+                        FireRayBullet();
+                    }
                 }
                 else
                 {
@@ -179,7 +187,15 @@ public class Weapon : MonoBehaviour
                 if (shotsLeft > 0)
                 {
                     weaponAnimator.Play(weaponObject.aimFireAnimation);
-                    FireRayBullet();
+                    //Fire a projectile if the weapon is configured to do so, otherwise use raycast bullet
+                    if (weaponObject.firesProjectile)
+                    {
+                        FireProjectile();
+                    }
+                    else
+                    {
+                        FireRayBullet();
+                    }
 
                 }
                 else
@@ -238,7 +254,7 @@ public class Weapon : MonoBehaviour
             Vector3 direction = Random.insideUnitSphere * Mathf.Lerp(0,1,weaponObject.maxFireAngle/180f);
             Vector3 directionActual = transform.forward + direction;
 
-            //Right now this just makes the hit effect, but will eventually handle damage
+            //Checks to see if we've hit an enemy limb, and damaged it if we have
             if (Physics.Raycast(playerCam.transform.position, directionActual, out hit, weaponObject.effectiveRange, bulletLayerMask))
             {
                 GameObject g = Instantiate(hitEffect);
@@ -255,6 +271,21 @@ public class Weapon : MonoBehaviour
                 }
             }
         }
+    }
+
+    void FireProjectile()
+    {
+        //This handles the fire spread and is kind of black magic
+        float splash = weaponObject.maxFireAngle;
+        Vector3 direction = Random.insideUnitSphere * Mathf.Lerp(0, 1, weaponObject.maxFireAngle / 180f);
+        Vector3 directionActual = transform.forward + direction;
+
+        //Instantiate the projectile
+        GameObject projectile = Instantiate(weaponObject.projectilePrefab);
+        //Set its forward rotation to that of the cameras plus the direction actual
+        projectile.transform.rotation = Quaternion.LookRotation(directionActual);
+        //Set the position of the projectile to the designated position
+        projectile.transform.position = projectileOrigin.position;
     }
 
     public static Vector3 RandomInsideCone(float radius)
