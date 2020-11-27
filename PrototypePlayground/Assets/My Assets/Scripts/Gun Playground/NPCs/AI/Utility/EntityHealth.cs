@@ -21,6 +21,11 @@ public class EntityHealth : MonoBehaviour
     private UnityEvent deathEvents;
     public List<MonoBehaviour> componentsToDisable;
 
+    public float Health
+    {
+        get { return health; }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

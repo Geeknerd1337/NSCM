@@ -16,6 +16,11 @@ public class EntityLimb : MonoBehaviour
     private bool limbDeath;
     public UnityEvent deathEvents;
     public Vector3 incomingDamageDir;
+
+    public bool EntityDead
+    {
+        get { return entityHealth.Health > 0; }
+    }
     // Start is called before the first frame update
     void Start()
     {
