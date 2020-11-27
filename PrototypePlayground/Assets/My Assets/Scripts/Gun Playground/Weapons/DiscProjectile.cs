@@ -30,6 +30,8 @@ public class DiscProjectile : MonoBehaviour
 
     public float life;
     public int bounces;
+    [SerializeField]
+    private int bouncesMax;
 
 
     //Rotational Speed Test
@@ -55,6 +57,7 @@ public class DiscProjectile : MonoBehaviour
         forwardRotationSpeed *= Random.Range(-1f, 1f);
         rotationSpeed = 0;
         canMove = true;
+        bounces = bouncesMax;
     }
 
     // Update is called once per frame
@@ -66,7 +69,10 @@ public class DiscProjectile : MonoBehaviour
             if (!targetFound)
             {
                 MoveForward();
-                LookForTargetOverlap();
+                if (bounces < bouncesMax)
+                {
+                    LookForTargetOverlap();
+                }
             }
             else
             {

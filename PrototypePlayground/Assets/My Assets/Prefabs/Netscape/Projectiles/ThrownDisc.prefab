@@ -5061,7 +5061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 25
-  damage: 2
+  damage: 10
   pointHeight: 1
   midPointObject: {fileID: 7819809694615643626}
   disc: {fileID: 9210173629424761711}
@@ -5073,6 +5073,7 @@ MonoBehaviour:
   homingDelay: 0.1
   life: 5
   bounces: 3
+  bouncesMax: 3
   rotationSpeed: 0
   forwardRotationSpeed: 1
   maxRotationSpeed: 500

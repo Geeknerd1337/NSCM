@@ -35,6 +35,8 @@ public class Weapon : MonoBehaviour
     }
 
     private bool isBusy;
+
+    public bool IsReloading { get { return weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.reloadAnimation); } }
     #endregion
 
     [Header("Weapon Object")]
