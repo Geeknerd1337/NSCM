@@ -127,7 +127,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         //Double jump
         if (can_doublejump && !m_doublejump && !m_CharacterController.isGrounded && doubleJumpTimer > doubleJumpDelay)
         {
-            Debug.Log("heck");
             m_doublejump = CrossPlatformInputManager.GetButtonDown("Jump");
 
         }

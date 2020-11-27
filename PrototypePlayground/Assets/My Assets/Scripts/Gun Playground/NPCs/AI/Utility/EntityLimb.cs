@@ -19,7 +19,7 @@ public class EntityLimb : MonoBehaviour
 
     public bool EntityDead
     {
-        get { return entityHealth.Health > 0; }
+        get { return (entityHealth.Health <= 0); }
     }
     // Start is called before the first frame update
     void Start()

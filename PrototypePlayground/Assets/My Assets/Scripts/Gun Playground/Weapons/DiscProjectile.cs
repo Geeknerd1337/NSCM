@@ -41,6 +41,12 @@ public class DiscProjectile : MonoBehaviour
     private float maxRotationSpeed;
     [SerializeField]
     private float rotationSpeedAccel;
+
+    private bool canMove;
+
+    public ParticleSystem partSys;
+
+    private Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,27 +54,32 @@ public class DiscProjectile : MonoBehaviour
         bezierAmt = 0;
         forwardRotationSpeed *= Random.Range(-1f, 1f);
         rotationSpeed = 0;
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         homingDelay -= Time.deltaTime;
-        if (!targetFound)
+        if (life > 0 && canMove)
         {
-            MoveForward();
-            LookForTargetOverlap();
-        }
-        else
-        {
-            RotateTowardsTarget();
-            //MoveBezeier();
-            
+            if (!targetFound)
+            {
+                MoveForward();
+                LookForTargetOverlap();
+            }
+            else
+            {
+                RotateTowardsTarget();
+                //MoveBezeier();
+
+            }
         }
 
         life -= Time.deltaTime;
         if(life <= 0)
         {
+            Die();
             Destroy(gameObject);
         }
     }
@@ -95,7 +106,7 @@ public class DiscProjectile : MonoBehaviour
         {
             rotationSpeed += rotationSpeedAccel * Time.deltaTime;
             rotationSpeed = Mathf.Clamp(rotationSpeed, 0, maxRotationSpeed);
-            Vector3 dir = target.position - transform.position;
+            Vector3 dir = (target.position - offset) - transform.position;
             dir = dir.normalized;
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), rotationSpeed * Time.deltaTime);
             
@@ -135,8 +146,13 @@ public class DiscProjectile : MonoBehaviour
 
             if (e != null)
             {
-                target = e.transform;
-                targetFound = true;
+                Debug.Log(e.EntityDead);
+                if (!e.EntityDead)
+                {
+                    target = e.transform;
+                    offset = e.transform.position - collider.bounds.center;
+                    targetFound = true;
+                }
                 
 
 
@@ -144,9 +160,16 @@ public class DiscProjectile : MonoBehaviour
         }
     }
 
+    void Die()
+    {
+        partSys.Play();
+        partSys.transform.SetParent(null);
+        Destroy(partSys.gameObject, 3f);
+    }
+
     void MoveMidPoint()
     {
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = (target.position + offset) - transform.position;
         dir = dir.normalized;
         midPoint = transform.position + dir * Vector3.Distance(transform.position, target.position) / 2f;
 
@@ -175,7 +198,7 @@ public class DiscProjectile : MonoBehaviour
             e.DamageEnemy(damage, transform.forward);
             transform.SetParent(e.transform);
             GetComponent<Collider>().enabled = false;
-            this.enabled = false;
+            canMove = false;
         }
         else
         {
@@ -184,8 +207,10 @@ public class DiscProjectile : MonoBehaviour
             bounces--;
             if(bounces <= 0)
             {
+                Die();
                 Destroy(gameObject);
             }
         }
     }
+
 }
