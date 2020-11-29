@@ -304,17 +304,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 16.633333
         value: 0.168
-        inSlope: 0.19741945
-        outSlope: 0.19741945
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 17.65
-        value: 0.421
-        inSlope: 0.57096803
-        outSlope: 0.57096803
+        value: 0.168
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -455,7 +455,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 20.033333
+        time: 20.016666
         value: 0.169
         inSlope: 0
         outSlope: 0
@@ -734,7 +734,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 27.866667
+        time: 27.433332
         value: 0.966
         inSlope: 0
         outSlope: 0
@@ -743,7 +743,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 27.883333
+        time: 27.45
         value: 1
         inSlope: 0
         outSlope: 0
@@ -1269,17 +1269,17 @@ AnimationClip:
       - serializedVersion: 3
         time: 16.633333
         value: 0.168
-        inSlope: 0.19741945
-        outSlope: 0.19741945
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 17.65
-        value: 0.421
-        inSlope: 0.57096803
-        outSlope: 0.57096803
+        value: 0.168
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1420,7 +1420,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 20.033333
+        time: 20.016666
         value: 0.169
         inSlope: 0
         outSlope: 0
@@ -1699,7 +1699,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 27.866667
+        time: 27.433332
         value: 0.966
         inSlope: 0
         outSlope: 0
@@ -1708,7 +1708,7 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 27.883333
+        time: 27.45
         value: 1
         inSlope: 0
         outSlope: 0
@@ -1838,4 +1838,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 27.95
+    functionName: ActivateFriend
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

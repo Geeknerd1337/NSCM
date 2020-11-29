@@ -17,12 +17,19 @@ public class SpawnManager : MonoBehaviour
     public AudioSource a3;
     public float delay;
     private bool played;
+
+    public GameObject friend;
+    public AudioListener me;
+    public AudioListener main;
     // Start is called before the first frame update
     void Start()
     {
+        me.enabled = true;
+        main.enabled = false;
         fps.enabled = false;
         spawnCamera.enabled = true;
         fpsCamera.enabled = false;
+        friend.SetActive(false);
     }
 
     // Update is called once per frame
@@ -44,6 +51,13 @@ public class SpawnManager : MonoBehaviour
         fpsCamera.enabled = true;
         spawnCamera.enabled = false;
         g.SetActive(false);
-        
+        me.enabled = false;
+        main.enabled = true;
+
+    }
+
+    public void ActivateFriend()
+    {
+        friend.SetActive(true);
     }
 }
