@@ -59,7 +59,10 @@ public class FriendlyNPC : MonoBehaviour
     public GameObject gun;
     public Animator gunAnim;
     public AudioSource gunEquip;
+    public AudioSource portalAmbience;
     public GameObject netScapeDoor;
+    public AudioSource portalSpawn;
+    public GlitchEffectCinematic glitchEffect;
 
 
     [Header("Dialog Stuff")]
@@ -268,6 +271,9 @@ public class FriendlyNPC : MonoBehaviour
                 c.RotationInfluence = new Vector3(4, 1, 1);
                 CameraShaker.Instance.Shake(c);
                 dialogSource.PlayOneShot(clips[3]);
+                portalAmbience.Play();
+                portalSpawn.Play();
+                glitchEffect.Jump();
                 fourthPlayed = true;
             }
         }
