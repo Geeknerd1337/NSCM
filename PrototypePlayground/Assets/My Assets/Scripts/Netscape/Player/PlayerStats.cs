@@ -13,8 +13,25 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private WeaponManager weaponManager;
 
-    public float Health { get { return health; } }
-    public float Shield { get { return shield; } }
+    public float Health {
+        get { return health; }
+        set
+        {
+            health = value;
+            health = Mathf.Clamp(health, 0, maxHealth);
+        }
+        }
+    public float Shield {
+        get { return shield; }
+        set
+        {
+            shield = value;
+            shield = Mathf.Clamp(shield, 0, maxShield);
+        }
+    }
+
+    public float MaxHealth { get { return maxHealth; } }
+    public float MaxShield { get { return maxShield; } }
     public Weapon PlayerWeapon { get { return weaponManager.currentWeapon; } }
 
     public int[] ammoTypes;
