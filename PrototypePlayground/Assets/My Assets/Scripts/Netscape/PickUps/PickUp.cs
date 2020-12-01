@@ -12,6 +12,10 @@ public class PickUp : MonoBehaviour
     [SerializeField]
     private float shield;
     private AudioSource sound;
+
+    [SerializeField]
+    private int ammoIndex;
+    public int ammoAmount;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +59,12 @@ public class PickUp : MonoBehaviour
                 if (shield != 0 && playerStats.Shield < playerStats.MaxShield)
                 {
                     playerStats.Shield += shield;
+                    EquipPack();
+                }
+
+                if(ammoAmount != 0)
+                {
+                    playerStats.ammoTypes[ammoIndex] += ammoAmount;
                     EquipPack();
                 }
 
