@@ -68,10 +68,32 @@ public class WeaponManager : MonoBehaviour
     void Increment()
     {
         gunIndex++;
+
+        
+
         if(gunIndex > gunUI.weaponSlots.Count - 1)
         {
             gunIndex = 0;
         }
+
+        while (!gunUI.SlotHasWeapon(gunIndex))
+        {
+            gunIndex++;
+            if (gunIndex > gunUI.weaponSlots.Count - 1)
+            {
+                gunIndex = 0;
+            }
+        }
+    }
+
+    public void UnlockWeapon(int i)
+    {
+        gunUI.gameObject.SetActive(true);
+        gunUI.weaponSlots[i].HasWeapon = true;
+        gunUI.SelectWeapon(i);
+        gunIndex = i;
+        ActivateGun(i);
+        gunUI.gameObject.SetActive(false);
     }
 
     void Decrement()
@@ -80,6 +102,15 @@ public class WeaponManager : MonoBehaviour
         if(gunIndex < 0)
         {
             gunIndex = gunUI.weaponSlots.Count - 1;
+        }
+
+        while (!gunUI.SlotHasWeapon(gunIndex))
+        {
+            gunIndex--;
+            if (gunIndex < 0)
+            {
+                gunIndex = gunUI.weaponSlots.Count - 1;
+            }
         }
     }
 

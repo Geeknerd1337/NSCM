@@ -22,6 +22,15 @@ public class WeaponSlot : MonoBehaviour
     public Image selectedImage;
     public Image weaponBack;
 
+    [SerializeField]
+    private bool hasWeapon;
+
+    public bool HasWeapon
+    {
+        get { return hasWeapon;  }
+        set { hasWeapon = value; }
+    }
+
     public int gunIndex;
     // Start is called before the first frame update
     void Start()
@@ -34,7 +43,7 @@ public class WeaponSlot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (wt.weaponsOpen)
+        if (wt.weaponsOpen && hasWeapon)
         {
             if (slot.enabled)
             {
@@ -48,6 +57,14 @@ public class WeaponSlot : MonoBehaviour
             {
                 slot.enabled = true;
                 weapon.gameObject.SetActive(false);
+            }
+            if (!hasWeapon)
+            {
+                slot.enabled = false;
+            }
+            else
+            {
+                slot.enabled = true;
             }
         }
 

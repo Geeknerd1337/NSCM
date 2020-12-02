@@ -35,4 +35,15 @@ public class GunSelectionUI : MonoBehaviour
         weaponSlot.selected = true;
         return weaponSlot;
     }
+
+    public bool SlotHasWeapon(int i)
+    {
+        WeaponSlot weaponSlot = weaponSlots[i];
+        if (weaponSlot.HasWeapon)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

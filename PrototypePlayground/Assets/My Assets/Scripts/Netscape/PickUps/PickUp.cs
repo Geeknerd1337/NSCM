@@ -16,6 +16,9 @@ public class PickUp : MonoBehaviour
     [SerializeField]
     private int ammoIndex;
     public int ammoAmount;
+
+    [SerializeField]
+    private int weaponIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,7 @@ public class PickUp : MonoBehaviour
 
     void EquipPack()
     {
+        //This code lets the sound play and destroys the object
         sound.transform.SetParent(null);
         sound.Play();
         Destroy(sound.gameObject, 2f);
@@ -62,10 +66,25 @@ public class PickUp : MonoBehaviour
                     EquipPack();
                 }
 
+                //If the ammo amount is a non zero value, give the player the ammo.
                 if(ammoAmount != 0)
                 {
                     playerStats.ammoTypes[ammoIndex] += ammoAmount;
                     EquipPack();
+                }
+
+                if(weaponIndex != 0)
+                {
+
+                    //TODO: Store reference to weapon manager in singleton
+                    WeaponManager w = FindObjectOfType<WeaponManager>();
+
+                    if (w != null)
+                    {
+                        w.UnlockWeapon(weaponIndex);
+                        EquipPack();
+                    }
+
                 }
 
 
