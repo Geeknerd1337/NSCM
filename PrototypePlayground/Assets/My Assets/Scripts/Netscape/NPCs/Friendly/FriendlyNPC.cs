@@ -73,7 +73,7 @@ public class FriendlyNPC : MonoBehaviour
     public GameObject speakerObj;
     public GameObject UIElement;
     private Quaternion originalArmatureRotation;
-
+    public Collider col;
 
 
     // Start is called before the first frame update
@@ -295,6 +295,7 @@ public class FriendlyNPC : MonoBehaviour
                         dialogSource.PlayOneShot(clips[4]);
                         gunEquip.Play();
                         setCheats = true;
+                        col.enabled = false;
                     }
                 }
             }
