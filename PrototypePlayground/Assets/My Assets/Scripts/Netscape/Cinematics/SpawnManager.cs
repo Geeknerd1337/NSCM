@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class SpawnManager : MonoBehaviour
@@ -21,6 +21,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject friend;
     public AudioListener me;
     public AudioListener main;
+    public Image i;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +54,7 @@ public class SpawnManager : MonoBehaviour
         g.SetActive(false);
         me.enabled = false;
         main.enabled = true;
+        i.enabled = true;
 
     }
 
