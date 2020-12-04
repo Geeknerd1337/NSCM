@@ -12,5 +12,6 @@ public class DogAttackAction : AIAction
 
     private void Attack(AIEntity controller)
     {
+
     }
 }

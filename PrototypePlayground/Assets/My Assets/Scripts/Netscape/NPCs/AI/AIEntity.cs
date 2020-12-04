@@ -49,6 +49,11 @@ public class AIEntity : MonoBehaviour
     private float stoppingDistance;
     public float StoppingDistance { get { return stoppingDistance; } set { stoppingDistance = value; } }
 
+    [Header("Utility")]
+    public Animator EntityAnimator;
+    public Vector3 fleePoint;
+    
+
     #region Private members
     private NavMeshAgent navMeshAgent;
     public NavMeshAgent Agent
@@ -129,6 +134,41 @@ public class AIEntity : MonoBehaviour
         if (nextState != remainState)
         {
             currentState = nextState;
+            //This is a function which resets things like fleepoints that need to be generated once per action, but only once
+            //Effectively acts as a "on state transition" event
+            ResetAIData();
         }
+    }
+
+
+    public Vector3 GetFleePoint(float radius)
+    {
+        if (fleePoint == Vector3.zero)
+        {
+            float dist = 0;
+            Vector3 randomDirection = Vector3.zero;
+            while (dist < radius * 0.75f)
+            {
+                randomDirection = Random.insideUnitSphere * radius;
+                dist = Vector3.Distance(Vector3.zero, randomDirection);
+
+            }
+
+            randomDirection += transform.position;
+            NavMeshHit hit;
+            Vector3 finalPosition = Vector3.zero;
+            if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1))
+            {
+                finalPosition = hit.position;
+            }
+            fleePoint = finalPosition;
+            
+        }
+        return fleePoint;
+    }
+
+    void ResetAIData()
+    {
+        fleePoint = Vector3.zero;
     }
 }
