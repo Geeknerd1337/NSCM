@@ -27,10 +27,14 @@ public class GrapplingHand : MonoBehaviour
     [SerializeField]
     private float iconMoveSpeed;
 
+    Quaternion originalRotation;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        originalRotation = transform.localRotation;
+
     }
 
     // Update is called once per frame
@@ -100,6 +104,7 @@ public class GrapplingHand : MonoBehaviour
 
         }
 
+        transform.localRotation = originalRotation;
         if (charController.IsGrappling)
         {
             if (grappleRend != null)

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ffbda1c22fbafd4993858560d7bbc7e, type: 3}
+  m_Name: Dog_Idle
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 11400000, guid: 1f3b8e9486a4da842ba2a139e5c32fef, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 81a31ecd75624eb4f89c28f180a6e460, type: 2}
+    trueState: {fileID: 11400000, guid: e1d688a86ddbb084bb5be44d2aeca3a4, type: 2}
+    falseState: {fileID: 11400000, guid: c88525790bb5fea4b972c8479334d841, type: 2}
+  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
