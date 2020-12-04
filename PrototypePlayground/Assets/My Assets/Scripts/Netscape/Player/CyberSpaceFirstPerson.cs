@@ -430,6 +430,12 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
     private void RotateView()
     {
+        if (MenuPause.GamePaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            return;
+        }
         m_MouseLook.LookRotation(transform, m_Camera.transform);
     }
 
