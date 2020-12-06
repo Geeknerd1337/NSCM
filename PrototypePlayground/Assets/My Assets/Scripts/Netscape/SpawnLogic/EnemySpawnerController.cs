@@ -9,6 +9,7 @@ public class EnemySpawnerController : MonoBehaviour
     public EnemySpawnerGroup[] spawnGroups;
 
     public float spawnTime = 10.0f;
+    public float spawnTimeJitter = 5.0f;
 
     void Start()
     {
@@ -40,8 +41,7 @@ public class EnemySpawnerController : MonoBehaviour
 
     private void ResetTimer()
     {
-        _currentSpawnTime = spawnTime;
-
+        _currentSpawnTime = spawnTime + Random.Range(-spawnTimeJitter, spawnTimeJitter);
     }
 
     void Update()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemySpawnerGroup : MonoBehaviour
 {
     public BoxCollider groupVolume;
@@ -21,6 +22,7 @@ public class EnemySpawnerGroup : MonoBehaviour
         //Debug.Log("number of spawners in group is" + spawners.Count);
     }
 
+    // TODO  when picking a spawner make sure it's not blocked by an enemy or the player
     public EnemySpawner GetRandomSpawner()
     {
 
@@ -29,7 +31,15 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     void Start()
     {
-
+        var playerTest = FindObjectOfType<CyberSpaceFirstPerson>();
+        if (playerTest == null)
+        {
+            Debug.LogError("Unable to get player ref");
+        }
+        else
+        {
+            _player = playerTest.gameObject;
+        }
     }
 
     void Update()
@@ -38,5 +48,7 @@ public class EnemySpawnerGroup : MonoBehaviour
     }
 
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
+    private GameObject _player;
+
 
 }
