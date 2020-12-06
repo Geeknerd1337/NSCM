@@ -31,6 +31,12 @@ public class EnemySpawnerController : MonoBehaviour
         
     }
 
+    private void ResetTimer()
+    {
+        _currentSpawnTime = spawnTime;
+
+    }
+
     void Update()
     {
         //if (!_debugHasSpawnedOnce)
@@ -49,8 +55,8 @@ public class EnemySpawnerController : MonoBehaviour
             if (group != null)
             {
                 group.GetRandomSpawner().Spawn();
-                _currentSpawnTime = spawnTime;
             }
+            ResetTimer();
         }
     }
 
