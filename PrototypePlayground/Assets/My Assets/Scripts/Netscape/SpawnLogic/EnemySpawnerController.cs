@@ -21,15 +21,22 @@ public class EnemySpawnerController : MonoBehaviour
         }
         else
         {
-            _playerRef = playerTest.gameObject;
+            _player = playerTest.gameObject;
         }
         foreach(var group in spawnGroups)
         {
             group.Init(_spawners);
         }
 
-        
+        // temp
+        Activate();
     }
+
+    public void Activate()
+    {
+        _active = true;
+    }
+
 
     private void ResetTimer()
     {
@@ -39,6 +46,11 @@ public class EnemySpawnerController : MonoBehaviour
 
     void Update()
     {
+        if (!_active || _player == null)
+        {
+            return;
+        }
+
         //if (!_debugHasSpawnedOnce)
         //{
         //    _debugHasSpawnedOnce = true;
@@ -60,7 +72,6 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
-
     private EnemySpawnerGroup FindBestSpawnGroup()
     {
         EnemySpawnerGroup FindClosestSpawnGroup(List<EnemySpawnerGroup> spawnGroups)
@@ -69,7 +80,7 @@ public class EnemySpawnerController : MonoBehaviour
             EnemySpawnerGroup spawnGroup = null;
             foreach (var currentSpawnGroup in spawnGroups)
             {
-                float curDistance = (currentSpawnGroup.gameObject.transform.position - _playerRef.transform.position).magnitude;
+                float curDistance = (currentSpawnGroup.gameObject.transform.position - _player.transform.position).magnitude;
                 if (curDistance < distance)
                 {
                     spawnGroup = currentSpawnGroup;
@@ -86,7 +97,7 @@ public class EnemySpawnerController : MonoBehaviour
         List<EnemySpawnerGroup> spawnQuery = new List<EnemySpawnerGroup>();
         foreach (var spawnGroup in _spawnerGroups)
         {
-            if (spawnGroup.groupVolume.bounds.Contains(_playerRef.transform.position))
+            if (spawnGroup.groupVolume.bounds.Contains(_player.transform.position))
             {
                 spawnQuery.Add(spawnGroup);
             }
@@ -106,9 +117,12 @@ public class EnemySpawnerController : MonoBehaviour
 
     //private bool _debugHasSpawnedOnce = false;
 
+    private bool _active = false;
+
+
     private float _currentSpawnTime = 0.0f;
 
-    private GameObject _playerRef;
+    private GameObject _player;
 
     private List<EnemySpawnerGroup> _spawnerGroups = new List<EnemySpawnerGroup>();
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
