@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using EZCameraShake;
+using UnityEngine.SceneManagement;
 
 public class TitleCard : MonoBehaviour
 {
@@ -45,5 +46,10 @@ public class TitleCard : MonoBehaviour
     public void Remove()
     {
         Destroy(gameObject);
+    }
+
+    public void Leave()
+    {
+        SceneManager.LoadScene(2);
     }
 }
