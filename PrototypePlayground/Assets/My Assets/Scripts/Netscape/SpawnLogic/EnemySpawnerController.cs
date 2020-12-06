@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnerController : MonoBehaviour
 {
-    public List<EnemySpawnerGroup> spawnGroups;
+    public EnemySpawnerGroup[] spawnGroups;
 
     void Start()
     {
