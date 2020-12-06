@@ -21,29 +21,88 @@ public class EnemySpawnerController : MonoBehaviour
         }
         else
         {
-            playerRef = playerTest.gameObject;
+            _playerRef = playerTest.gameObject;
         }
         foreach(var group in spawnGroups)
         {
             group.Init(_spawners);
         }
+
+        
     }
 
     void Update()
     {
-        if (!_debugHasSpawnedOnce)
+        //if (!_debugHasSpawnedOnce)
+        //{
+        //    _debugHasSpawnedOnce = true;
+        //    foreach(var group in spawnGroups)
+        //    {
+        //        group.GetRandomSpawner().Spawn();
+        //    }    
+        //}
+
+        _currentSpawnTime -= Time.deltaTime;
+        if (_currentSpawnTime <= 0)
         {
-            _debugHasSpawnedOnce = true;
-            foreach(var group in spawnGroups)
+            var group = FindBestSpawnGroup();
+            if (group != null)
             {
                 group.GetRandomSpawner().Spawn();
-            }    
+                _currentSpawnTime = spawnTime;
+            }
         }
     }
 
-    private bool _debugHasSpawnedOnce = false;
 
-    private GameObject playerRef;
+    private EnemySpawnerGroup FindBestSpawnGroup()
+    {
+        EnemySpawnerGroup FindClosestSpawnGroup(List<EnemySpawnerGroup> spawnGroups)
+        {
+            float distance = float.MaxValue;
+            EnemySpawnerGroup spawnGroup = null;
+            foreach (var currentSpawnGroup in spawnGroups)
+            {
+                float curDistance = (currentSpawnGroup.gameObject.transform.position - _playerRef.transform.position).magnitude;
+                if (curDistance < distance)
+                {
+                    spawnGroup = currentSpawnGroup;
+                    distance = curDistance;
+                }
+            }
+            if (spawnGroup == null)
+            {
+                Debug.LogError("Somehow couldn't find an appropriate spawn group");
+            }
+            return spawnGroup;
+        }
+        // first see if the player is inside any spawn group
+        List<EnemySpawnerGroup> spawnQuery = new List<EnemySpawnerGroup>();
+        foreach (var spawnGroup in _spawnerGroups)
+        {
+            if (spawnGroup.groupVolume.bounds.Contains(_playerRef.transform.position))
+            {
+                spawnQuery.Add(spawnGroup);
+            }
+        }
+        //  if player is in exactly one spawn group then we've found our group
+        if (spawnQuery.Count == 1)
+        {
+            return spawnQuery[0];
+        }
+        // else if the player intersects more than one or zero spawn groups we pick the closest one to the player
+        else
+        {
+            EnemySpawnerGroup spawnGroup = FindClosestSpawnGroup(_spawnerGroups);
+            return spawnGroup;
+        }
+    }
+
+    //private bool _debugHasSpawnedOnce = false;
+
+    private float _currentSpawnTime = 0.0f;
+
+    private GameObject _playerRef;
 
     private List<EnemySpawnerGroup> _spawnerGroups = new List<EnemySpawnerGroup>();
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
