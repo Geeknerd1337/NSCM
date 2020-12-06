@@ -8,7 +8,6 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     public int SpawnerCount => _spawners.Count;
 
-    //called by the spawner mastermind during Start()
     public void Init(List<EnemySpawner> spawners)
     {
         // find all spawners inside our volume and cache them
@@ -19,6 +18,7 @@ public class EnemySpawnerGroup : MonoBehaviour
                 _spawners.Add(spawner);
             }
         }
+        //Debug.Log("number of spawners in group is" + spawners.Count);
     }
 
     public EnemySpawner GetRandomSpawner()
@@ -38,4 +38,5 @@ public class EnemySpawnerGroup : MonoBehaviour
     }
 
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
+
 }
