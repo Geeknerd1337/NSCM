@@ -22,10 +22,9 @@ public class EnemySpawnerGroup : MonoBehaviour
         //Debug.Log("number of spawners in group is" + spawners.Count);
     }
 
-    // TODO  when picking a spawner make sure it's not blocked by an enemy or the player
     public EnemySpawner GetRandomSpawner()
     {
-
+        // TODO  when picking a spawner make sure it's not blocked by an enemy or the player
         return _spawners[Random.Range(0, _spawners.Count - 1)];
     }
 
