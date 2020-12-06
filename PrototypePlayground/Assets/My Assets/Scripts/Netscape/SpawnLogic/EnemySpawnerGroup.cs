@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnerGroup : MonoBehaviour
+public class EnemySpawnerGroup : MonoBehaviour
 {
     public BoxCollider groupVolume;
 
     public int SpawnerCount => _spawners.Count;
 
     //called by the spawner mastermind during Start()
-    public void Init(List<Spawner> spawners)
+    public void Init(List<EnemySpawner> spawners)
     {
         // find all spawners inside our volume and cache them
         foreach (var spawner in spawners)
@@ -21,7 +21,7 @@ public class SpawnerGroup : MonoBehaviour
         }
     }
 
-    public Spawner GetRandomSpawner()
+    public EnemySpawner GetRandomSpawner()
     {
 
         return _spawners[Random.Range(0, _spawners.Count - 1)];
@@ -37,5 +37,5 @@ public class SpawnerGroup : MonoBehaviour
 
     }
 
-    private List<Spawner> _spawners = new List<Spawner>();
+    private List<EnemySpawner> _spawners = new List<EnemySpawner>();
 }
