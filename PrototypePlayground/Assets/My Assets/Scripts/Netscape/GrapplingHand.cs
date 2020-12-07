@@ -28,6 +28,8 @@ public class GrapplingHand : MonoBehaviour
     private float iconMoveSpeed;
 
     Quaternion originalRotation;
+    [SerializeField]
+    private float rotationSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -104,7 +106,7 @@ public class GrapplingHand : MonoBehaviour
 
         }
 
-        transform.localRotation = originalRotation;
+        
         if (charController.IsGrappling)
         {
             if (grappleRend != null)
@@ -112,6 +114,16 @@ public class GrapplingHand : MonoBehaviour
                 grappleRend.origin.position = grapplingHookStart.position;
             }
         }
+
+        Quaternion targetRotation = originalRotation;
+        /*if (charController.IsGrappling && grappleRend != null)
+        {
+            Vector3 dir = (grappleRend.desination.position - grapplingHookStart.position).normalized;
+            Quaternion target = Quaternion.LookRotation(dir);
+            Vector3 targetAngles = new Vector3(target.eulerAngles.x, 0, 0);
+            targetRotation = Quaternion.Euler(targetAngles);
+        }*/
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, targetRotation, rotationSpeed * Time.deltaTime);
 
 
     }
