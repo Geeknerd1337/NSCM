@@ -11,6 +11,7 @@ public class EnemySpawnerController : MonoBehaviour
     public float spawnTime = 10.0f;
     public float spawnTimeJitter = 5.0f;
     public float minSpawnTime = 5.0f;
+    public bool debugEnabled = false;
 
     void Start()
     {
@@ -76,6 +77,15 @@ public class EnemySpawnerController : MonoBehaviour
             ResetTimer();
         }
     }
+
+    private void OnGUI()
+    {
+        if (debugEnabled)
+        {
+            GUI.Label(new Rect(25, 25, 1000, 50),"current spawn timer = " + _currentSpawnTime);
+        }
+    }
+
 
     private EnemySpawnerGroup FindBestSpawnGroup()
     {
