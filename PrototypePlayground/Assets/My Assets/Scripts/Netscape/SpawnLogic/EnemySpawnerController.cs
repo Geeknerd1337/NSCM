@@ -38,7 +38,6 @@ public class EnemySpawnerController : MonoBehaviour
         _active = true;
     }
 
-
     private void ResetTimer()
     {
         _currentSpawnTime = spawnTime + Random.Range(-spawnTimeJitter, spawnTimeJitter);
@@ -118,13 +117,8 @@ public class EnemySpawnerController : MonoBehaviour
     //private bool _debugHasSpawnedOnce = false;
 
     private bool _active = false;
-
-
     private float _currentSpawnTime = 0.0f;
-
     private GameObject _player;
-
     private List<EnemySpawnerGroup> _spawnerGroups = new List<EnemySpawnerGroup>();
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
-
 }
