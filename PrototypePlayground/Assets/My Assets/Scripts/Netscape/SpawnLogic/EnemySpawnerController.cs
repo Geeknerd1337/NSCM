@@ -27,7 +27,10 @@ public class EnemySpawnerController : MonoBehaviour
         }
         foreach(var group in spawnGroups)
         {
-            group.Init(_spawners);
+            if (group != null)
+            {
+                group.Init(_spawners);
+            }
         }
 
         // temp
