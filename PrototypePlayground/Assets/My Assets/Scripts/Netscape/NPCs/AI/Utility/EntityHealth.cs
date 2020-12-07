@@ -56,8 +56,11 @@ public class EntityHealth : MonoBehaviour
 
     void ActivateRagdoll()
     {
-        controller.Agent.enabled = false;
-        controller.enabled = false;
+        if (controller != null)
+        {
+            controller.Agent.enabled = false;
+            controller.enabled = false;
+        }
         foreach (Rigidbody rb in ragdoll)
         {
             rb.isKinematic = false;
