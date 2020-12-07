@@ -38,6 +38,13 @@ public class Turret : MonoBehaviour
     [SerializeField]
     private ParticleSystem p;
 
+    private float ztar;
+
+    public float zspeed;
+    public float recoil;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,8 +88,9 @@ public class Turret : MonoBehaviour
     {
         bobStart += Time.deltaTime * bobSpeed;
         float mod = Mathf.PerlinNoise(0, bobStart) * bobAmt;
-        Vector3 vec = new Vector3(origPostion.x, origPostion.y + mod, origPostion.z);
+        Vector3 vec = new Vector3(origPostion.x, origPostion.y + mod, origPostion.z) - turretTransform.right * ztar;
         turretTransform.localPosition = vec;
+        ztar = Mathf.Lerp(ztar, 0, zspeed * Time.deltaTime);
     }
 
     void RotateToPlayer()
@@ -110,7 +118,7 @@ public class Turret : MonoBehaviour
             g.transform.position = firePosition.transform.position;
             g.transform.rotation = Quaternion.LookRotation(turretTransform.forward);
 
-
+            ztar = recoil;
             fireTimer = 0;
         }
     }
@@ -126,6 +134,10 @@ public class Turret : MonoBehaviour
                 return true;
             }
             
+        }
+        if(Vector3.Distance(transform.position,player.transform.position) < range * 0.65f)
+        {
+            return true;
         }
         return false;
     }
