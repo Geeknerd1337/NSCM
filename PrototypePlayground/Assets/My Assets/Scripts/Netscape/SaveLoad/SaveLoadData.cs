@@ -16,7 +16,8 @@ public class SaveLoadData
 public static class SaveLoadGlobalManager
 {
     public static SaveLoadData Data => _data;
-    public static string Filename = "gamesave.json";
+    public const string Filename = "gamesave.json";
+    public const string SavePath = "Save";
 
     static SaveLoadGlobalManager()
     {
@@ -31,13 +32,12 @@ public static class SaveLoadGlobalManager
 
     public static void Save(SaveLoadData data, string filename)
     {
-        string saveRelativePath = "Save";
-        if (!Directory.Exists(saveRelativePath))
+        if (!Directory.Exists(SavePath))
         {
-            Directory.CreateDirectory(saveRelativePath);
+            Directory.CreateDirectory(SavePath);
         }
         var stringData = JsonUtility.ToJson(data);
-        string path = saveRelativePath + "/" + filename;
+        string path = SavePath + "/" + filename;
         StreamWriter writer = new StreamWriter(path, false);
         writer.Write(stringData);
         writer.Close();

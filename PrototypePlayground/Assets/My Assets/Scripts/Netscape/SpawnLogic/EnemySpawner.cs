@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -19,14 +17,22 @@ public class EnemySpawner : MonoBehaviour
     public float spawnEffectPhase01Time = 2.0f;
     public float spawnEffectPhase02Time = 2.0f;
     public float spawnEffectScaleGrowthVelocity = 2.0f;
+    public Light spawnLight;
+    public float spawnLightRangeMultiplier = 2.0f;
+    public float spawnLightIntensityMultiplier = 2.0f;
 
     public void Spawn()
     {
-        spawnEffectMesh.SetActive(true);
         _spawnerState = SpawnerState.Spawning_Anim_Phase01;
+
+        spawnEffectMesh.SetActive(true);
         _currentSpawnEffectPhase01Time = spawnEffectPhase01Time;
         spawnEffectMesh.transform.position = _raisedlMeshPosition;
         spawnEffectMesh.transform.localScale = _originalMeshScale;
+
+        spawnLight.gameObject.SetActive(true);
+        spawnLight.intensity = _originalLightIntensity;
+        spawnLight.range = _originalLightRange;
     }
 
     void Start()
@@ -37,6 +43,10 @@ public class EnemySpawner : MonoBehaviour
         effectMeshPosition.y = spawnEffectMeshRaisedPosition.transform.position.y;
         _raisedlMeshPosition = effectMeshPosition;
         _originalMeshScale = spawnEffectMesh.transform.localScale;
+        
+        spawnLight.gameObject.SetActive(false);
+        _originalLightIntensity = spawnLight.intensity;
+        _originalLightRange = spawnLight.range;
     }
 
     void Update()
@@ -55,16 +65,28 @@ public class EnemySpawner : MonoBehaviour
         }
         if (_spawnerState == SpawnerState.Spawning_Anim_Phase02)
         {
+            var normalizedTime = _currentSpawnEffectPhase02Time / spawnEffectPhase02Time;
             _currentSpawnEffectPhase02Time -= Time.deltaTime;
             Vector3 scale = spawnEffectMesh.transform.localScale;
             scale.x += spawnEffectScaleGrowthVelocity * Time.deltaTime;
             scale.z += spawnEffectScaleGrowthVelocity * Time.deltaTime;
             spawnEffectMesh.transform.localScale = scale;
+
+            spawnLight.intensity = Mathf.Lerp(
+                    _originalLightIntensity * spawnLightIntensityMultiplier,
+                    _originalLightIntensity,
+                    normalizedTime);
+            spawnLight.range = Mathf.Lerp(
+                _originalLightRange * spawnLightRangeMultiplier,
+                _originalLightRange,
+                normalizedTime);
+
             if (_currentSpawnEffectPhase02Time <= 0)
             {
                 _spawnerState = SpawnerState.Ready;
                 Instantiate(enemyPrefabToSpawn, gameObject.transform.position, gameObject.transform.rotation);
                 spawnEffectMesh.SetActive(false);
+                spawnLight.gameObject.SetActive(false);
             }
         }
     }
@@ -81,5 +103,6 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 _originalMeshPosition;
     private Vector3 _raisedlMeshPosition;
     private Vector3 _originalMeshScale;
-
+    private float _originalLightIntensity;
+    private float _originalLightRange;
 }
