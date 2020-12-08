@@ -72,10 +72,19 @@ public class EnemySpawnerController : MonoBehaviour
             var group = FindBestSpawnGroup();
             if (group != null)
             {
-                group.GetRandomSpawner().Spawn();
+                // if the group is running an entrance effect then we skip spawning for this iteration
+                if (!group.IsRunningEntranceEffect)
+                {
+                    PerformSpawn(group);
+                }
             }
             ResetTimer();
         }
+    }
+
+    private void PerformSpawn(EnemySpawnerGroup group)
+    {
+        group.GetRandomSpawner().Spawn();
     }
 
     private void OnGUI()

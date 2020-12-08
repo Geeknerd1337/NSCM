@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,8 +13,18 @@ public class EnemySpawnerGroup : MonoBehaviour
     public BoxCollider groupVolume;
 
     public EnemySpawnerGroupEntranceEffect entranceEffect;
-    
+
+
+    //DarkenDirectionalLightAndBurstSpawnState public data
+    public float lightFadeOutTime = 0.5f;
+    public float lightFadeHoldTime = 1.0f;
+    public float lightFadeInTime = 5.0f;
+    public AudioClip lightFadeOutSound;
+    public AudioClip lightFadeInSound;
+
+    // public properties
     public int SpawnerCount => _spawners.Count;
+    public bool IsRunningEntranceEffect { get; private set; }
 
     public void Init(List<EnemySpawner> spawners)
     {
@@ -27,31 +36,57 @@ public class EnemySpawnerGroup : MonoBehaviour
                 _spawners.Add(spawner);
             }
         }
+        ResetUnusedSpawners();
         //Debug.Log("number of spawners in group is" + spawners.Count);
     }
 
     public EnemySpawner GetRandomSpawner()
     {
         // TODO  when picking a spawner make sure it's not blocked by an enemy or the player
-
         if (_unusedSpawners.Count == 0)
         {
-            foreach(var itemToAdd in _spawners)
-            {
-                _unusedSpawners.Add(itemToAdd);
-            }
+            ResetUnusedSpawners();
         }
 
-        var spawner = _unusedSpawners.ToArray()[Random.Range(0, _spawners.Count - 1)];
+        var spawner = _unusedSpawners.ToArray()[Random.Range(0, _unusedSpawners.Count - 1)];
         _unusedSpawners.Remove(spawner);
-
         return spawner;
     }
 
-    // TODO add onetime on-enter events
+    private void ResetUnusedSpawners()
+    {
+        foreach (var itemToAdd in _spawners)
+        {
+            _unusedSpawners.Add(itemToAdd);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        
+        if (!_hasStartedPlayingSpawnEntranceEffect)
+        {
+            _hasStartedPlayingSpawnEntranceEffect = true;
+            switch (entranceEffect)
+            {
+                case EnemySpawnerGroupEntranceEffect.DarkenDirectionalLightAndBurstSpawn:
+                    _darkenState = DarkenDirectionalLightAndBurstSpawnState.FadingOut;
+                    _lightingFadeOutTimerCurrent = lightFadeOutTime;
+                    _lightingFadeHoldTimerCurrent = lightFadeHoldTime;
+                    _lightingFadeInTimerCurrent = lightFadeInTime;
+                    if (lightFadeOutSound != null)
+                    {
+                        _darkenStateAudioSource.PlayOneShot(lightFadeOutSound);
+                    }
+                    break;
+                case EnemySpawnerGroupEntranceEffect.None:
+                default:
+                    break;
+            }
+            if (entranceEffect != EnemySpawnerGroupEntranceEffect.None)
+            {
+                IsRunningEntranceEffect = true;
+            }
+        }
     }
 
     void Start()
@@ -65,16 +100,106 @@ public class EnemySpawnerGroup : MonoBehaviour
         {
             _player = playerTest.gameObject;
         }
+
+        _directionalLight = FindObjectsOfType<Light>().Where(x => x.type == LightType.Directional).SingleOrDefault();
+        if (_directionalLight == null)
+        {
+            Debug.LogError("can't find single directional light, either missing or more than one");
+        }
+        else
+        {
+            _originalDirectionalLightIntensity = _directionalLight.intensity;
+        }
     }
 
     void Update()
     {
+        void HandleDarkenDirectionalLightAndBurstSpawn()
+        {
+            switch (_darkenState)
+            {
+                case DarkenDirectionalLightAndBurstSpawnState.Armed:
+                    break;
+                case DarkenDirectionalLightAndBurstSpawnState.FadingOut:
+                    _lightingFadeOutTimerCurrent -= Time.deltaTime;
+                    _directionalLight.intensity =
+                        Mathf.Lerp(0.0f, _originalDirectionalLightIntensity, _lightingFadeOutTimerCurrent / lightFadeOutTime);
+                    if (_lightingFadeOutTimerCurrent <= 0)
+                    {
+                        _darkenState = DarkenDirectionalLightAndBurstSpawnState.FadeHold;
+                    }
+                    break;
+                case DarkenDirectionalLightAndBurstSpawnState.FadeHold:
+                    _lightingFadeHoldTimerCurrent -= Time.deltaTime;
+                    if (_lightingFadeHoldTimerCurrent <= 0)
+                    {
+                        _darkenState = DarkenDirectionalLightAndBurstSpawnState.FadingIn;
+                        if (lightFadeInSound != null)
+                        {
+                            _darkenStateAudioSource.PlayOneShot(lightFadeInSound);
+                        }
+                    }
+                    break;
+                case DarkenDirectionalLightAndBurstSpawnState.FadingIn:
+                    _lightingFadeInTimerCurrent -= Time.deltaTime;
+                    _directionalLight.intensity =
+                        Mathf.Lerp(_originalDirectionalLightIntensity, 0.0f, _lightingFadeInTimerCurrent / lightFadeInTime);
+                    int numUniqueSpawnsLeft = _unusedSpawners.Count;
+                    if (numUniqueSpawnsLeft > 0)
+                    {
+                        float interval = 1.0f / numUniqueSpawnsLeft;
+                        if (_lightingFadeInTimerCurrent / lightFadeInTime < interval)
+                        {
+                            var spawn = GetRandomSpawner();
+                            spawn.Spawn();
+                        }
+                    }
+                    if (_lightingFadeInTimerCurrent <= 0)
+                    {
+                        _darkenState = DarkenDirectionalLightAndBurstSpawnState.Done;
+                    }
+                    break;
+                case DarkenDirectionalLightAndBurstSpawnState.Done:
+                    _hasCompletedPlayingSpawnEntranceEffect = true;
+                    IsRunningEntranceEffect = false;
+                    break;
+            }
+        };
+        if (!_hasCompletedPlayingSpawnEntranceEffect)
+        {
+            switch (entranceEffect)
+            {
+                case EnemySpawnerGroupEntranceEffect.DarkenDirectionalLightAndBurstSpawn:
+                    HandleDarkenDirectionalLightAndBurstSpawn();
+                    break;
+                case EnemySpawnerGroupEntranceEffect.None:
+                default:
+                    break;
+            }
+        }
+    }
 
+    private enum DarkenDirectionalLightAndBurstSpawnState
+    {
+        Armed,
+        FadingOut,
+        FadeHold,
+        FadingIn,
+        Done
     }
 
     private HashSet<EnemySpawner> _unusedSpawners = new HashSet<EnemySpawner>();
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
     private GameObject _player;
+    private bool _hasStartedPlayingSpawnEntranceEffect = false;
+    private bool _hasCompletedPlayingSpawnEntranceEffect = false;
 
-
+    //DarkenDirectionalLightAndBurstSpawnState private data 
+    private DarkenDirectionalLightAndBurstSpawnState _darkenState = DarkenDirectionalLightAndBurstSpawnState.Armed;
+    private Light _directionalLight = null;
+    private float _originalDirectionalLightIntensity = 0.0f;
+    private float _lightingFadeOutTimerCurrent = 0.0f;
+    private float _lightingFadeHoldTimerCurrent = 0.0f;
+    private float _lightingFadeInTimerCurrent = 0.0f;
+    private AudioSource _darkenStateAudioSource = new AudioSource();
 }
