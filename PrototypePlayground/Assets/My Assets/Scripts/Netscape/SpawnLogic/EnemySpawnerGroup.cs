@@ -26,6 +26,8 @@ public class EnemySpawnerGroup : MonoBehaviour
     public int SpawnerCount => _spawners.Count;
     public bool IsRunningEntranceEffect { get; private set; }
 
+    public bool CanSpawnEnemies { get; private set; } = false;
+
     public void Init(List<EnemySpawner> spawners)
     {
         // find all spawners inside our volume and cache them
@@ -42,6 +44,10 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     public EnemySpawner GetRandomSpawner()
     {
+        if (!CanSpawnEnemies)
+        {
+            return null;
+        }
         // TODO  when picking a spawner make sure it's not blocked by an enemy or the player
         if (_unusedSpawners.Count == 0)
         {
@@ -63,6 +69,7 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        CanSpawnEnemies = true;
         if (!_hasStartedPlayingSpawnEntranceEffect)
         {
             _hasStartedPlayingSpawnEntranceEffect = true;

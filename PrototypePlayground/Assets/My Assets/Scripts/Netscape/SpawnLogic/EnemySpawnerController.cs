@@ -70,7 +70,7 @@ public class EnemySpawnerController : MonoBehaviour
         if (_currentSpawnTime <= 0)
         {
             var group = FindBestSpawnGroup();
-            if (group != null)
+            if (group != null && group.CanSpawnEnemies)
             {
                 // if the group is running an entrance effect then we skip spawning for this iteration
                 if (!group.IsRunningEntranceEffect)
