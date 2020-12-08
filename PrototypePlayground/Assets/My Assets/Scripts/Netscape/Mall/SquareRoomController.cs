@@ -18,9 +18,12 @@ public class SquareRoomController : MonoBehaviour
     {
         if (!_triggerEnteredOnce)
         {
-            _state = SquareRoomControllerState.Closing;
-            _stateTimer = gateCloseTime;
-            _triggerEnteredOnce = true;
+            if (other.gameObject.GetComponent<CyberSpaceFirstPerson>() != null)
+            {
+                _state = SquareRoomControllerState.Closing;
+                _stateTimer = gateCloseTime;
+                _triggerEnteredOnce = true;
+            }    
         }
     }
 
@@ -165,7 +168,6 @@ public class SquareRoomController : MonoBehaviour
     private float _stateTimer;
 
     private SquareRoomControllerState _state = SquareRoomControllerState.Idle;
-
 
     private bool _triggerEnteredOnce = false;
 }
