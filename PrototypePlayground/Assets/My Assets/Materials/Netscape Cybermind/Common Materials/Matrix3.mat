@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkyBeam 4
-  m_Shader: {fileID: 4800000, guid: 0ac10d1c6c0cd354b9d94978542aab44, type: 3}
+  m_Name: Matrix3
+  m_Shader: {fileID: 4800000, guid: 431deb4e2e624b14b83190305d255344, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,6 +55,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _font_texture:
+        m_Texture: {fileID: 2800000, guid: 8f4ef8602304e6f4ca365b9dda226c8a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_7186:
+        m_Texture: {fileID: 2800000, guid: b3a6cea98fe25ef498738325b0130672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _noise_tex:
+        m_Texture: {fileID: 2800000, guid: b3a6cea98fe25ef498738325b0130672, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -67,14 +79,17 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ScrollSpeed: 0.12
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _bias: 5.9
-    - _powCurve: 1.17
+    - _bias: 9.5
+    - _node_2814: 0
+    - _size: 24
+    - _textSpeed: 0.00035
     m_Colors:
-    - _BeamColor: {r: 0.861997, g: 0.4470588, b: 1, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Color_Beams: {r: 0, g: 0.3764706, b: 0.009488813, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

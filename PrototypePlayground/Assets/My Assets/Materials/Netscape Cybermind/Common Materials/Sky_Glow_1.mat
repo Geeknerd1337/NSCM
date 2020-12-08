@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkyBeam 4
-  m_Shader: {fileID: 4800000, guid: 0ac10d1c6c0cd354b9d94978542aab44, type: 3}
+  m_Name: Sky_Glow_1
+  m_Shader: {fileID: 4800000, guid: e8bccbcf20100be4ca5f5731593c954f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,9 +72,10 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _bias: 5.9
-    - _powCurve: 1.17
+    - _bias: 1.025641
+    - _powCurve: 1.538462
+    - _val: 0.34
     m_Colors:
-    - _BeamColor: {r: 0.861997, g: 0.4470588, b: 1, a: 1}
-    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _BeamColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Color: {r: 0.16509432, g: 1, b: 0.45681718, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
