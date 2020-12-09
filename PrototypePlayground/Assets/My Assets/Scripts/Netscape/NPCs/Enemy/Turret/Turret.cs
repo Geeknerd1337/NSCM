@@ -117,7 +117,7 @@ public class Turret : MonoBehaviour
             GameObject g = Instantiate(projecTile);
             g.transform.position = firePosition.transform.position;
             g.transform.rotation = Quaternion.LookRotation(turretTransform.forward);
-
+            g.GetComponent<EntityProjectile>().creator = transform;
             ztar = recoil;
             fireTimer = 0;
         }

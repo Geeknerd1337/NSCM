@@ -12,6 +12,8 @@ public class EntityProjectile : MonoBehaviour
     public float life;
 
     public GameObject onDestroyCreate;
+
+    public Transform creator;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,14 @@ public class EntityProjectile : MonoBehaviour
                 PlayerStats p = other.GetComponent<PlayerStats>();
                 if(p != null)
                 {
-                    p.DamagePlayer(damage);
+                    if (creator == null)
+                    {
+                        p.DamagePlayer(damage, transform.position);
+                    }
+                    else
+                    {
+                        p.DamagePlayer(damage, creator.position);
+                    }
                     if(onDestroyCreate != null)
                     {
                         GameObject g = Instantiate(onDestroyCreate);

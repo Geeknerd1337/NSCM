@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private WeaponManager weaponManager;
 
+    private HurtIconsUI hurtIcons;
+
     public float Health {
         get { return health; }
         set
@@ -41,6 +43,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         weaponManager = GetComponentInChildren<WeaponManager>();
+        hurtIcons = FindObjectOfType<HurtIconsUI>();
         health = maxHealth;
         shield = maxShield;
     }
@@ -51,8 +54,11 @@ public class PlayerStats : MonoBehaviour
         
     }
 
-    public void DamagePlayer(float f)
+    public void DamagePlayer(float f, Vector3 position)
     {
+        Vector3 hitDirection = (position - transform.position).normalized;
+        hurtIcons.AlertPlayer(hitDirection, transform);
+
         if (shield > 0)
         {
             shield -= f * 0.6f;

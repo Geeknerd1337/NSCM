@@ -41,7 +41,7 @@ public class DogAttack : MonoBehaviour
                 float effect = 1 - amt;
 
 
-                enemy.DamagePlayer(damage * effect);
+                enemy.DamagePlayer(damage * effect, transform.position);
             }
         }
 

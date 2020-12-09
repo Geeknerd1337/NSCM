@@ -98,6 +98,7 @@ public class VirusCannon : AIWeapon
         GameObject g = Instantiate(projectile);
         g.transform.rotation = firePosition.rotation;
         g.transform.position = firePosition.position;
+        g.GetComponent<EntityProjectile>().creator = transform;
         cannonExtraTurn += cannonRecoil;
         extraFlare = 0f;
         sound.Play();
