@@ -33,7 +33,7 @@ public class BezierLaserLine : MonoBehaviour
         for (int i = 0; i < segments; i++)
         {
             float t = (i + 1) / (float)segments;
-            pointsBuffer[i] = CalculateQuadraticBezierPoint(t, origin.position, point.position, destination.position);
+            pointsBuffer[i] = CalculateQuadraticBezierPoint(t, origin.localPosition, point.localPosition, destination.localPosition);
         }
         rend.SetPositions(pointsBuffer);
     }
@@ -46,5 +46,22 @@ public class BezierLaserLine : MonoBehaviour
         float uu = u * u;
         Vector3 p = uu * p0;
         return p + (2 * u * t * p1) + (tt * P2);
+    }
+
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+        Gizmos.color = Color.red;
+
+        //Draw the suspension
+        Gizmos.DrawSphere(destination.position,0.25f);
+        Gizmos.DrawSphere(origin.position, 0.25f);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(point.position, 0.25f);
+        
+
+
+        Gizmos.color = Color.white;
+        #endif
     }
 }
