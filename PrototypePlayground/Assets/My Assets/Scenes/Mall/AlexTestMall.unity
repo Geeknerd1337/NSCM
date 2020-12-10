@@ -21992,10 +21992,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 100000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
-      propertyPath: m_Name
-      value: SpawnCylinder
-      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca2f274e9b6265446bf18b6b24ebeb5e, type: 2}
     - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 244.05775
@@ -22040,10 +22040,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ca2f274e9b6265446bf18b6b24ebeb5e, type: 2}
+    - target: {fileID: 100000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
+      propertyPath: m_Name
+      value: SpawnCylinder
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
 --- !u!4 &647609624 stripped
@@ -78668,7 +78668,7 @@ PrefabInstance:
     - target: {fileID: 3665335947179488499, guid: c17f435ccfbd39545a1ae33c76bc65e9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.4
+      value: 26.34
       objectReference: {fileID: 0}
     - target: {fileID: 3665335947179488499, guid: c17f435ccfbd39545a1ae33c76bc65e9,
         type: 3}

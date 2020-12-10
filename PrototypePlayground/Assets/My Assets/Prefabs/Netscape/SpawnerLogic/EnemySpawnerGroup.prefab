@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groupVolume: {fileID: 2554202316636333518}
+  entranceEffect: 0
+  lightFadeOutTime: 0.5
+  lightFadeHoldTime: 1
+  lightFadeInTime: 5
+  lightFadeOutSound: {fileID: 0}
+  lightFadeInSound: {fileID: 0}
 --- !u!65 &2554202316636333518
 BoxCollider:
   m_ObjectHideFlags: 0

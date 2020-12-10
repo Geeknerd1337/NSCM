@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlayerStats : MonoBehaviour
     private WeaponManager weaponManager;
 
     private HurtIconsUI hurtIcons;
+
+    private LevelSaveDataController levelController;
 
     public float Health {
         get { return health; }
@@ -39,16 +42,16 @@ public class PlayerStats : MonoBehaviour
     public int[] ammoTypes;
 
     
-    // Start is called before the first frame update
     void Start()
     {
         weaponManager = GetComponentInChildren<WeaponManager>();
         hurtIcons = FindObjectOfType<HurtIconsUI>();
         health = maxHealth;
         shield = maxShield;
+
+        levelController = FindObjectOfType<LevelSaveDataController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -68,5 +71,11 @@ public class PlayerStats : MonoBehaviour
         {
             health -= f;
         }
+
+        if (health < 0)
+        {
+            levelController.OnDeath();
+        }
     }
+
 }
