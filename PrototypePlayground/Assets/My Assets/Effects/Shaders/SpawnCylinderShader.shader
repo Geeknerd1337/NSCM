@@ -32,7 +32,7 @@ Shader "Shader Forge/SpawnCylinderShader" {
                 "LightMode"="ForwardBase"
             }
             Blend SrcAlpha OneMinusSrcAlpha
-            ZWrite Off
+            ZWrite On
             
             CGPROGRAM
             #pragma vertex vert
