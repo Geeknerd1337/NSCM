@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1499509624}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: sqaure_room_doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8966302039458451811}
   - component: {fileID: 1192033245127867978}
   - component: {fileID: 3534070462407689751}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: square_room_exit_volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2359336225694847283}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MallDividerEastUpPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 7921877984007934722}
   - component: {fileID: 3933642505118208201}
   - component: {fileID: 1035212092360732083}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: square_room_controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,6 +186,7 @@ MonoBehaviour:
   gateOpenTime: 3
   gateCloseTime: 0.3
   enemyBattleTime: 15
+  debugEnabled: 0
 --- !u!1 &8588426752358635954
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7637195862681520169}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: MallDividerNorthUpPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,6 +228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MallDividerEast
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613967362948081112, guid: 00912fac38506744b9ee9e1da6f70124,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6663534263673307055, guid: 00912fac38506744b9ee9e1da6f70124,
         type: 3}
@@ -283,6 +289,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6631289594321683537, guid: 00912fac38506744b9ee9e1da6f70124,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00912fac38506744b9ee9e1da6f70124, type: 3}
 --- !u!1 &7969850005820968264 stripped
@@ -308,6 +319,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MallDividerNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613967362948081112, guid: 00912fac38506744b9ee9e1da6f70124,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6663534263673307055, guid: 00912fac38506744b9ee9e1da6f70124,
         type: 3}
@@ -363,6 +379,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631289594321683537, guid: 00912fac38506744b9ee9e1da6f70124,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00912fac38506744b9ee9e1da6f70124, type: 3}
