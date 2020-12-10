@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,6 +16,11 @@ public class LevelSaveDataController : MonoBehaviour
         
     }
 
+    public void LoadAutosave()
+    {
+        throw new NotImplementedException();
+    }
+
     public void OnDeath()
     {
 
@@ -22,7 +28,7 @@ public class LevelSaveDataController : MonoBehaviour
         Resources.UnloadUnusedAssets();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
 
-
+        // todo load in health and ammo values
 
 
     }
