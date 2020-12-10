@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
         Unavailable
     }
 
+    
+
     public GameObject enemyPrefabToSpawn;
     public int level = 1;
     public GameObject spawnEffectMesh;
@@ -20,11 +24,14 @@ public class EnemySpawner : MonoBehaviour
     public Light spawnLight;
     public float spawnLightRangeMultiplier = 2.0f;
     public float spawnLightIntensityMultiplier = 2.0f;
-
+    public Renderer r;
+    public int matIndex;
+    private Material spawnMaterial;
+    public float dissolveSpeed;
     public void Spawn()
     {
         _spawnerState = SpawnerState.Spawning_Anim_Phase01;
-
+        spawnMaterial = r.materials[matIndex];
         spawnEffectMesh.SetActive(true);
         _currentSpawnEffectPhase01Time = spawnEffectPhase01Time;
         spawnEffectMesh.transform.position = _raisedlMeshPosition;
@@ -57,6 +64,12 @@ public class EnemySpawner : MonoBehaviour
             Vector3 newPosition = Vector3.Lerp
                 (_raisedlMeshPosition, _originalMeshPosition, 1 - _currentSpawnEffectPhase01Time / spawnEffectPhase01Time);
             spawnEffectMesh.transform.position = newPosition;
+
+            float amt = _currentSpawnEffectPhase01Time / spawnEffectPhase01Time;
+            amt = Mathf.Clamp01(amt);
+            spawnMaterial.SetFloat("_amount", amt);
+
+
             if (_currentSpawnEffectPhase01Time <= 0)
             {
                 _spawnerState = SpawnerState.Spawning_Anim_Phase02;
@@ -85,11 +98,27 @@ public class EnemySpawner : MonoBehaviour
             {
                 _spawnerState = SpawnerState.Ready;
                 Instantiate(enemyPrefabToSpawn, gameObject.transform.position, gameObject.transform.rotation);
-                spawnEffectMesh.SetActive(false);
+                StartCoroutine("Dissolve");
+                //spawnEffectMesh.SetActive(false);
                 spawnLight.gameObject.SetActive(false);
             }
         }
     }
+
+    IEnumerator Dissolve()
+    {
+        Debug.Log("HELLO");
+        while (spawnMaterial.GetFloat("_dissolveAmt") < 1)
+        {
+
+            spawnMaterial.SetFloat("_dissolveAmt",spawnMaterial.GetFloat("_dissolveAmt") + dissolveSpeed * Time.deltaTime);
+            
+            yield return null; 
+        }
+    }
+
+
+
 
     void OnDrawGizmos()
     {

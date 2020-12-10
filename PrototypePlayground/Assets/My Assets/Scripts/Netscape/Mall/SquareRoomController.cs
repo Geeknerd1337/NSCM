@@ -16,8 +16,10 @@ public class SquareRoomController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!_triggerEnteredOnce && other.tag == "Player")
+        
+        if (!_triggerEnteredOnce)
         {
+            
             if (other.gameObject.GetComponent<CyberSpaceFirstPerson>() != null)
             {
                 _state = SquareRoomControllerState.Closing;

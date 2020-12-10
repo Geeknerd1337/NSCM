@@ -77,9 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710e05f2633013c46a9880bd630123e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabToSpawn: {fileID: 0}
+  enemyPrefabToSpawn: {fileID: 5338960829052196438, guid: 31a56c5bc76a26940844256baa9dee8a,
+    type: 3}
   level: 1
-  spawnEffectMesh: {fileID: 2827003306083824067}
+  spawnEffectMesh: {fileID: 5485830779263297711}
   spawnEffectMeshRaisedPosition: {fileID: 2386314879893147037}
   spawnEffectPhase01Time: 1
   spawnEffectPhase02Time: 3
@@ -87,6 +88,9 @@ MonoBehaviour:
   spawnLight: {fileID: 6988022448010945762}
   spawnLightRangeMultiplier: 4
   spawnLightIntensityMultiplier: 4
+  r: {fileID: 5485830779261302383}
+  matIndex: 0
+  dissolveSpeed: 1
 --- !u!1 &2827003306083824067
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +108,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5248607843016375521
 Transform:
   m_ObjectHideFlags: 0
@@ -244,17 +248,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnCylinder
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.085
+      value: -1.665
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -292,19 +292,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca2f274e9b6265446bf18b6b24ebeb5e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
+--- !u!1 &5485830779263297711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 2fa8ccd453147134281b2727be1d6cb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5485830779263331855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5485830779263202447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 5485830779263331855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5485830779261302383 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 2fa8ccd453147134281b2727be1d6cb2,
     type: 3}
   m_PrefabInstance: {fileID: 5485830779263331855}
   m_PrefabAsset: {fileID: 0}
