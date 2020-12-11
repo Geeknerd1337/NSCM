@@ -89,7 +89,7 @@ public class Turret : MonoBehaviour
         bobStart += Time.deltaTime * bobSpeed;
         float mod = Mathf.PerlinNoise(0, bobStart) * bobAmt;
         Vector3 vec = new Vector3(origPostion.x, origPostion.y + mod, origPostion.z);
-        turretTransform.localPosition = vec;
+        turretTransform.localPosition = vec - turretTransform.forward * ztar;
         ztar = Mathf.Lerp(ztar, 0, zspeed * Time.deltaTime);
     }
 
