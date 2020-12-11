@@ -31,7 +31,11 @@ public class LevelSaveDataController : MonoBehaviour
                 {
                     weaponManager.UnlockWeapon(i);
                 }
-                weaponManager.GetWeaponFromIndex(i).ShotsLeft = data.weaponAmmoCounts[i];
+                var weapon = weaponManager.GetWeaponFromIndex(i);
+                if (weapon != null)
+                {
+                    weapon.ShotsLeft = data.weaponAmmoCounts[i];
+                }
             }
         }
 
@@ -64,7 +68,11 @@ public class LevelSaveDataController : MonoBehaviour
         var ammos = new List<int>(weaponManager.guns.Count);
         for (int i = 0; i < weaponManager.guns.Count; ++i)
         {
-            ammos.Add( weaponManager.GetWeaponFromIndex(i).ShotsLeft);
+            var weapon = weaponManager.GetWeaponFromIndex(i);
+            if (weapon != null)
+            {
+                ammos.Add( weapon.ShotsLeft);
+            }
         }
         data.weaponAmmoCounts = ammos;
 

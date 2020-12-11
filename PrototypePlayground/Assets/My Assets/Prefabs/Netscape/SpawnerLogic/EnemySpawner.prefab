@@ -248,6 +248,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnCylinder
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca2f274e9b6265446bf18b6b24ebeb5e, type: 2}
     - target: {fileID: 400000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -292,10 +296,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ca2f274e9b6265446bf18b6b24ebeb5e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa8ccd453147134281b2727be1d6cb2, type: 3}
 --- !u!1 &5485830779263297711 stripped

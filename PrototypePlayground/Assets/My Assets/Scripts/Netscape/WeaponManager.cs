@@ -134,7 +134,15 @@ public class WeaponManager : MonoBehaviour
 
     public Weapon GetWeaponFromIndex(int i )
     {
+        if (guns[i] != null)
+        {
         return guns[i].GetComponent<Weapon>();
+
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public Weapon CurrentWeapon()

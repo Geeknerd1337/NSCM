@@ -10,8 +10,12 @@ public enum EnemySpawnerGroupEntranceEffect
 
 public class EnemySpawnerGroup : MonoBehaviour
 {
-   public BoxCollider groupVolume;
+    public BoxCollider groupVolume;
     [SerializeField] private EnemySpawnerGroupEntranceEffect entranceEffect;
+
+    // the distance a spawner needs to be from an enemy or the player to be chosen to spawn
+    [SerializeField] private float safeDistance = 2.5f;
+
 
     //DarkenDirectionalLightAndBurstSpawnState public data
     [SerializeField] private float lightFadeOutTime = 0.5f;
@@ -40,7 +44,7 @@ public class EnemySpawnerGroup : MonoBehaviour
         //Debug.Log("number of spawners in group is" + spawners.Count);
     }
 
-    public EnemySpawner GetRandomSpawner()
+    public EnemySpawner GetRandomSpawner(bool distanceCheck = true)
     {
         if (!CanSpawnEnemies)
         {
@@ -51,10 +55,40 @@ public class EnemySpawnerGroup : MonoBehaviour
         {
             ResetUnusedSpawners();
         }
+        EnemySpawner spawner = null;
+        if (!distanceCheck)
+        {
+            var enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            int attemptCount = _unusedSpawners.Count;
+            while (attemptCount >= 0)
+            {
+                spawner = _unusedSpawners.ToArray()[Random.Range(0, _unusedSpawners.Count - 1)];
+                bool goodSpawn = true;
+                foreach (var enemy in enemies)
+                {
+                    float distance = Vector3.Distance(enemy.transform.position, spawner.transform.position);
+                    if (distance < safeDistance)
+                    {
+                        goodSpawn = false;
+                    }
+                }
+                if (goodSpawn)
+                {
+                    _unusedSpawners.Remove(spawner);
+                    return spawner;
 
-        var spawner = _unusedSpawners.ToArray()[Random.Range(0, _unusedSpawners.Count - 1)];
-        _unusedSpawners.Remove(spawner);
-        return spawner;
+                }
+                attemptCount--;
+            }
+        }
+        else
+        {
+            spawner = _unusedSpawners.ToArray()[Random.Range(0, _unusedSpawners.Count - 1)];
+            _unusedSpawners.Remove(spawner);
+            return spawner;
+        }
+
+        return null;
     }
 
     private void ResetUnusedSpawners()
