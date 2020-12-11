@@ -36,6 +36,11 @@ public class GrapplingHand : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         originalRotation = transform.localRotation;
+        UIMaster UI = FindObjectOfType<UIMaster>();
+        myCanvas = UI.gameObject.GetComponent<Canvas>();
+        myElement = UI.grappleElement;
+        
+
 
     }
 

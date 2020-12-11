@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayAnimationAction : AIAction
 {
         public string animation;
+        public bool lookAt;
 
         public override void Act(AIEntity controller)
         {
@@ -15,6 +16,7 @@ public class PlayAnimationAction : AIAction
 
         private void PlayAnimation(AIEntity controller)
         {
+
             if(controller.EntityAnimator != null)
             {
                 if (!controller.EntityAnimator.GetCurrentAnimatorStateInfo(0).IsName(animation))

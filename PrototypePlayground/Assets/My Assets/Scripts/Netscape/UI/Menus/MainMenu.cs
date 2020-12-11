@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
     {
         a = GetComponent<Animator>();
         optionsMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void PlayGame()
     {

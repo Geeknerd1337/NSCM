@@ -44,7 +44,13 @@ public class HackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UIMaster UI = FindObjectOfType<UIMaster>();
+        myCanvas = UI.gameObject.GetComponent<Canvas>();
+        myElement = UI.hackElement;
+        fillImage = UI.hackRadialElement;
+        fullyFilledImage = UI.hackFillElement;
         initialElementScale = myElement.transform.localScale.x;
+           
     }
 
     // Update is called once per frame

@@ -10,7 +10,7 @@ public class EntityLimb : MonoBehaviour
     private EntityHealth entityHealth;
     [SerializeField]
     [Range(0, 2f)]
-    private float damageMod;
+    private float damageMod = 1f;
 
     public UnityEvent hitEvents;
     private bool limbDeath;

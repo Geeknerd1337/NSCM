@@ -11,6 +11,8 @@ public class BezierLaserLine : MonoBehaviour
     [SerializeField]
     public Transform origin, point, destination;
 
+    public bool UseWorldSpace = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,14 @@ public class BezierLaserLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DrawQuadCurve();
+        if (UseWorldSpace)
+        {
+            DrawQuadCurveGlobal();
+        }
+        else
+        {
+            DrawQuadCurve();
+        }
     }
 
 
@@ -34,6 +43,17 @@ public class BezierLaserLine : MonoBehaviour
         {
             float t = (i + 1) / (float)segments;
             pointsBuffer[i] = CalculateQuadraticBezierPoint(t, origin.localPosition, point.localPosition, destination.localPosition);
+        }
+        rend.SetPositions(pointsBuffer);
+    }
+
+    void DrawQuadCurveGlobal()
+    {
+        Vector3[] pointsBuffer = new Vector3[segments];
+        for (int i = 0; i < segments; i++)
+        {
+            float t = (i + 1) / (float)segments;
+            pointsBuffer[i] = CalculateQuadraticBezierPoint(t, origin.position, point.position, destination.position);
         }
         rend.SetPositions(pointsBuffer);
     }
