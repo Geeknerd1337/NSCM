@@ -10,17 +10,15 @@ public enum EnemySpawnerGroupEntranceEffect
 
 public class EnemySpawnerGroup : MonoBehaviour
 {
-    public BoxCollider groupVolume;
-
-    public EnemySpawnerGroupEntranceEffect entranceEffect;
-
+    [SerializeField] private BoxCollider groupVolume;
+    [SerializeField] private EnemySpawnerGroupEntranceEffect entranceEffect;
 
     //DarkenDirectionalLightAndBurstSpawnState public data
-    public float lightFadeOutTime = 0.5f;
-    public float lightFadeHoldTime = 1.0f;
-    public float lightFadeInTime = 5.0f;
-    public AudioClip lightFadeOutSound;
-    public AudioClip lightFadeInSound;
+    [SerializeField] private float lightFadeOutTime = 0.5f;
+    [SerializeField] private float lightFadeHoldTime = 1.0f;
+    [SerializeField] private float lightFadeInTime = 5.0f;
+    [SerializeField] private AudioClip lightFadeOutSound;
+    [SerializeField] private AudioClip lightFadeInSound;
 
     // public properties
     public int SpawnerCount => _spawners.Count;

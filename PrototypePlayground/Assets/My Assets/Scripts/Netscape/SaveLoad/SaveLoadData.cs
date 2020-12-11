@@ -7,9 +7,8 @@ public class SaveLoadData
 {
     public int level  ;
     public int health  ;
-    // etc etc
 
-  
+    // etc etc
 }
 
 // use this static interface from anywhere to set the current data as well saving it and loading it from file
@@ -24,7 +23,6 @@ public static class SaveLoadGlobalManager
         _data = new SaveLoadData();
     }
         
-
     public static void Save()
     {
         Save(_data, Filename);
@@ -55,6 +53,7 @@ public static class SaveLoadGlobalManager
         reader.Close();
         SaveLoadData data = JsonUtility.FromJson<SaveLoadData>(jsonData);
         _data = data;
+        // call function that actually does something with new save data (change level, adjust ammo etc)
     }
 
     private static SaveLoadData _data;
