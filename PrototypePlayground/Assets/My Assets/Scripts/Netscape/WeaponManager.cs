@@ -132,8 +132,20 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    public Weapon GetWeaponFromIndex(int i )
+    {
+        return guns[i].GetComponent<Weapon>();
+    }
+
     public Weapon CurrentWeapon()
     {
-        return guns[gunIndexActual].GetComponent<Weapon>();
+        if (guns[gunIndexActual] != null)
+        {
+            return guns[gunIndexActual].GetComponent<Weapon>();
+        }
+        else
+        {
+            return null;
+        }
     }
 }

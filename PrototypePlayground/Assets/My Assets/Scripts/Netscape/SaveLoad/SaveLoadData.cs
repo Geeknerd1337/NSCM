@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 [Serializable]
 public class SaveLoadData
 {
+    // level uses buildindex
     public int level;
-    public int health;
-    public int sheild;
+
+    public float health;
+    public float sheild;
+
+    public List<bool> weaponUnlocks = new List<bool>();
+
+    public List<int> weaponAmmoCounts = new List<int>();
 
     // etc etc
 }
@@ -18,6 +25,8 @@ public static class SaveLoadGlobalManager
     public static SaveLoadData Data => _data;
     public const string Filename = "autosave.json";
     public const string SavePath = "Save";
+    public static bool HasValidData { get; private set; } = false;
+
 
     static SaveLoadGlobalManager()
     {
@@ -49,11 +58,15 @@ public static class SaveLoadGlobalManager
 
     public static void Load(string filename)
     {
-        StreamReader reader = new StreamReader(filename);
-        string jsonData = reader.ReadToEnd();
-        reader.Close();
-        SaveLoadData data = JsonUtility.FromJson<SaveLoadData>(jsonData);
-        _data = data;
+        if (File.Exists(filename))
+        {
+            StreamReader reader = new StreamReader(filename);
+            string jsonData = reader.ReadToEnd();
+            reader.Close();
+            SaveLoadData data = JsonUtility.FromJson<SaveLoadData>(jsonData);
+            _data = data;
+            HasValidData = true;
+        }
         // since this is not a monobehavior we can't look up components. All this load does is makes sure 
         // the autosave is loaded. The data is used to initalize various things inside LevelSaveDataController
     }

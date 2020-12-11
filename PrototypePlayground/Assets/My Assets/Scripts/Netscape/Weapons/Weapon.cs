@@ -58,6 +58,7 @@ public class Weapon : MonoBehaviour
     public int ShotsLeft
     {
         get { return shotsLeft; }
+        set { shotsLeft = value; }
     }
     public int AmmoType
     {
