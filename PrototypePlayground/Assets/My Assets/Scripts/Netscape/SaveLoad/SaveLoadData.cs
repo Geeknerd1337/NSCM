@@ -5,8 +5,9 @@ using UnityEngine;
 [Serializable]
 public class SaveLoadData
 {
-    public int level  ;
-    public int health  ;
+    public int level;
+    public int health;
+    public int sheild;
 
     // etc etc
 }
@@ -15,7 +16,7 @@ public class SaveLoadData
 public static class SaveLoadGlobalManager
 {
     public static SaveLoadData Data => _data;
-    public const string Filename = "gamesave.json";
+    public const string Filename = "autosave.json";
     public const string SavePath = "Save";
 
     static SaveLoadGlobalManager()
@@ -53,7 +54,8 @@ public static class SaveLoadGlobalManager
         reader.Close();
         SaveLoadData data = JsonUtility.FromJson<SaveLoadData>(jsonData);
         _data = data;
-        // call function that actually does something with new save data (change level, adjust ammo etc)
+        // since this is not a monobehavior we can't look up components. All this load does is makes sure 
+        // the autosave is loaded. The data is used to initalize various things inside LevelSaveDataController
     }
 
     private static SaveLoadData _data;

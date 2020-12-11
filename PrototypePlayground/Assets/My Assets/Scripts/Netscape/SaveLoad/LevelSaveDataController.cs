@@ -4,9 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelSaveDataController : MonoBehaviour
 {
+
+    private PlayerStats playerStats;
+
     void Start()
     {
+        playerStats = FindObjectOfType<PlayerStats>();
+
+
         SaveLoadGlobalManager.Save();
+
     }
 
     void Update()
@@ -16,7 +23,12 @@ public class LevelSaveDataController : MonoBehaviour
 
     public void LoadAutosave()
     {
-        throw new NotImplementedException();
+        SaveLoadGlobalManager.Load();
+        var data = SaveLoadGlobalManager.Data;
+        playerStats.Health = data.health;
+        playerStats.Shield = data.sheild;
+
+
     }
 
     public void OnDeath()
@@ -25,6 +37,8 @@ public class LevelSaveDataController : MonoBehaviour
             //yield return new WaitForSeconds(3);
         Resources.UnloadUnusedAssets();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+
+
 
         // todo load in health and ammo values
 

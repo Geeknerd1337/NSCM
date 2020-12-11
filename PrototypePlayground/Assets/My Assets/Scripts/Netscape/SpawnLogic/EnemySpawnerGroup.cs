@@ -10,7 +10,7 @@ public enum EnemySpawnerGroupEntranceEffect
 
 public class EnemySpawnerGroup : MonoBehaviour
 {
-    [SerializeField] private BoxCollider groupVolume;
+   public BoxCollider groupVolume;
     [SerializeField] private EnemySpawnerGroupEntranceEffect entranceEffect;
 
     //DarkenDirectionalLightAndBurstSpawnState public data
