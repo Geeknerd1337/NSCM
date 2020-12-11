@@ -30,6 +30,7 @@ public class GrapplingLineRenderer : MonoBehaviour
     public float slide1;
     public float slide2;
     private float scrollAmt;
+    public bool destroyOnFinish;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,10 @@ public class GrapplingLineRenderer : MonoBehaviour
         else
         {
             effectTime = 1;
+            if (destroyOnFinish)
+            {
+                Destroy(transform.parent.gameObject);
+            }
         }
         DrawLine();
     }

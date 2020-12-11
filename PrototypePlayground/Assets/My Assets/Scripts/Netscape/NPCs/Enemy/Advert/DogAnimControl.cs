@@ -14,7 +14,10 @@ public class DogAnimControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m = r.materials[matIndex];
+        if (r != null)
+        {
+            m = r.materials[matIndex];
+        }
     }
 
     // Update is called once per frame
