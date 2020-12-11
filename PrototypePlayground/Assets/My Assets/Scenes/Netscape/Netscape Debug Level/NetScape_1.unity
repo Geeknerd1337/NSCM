@@ -375,18 +375,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1797540745}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &84712024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2736317065964162903, guid: 49a80d3b488d91140a5217bee65c38b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2736317065881097487}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!223 &84714496 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 2736317065964171535, guid: 49a80d3b488d91140a5217bee65c38b2,
@@ -879,12 +867,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7611061852274552918, guid: 3aa4b77b508892b48a6dc6849d5de9ee,
     type: 3}
   m_PrefabInstance: {fileID: 224148654}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &225621115 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2736317066102186356, guid: 49a80d3b488d91140a5217bee65c38b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2736317065881097487}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &236434090
 PrefabInstance:
@@ -2653,18 +2635,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 867506cb4894f78458acdbff3de3945a, type: 3}
---- !u!114 &713141051 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2736317065503653428, guid: 49a80d3b488d91140a5217bee65c38b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2736317065881097487}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &736921270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7611061852274552918, guid: 3aa4b77b508892b48a6dc6849d5de9ee,
@@ -7621,17 +7591,17 @@ PrefabInstance:
         type: 3}
       propertyPath: myElement
       value: 
-      objectReference: {fileID: 225621115}
+      objectReference: {fileID: 0}
     - target: {fileID: 775253093837157545, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: fillImage
       value: 
-      objectReference: {fileID: 713141051}
+      objectReference: {fileID: 0}
     - target: {fileID: 775253093837157545, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: fullyFilledImage
       value: 
-      objectReference: {fileID: 84712024}
+      objectReference: {fileID: 0}
     - target: {fileID: 775253094003288958, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: myCanvas
@@ -8055,17 +8025,17 @@ PrefabInstance:
     - target: {fileID: 2736317066504167447, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066504167447, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066504167447, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066665241247, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -8075,17 +8045,17 @@ PrefabInstance:
     - target: {fileID: 2736317066665241247, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066665241247, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066665241247, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2736317065145717705, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -8095,17 +8065,17 @@ PrefabInstance:
     - target: {fileID: 2736317065145717705, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317065145717705, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317065145717705, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066582223295, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -8115,17 +8085,17 @@ PrefabInstance:
     - target: {fileID: 2736317066582223295, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066582223295, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066582223295, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066034790681, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -8201,6 +8171,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736317066102186357, guid: 49a80d3b488d91140a5217bee65c38b2,
+        type: 3}
+      propertyPath: m_Name
+      value: HackImage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736317065503653430, guid: 49a80d3b488d91140a5217bee65c38b2,
+        type: 3}
+      propertyPath: m_Name
+      value: HackImageRadial
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736317065964162905, guid: 49a80d3b488d91140a5217bee65c38b2,
+        type: 3}
+      propertyPath: m_Name
+      value: HackImageFilled
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49a80d3b488d91140a5217bee65c38b2, type: 3}
