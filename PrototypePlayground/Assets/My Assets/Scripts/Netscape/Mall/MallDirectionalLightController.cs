@@ -29,7 +29,7 @@ public class MallDirectionalLightController : MonoBehaviour
             _accumulatedTime += Time.deltaTime * speed;
             var sin = Mathf.Sin(_accumulatedTime) ;
             sin = (sin - (float)Math.Truncate(sin)) * strength;
-            _light.shadowStrength = _originalShadowStrength + sin;
+            _light.shadowStrength = Mathf.Clamp(_originalShadowStrength + sin, 0, 1.0f);
         }
     }
     float _originalShadowStrength;

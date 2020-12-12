@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
@@ -16,18 +14,12 @@ public class LevelTransition : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
         {
             SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
         }
-
     }
 
 }

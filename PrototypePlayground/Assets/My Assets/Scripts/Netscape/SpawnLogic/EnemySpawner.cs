@@ -41,6 +41,8 @@ public class EnemySpawner : MonoBehaviour
         spawnLight.intensity = _originalLightIntensity;
         spawnLight.range = _originalLightRange;
         spawnMaterial.SetFloat("_dissolveAmt", 0);
+
+        spawnEffectMesh.SetActive(true);
     }
 
     void Start()
