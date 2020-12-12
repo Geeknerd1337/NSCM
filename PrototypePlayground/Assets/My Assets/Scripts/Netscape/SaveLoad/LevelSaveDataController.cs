@@ -10,12 +10,16 @@ public class LevelSaveDataController : MonoBehaviour
     private WeaponManager weaponManager;
     private GunSelectionUI gunUI;
 
+    private void Awake()
+    {
+        gunUI = FindObjectOfType<GunSelectionUI>();
+
+    }
 
     void Start()
     {
         playerStats = FindObjectOfType<PlayerStats>();
         weaponManager = FindObjectOfType<WeaponManager>();
-        gunUI = FindObjectOfType<GunSelectionUI>();
 
         SaveLoadGlobalManager.Load();
         if (SaveLoadGlobalManager.HasValidData)
@@ -60,6 +64,7 @@ public class LevelSaveDataController : MonoBehaviour
         var guns = new List<bool>(weaponManager.guns.Count);
         for (int i = 0; i < weaponManager.guns.Count; ++i)
         {
+            
             if (gunUI.weaponSlots[i] == null) // null means doesn't own weapon?
             {
                 guns.Add(false);
