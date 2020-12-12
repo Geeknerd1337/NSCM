@@ -21,20 +21,33 @@ public class VerticalFloatingPlatform : MonoBehaviour
         lowPosition = platformObject.transform.position;
         highPosition = lowPosition;
         highPosition.y = platformHighPositionObject.transform.position.y;
+        
+        currentMoveTime = UnityEngine.Random.Range(0,moveTime);
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        currentMoveTime -= Time.deltaTime;
+        float quinticEaseInOut (float x) { return x < 0.5 ? 16 * x * x * x * x * x : 1 - Mathf.Pow(-2 * x + 2, 5) / 2; };
+        currentMoveTime -= Time.fixedDeltaTime;
         Vector3 newPosition;
+        float interpVal = quinticEaseInOut(currentMoveTime / moveTime);
+       
         if (isMovingUp)
         {
-            newPosition = Vector3.Lerp(lowPosition, highPosition, 1 - currentMoveTime / moveTime);
+            newPosition = Vector3.Lerp(lowPosition, highPosition, 1 - interpVal);
         }
         else
         {
-            newPosition = Vector3.Lerp(lowPosition, highPosition, currentMoveTime / moveTime);
+            newPosition = Vector3.Lerp(lowPosition, highPosition, interpVal);
         }
+
         platformObject.transform.position = newPosition;
+
+        if (currentMoveTime <= 0)
+        {
+            currentMoveTime = moveTime;
+            isMovingUp = !isMovingUp;
+        }
+
     }
 }
