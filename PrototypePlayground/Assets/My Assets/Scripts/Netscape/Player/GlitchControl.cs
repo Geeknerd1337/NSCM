@@ -54,7 +54,7 @@ public class GlitchControl : MonoBehaviour
     {
         while(amt > 0)
         {
-            amt -= Time.deltaTime / 3f;
+            amt -= Time.deltaTime / 2f;
             yield return null;
         }
     }
