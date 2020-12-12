@@ -14,6 +14,15 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     private GunSelectionUI gunUI;
 
+    
+    public GunSelectionUI GunUI
+    {
+        get
+        {
+            return gunUI;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +30,16 @@ public class WeaponManager : MonoBehaviour
         gunIndexActual = 0;
         ActivateGun(gunIndexActual);
   
-        gunUI = FindObjectOfType<GunSelectionUI>();
-        gunUI.gameObject.SetActive(false);
+
         
     }
+
+    private void Awake()
+    {
+        gunUI = FindObjectOfType<GunSelectionUI>();
+        gunUI.gameObject.SetActive(false);
+    }
+
 
     // Update is called once per frame
     void Update()

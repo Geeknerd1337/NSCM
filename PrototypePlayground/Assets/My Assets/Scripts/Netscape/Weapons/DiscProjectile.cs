@@ -110,12 +110,14 @@ public class DiscProjectile : MonoBehaviour
         
         if (homingDelay <= 0)
         {
-            rotationSpeed += rotationSpeedAccel * Time.deltaTime;
-            rotationSpeed = Mathf.Clamp(rotationSpeed, 0, maxRotationSpeed);
-            Vector3 dir = (target.position - offset) - transform.position;
-            dir = dir.normalized;
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), rotationSpeed * Time.deltaTime);
-            
+            if (target != null)
+            {
+                rotationSpeed += rotationSpeedAccel * Time.deltaTime;
+                rotationSpeed = Mathf.Clamp(rotationSpeed, 0, maxRotationSpeed);
+                Vector3 dir = (target.position - offset) - transform.position;
+                dir = dir.normalized;
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), rotationSpeed * Time.deltaTime);
+            }
         }
         MoveForward();
 

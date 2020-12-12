@@ -12,7 +12,7 @@ public class LevelSaveDataController : MonoBehaviour
 
     private void Awake()
     {
-        gunUI = FindObjectOfType<GunSelectionUI>();
+        
 
     }
 
@@ -20,6 +20,12 @@ public class LevelSaveDataController : MonoBehaviour
     {
         playerStats = FindObjectOfType<PlayerStats>();
         weaponManager = FindObjectOfType<WeaponManager>();
+        weaponManager.GunUI.gameObject.SetActive(true);
+        gunUI = weaponManager.GunUI;
+        weaponManager.GunUI.gameObject.SetActive(false);
+
+
+        Debug.Log(gunUI + " " + weaponManager);
 
         SaveLoadGlobalManager.Load();
         if (SaveLoadGlobalManager.HasValidData)

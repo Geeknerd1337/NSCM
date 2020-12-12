@@ -36,7 +36,6 @@ public class CurveBasedTractorTube : MonoBehaviour
                 Vector3 totalDir = dir;
                 if (Vector3.Distance(targetPosition, player.transform.position) < 1f)
                 {
-                    Debug.Log("WHAT");
                     targetPosition = p.path.GetPointAtTime(targetTime);
                     targetTime += 1/followQuality;
 

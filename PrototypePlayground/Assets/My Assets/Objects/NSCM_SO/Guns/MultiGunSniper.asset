@@ -19,12 +19,12 @@ MonoBehaviour:
   reloadAnimation: Hands|revolver_reload
   drawAnimation: Hands|revolver_draw
   idleAnimation: Hands|pistol_origin
-  damage: 15
+  damage: 25
   clipSize: 5
-  recoil: 12
+  recoil: 8
   numberOfShots: 1
   maxFireAngle: 0
-  effectiveRange: 100
+  effectiveRange: 120
   shakeAmmount: 1
   reloadSound:
     sound: {fileID: 8300000, guid: fda2aa7997269b7419eb22c1691b8d69, type: 3}
@@ -38,3 +38,5 @@ MonoBehaviour:
     sound: {fileID: 8300000, guid: 268b265c726eaf04daccd362640bb196, type: 3}
     pitchRange: {x: 0.95, y: 1.05}
     volume: 0.8
+  projectilePrefab: {fileID: 0}
+  firesProjectile: 0

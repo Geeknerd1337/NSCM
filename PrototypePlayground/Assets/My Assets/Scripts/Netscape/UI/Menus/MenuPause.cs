@@ -52,7 +52,7 @@ public class MenuPause : MonoBehaviour
     public void GoToMainMenu()
     {
         Resume();
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(5);
     }
 
 }
