@@ -112,6 +112,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &105129499
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 490554774710808461, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_Name
+      value: SaveLoadController
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 226.80786
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 77.06516
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -152.28041
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 509267576505363464, guid: 9ef9c732cf701ea409801c01adaab298,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9ef9c732cf701ea409801c01adaab298, type: 3}
 --- !u!1 &208138942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,7 +1734,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1931683335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1319205917}
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1931683335

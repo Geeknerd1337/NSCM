@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private Animator a;
+    private LevelSaveDataController saveController;
     public GameObject optionsMenu;
     public GameObject mainMenu;
     void Start()
     {
         a = GetComponent<Animator>();
+        saveController = FindObjectOfType<LevelSaveDataController>();
         optionsMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -18,6 +20,11 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadGame()
+    {
+        saveController.LaunchAutosaveLevel();
     }
 
     public void StartGame()
