@@ -60,7 +60,14 @@ public class LevelSaveDataController : MonoBehaviour
         var guns = new List<bool>(weaponManager.guns.Count);
         for (int i = 0; i < weaponManager.guns.Count; ++i)
         {
-            guns.Add( gunUI.weaponSlots[i].HasWeapon);
+            if (gunUI.weaponSlots[i] == null) // null means doesn't own weapon?
+            {
+                guns.Add(false);
+            }
+            else
+            {
+                guns.Add( gunUI.weaponSlots[i].HasWeapon);
+            }
         }
         data.weaponUnlocks = guns;
 

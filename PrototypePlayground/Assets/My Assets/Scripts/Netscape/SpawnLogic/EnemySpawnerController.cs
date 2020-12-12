@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
 public class EnemySpawnerController : MonoBehaviour
 {
-    public EnemySpawnerGroup[] spawnGroups;
-
     public float spawnTime = 10.0f;
     public float spawnTimeJitter = 5.0f;
     public float minSpawnTime = 5.0f;
@@ -26,7 +23,7 @@ public class EnemySpawnerController : MonoBehaviour
         {
             _player = playerTest.gameObject;
         }
-        foreach(var group in spawnGroups)
+        foreach(var group in _spawnerGroups)
         {
             if (group != null)
             {

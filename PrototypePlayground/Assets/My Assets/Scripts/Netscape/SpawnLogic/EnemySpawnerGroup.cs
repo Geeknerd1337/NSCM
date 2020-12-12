@@ -40,6 +40,11 @@ public class EnemySpawnerGroup : MonoBehaviour
                 _spawners.Add(spawner);
             }
         }
+        if (_spawners.Count == 0)
+        {
+            Debug.LogWarning
+                ("Spawn group found no spawners inside. Name of group owner is " + gameObject.transform.parent.gameObject.name);
+        }
         ResetUnusedSpawners();
         //Debug.Log("number of spawners in group is" + spawners.Count);
     }
@@ -56,7 +61,7 @@ public class EnemySpawnerGroup : MonoBehaviour
             ResetUnusedSpawners();
         }
         EnemySpawner spawner = null;
-        if (!distanceCheck)
+        if (distanceCheck)
         {
             var enemies = GameObject.FindGameObjectsWithTag("Enemy");
             int attemptCount = _unusedSpawners.Count;
@@ -93,6 +98,7 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     private void ResetUnusedSpawners()
     {
+        _unusedSpawners.Clear();
         foreach (var itemToAdd in _spawners)
         {
             _unusedSpawners.Add(itemToAdd);
