@@ -73,6 +73,10 @@ public class LevelSaveDataController : MonoBehaviour
             {
                 ammos.Add( weapon.ShotsLeft);
             }
+            else
+            {
+                ammos.Add(0);
+            }
         }
         data.weaponAmmoCounts = ammos;
 

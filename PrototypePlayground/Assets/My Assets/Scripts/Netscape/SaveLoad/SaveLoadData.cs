@@ -49,6 +49,7 @@ public static class SaveLoadGlobalManager
         StreamWriter writer = new StreamWriter(path, false);
         writer.Write(stringData);
         writer.Close();
+        HasValidData = true;
     }
 
     public static void Load()
