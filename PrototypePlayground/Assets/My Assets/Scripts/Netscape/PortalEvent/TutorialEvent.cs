@@ -12,6 +12,7 @@ public class TutorialEvent : MonoBehaviour
     public int matIndex;
     private Material m;
     public GlitchControl gc;
+    public int levelToLoad = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,7 @@ public class TutorialEvent : MonoBehaviour
             m.SetFloat("_amt", 1 - value);
             if(!ended && time <= 0)
             {
-                gc.StartCoroutine("TransitionToLevel", 1);
+                gc.StartCoroutine("TransitionToLevel", levelToLoad);
                 ended = true;
             }
         }
