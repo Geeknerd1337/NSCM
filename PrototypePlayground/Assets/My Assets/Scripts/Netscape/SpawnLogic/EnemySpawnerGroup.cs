@@ -112,12 +112,21 @@ public class EnemySpawnerGroup : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void ForceStartEntranceEffect()
     {
-        if (other.gameObject != _player)
+        if (!IsRunningEntranceEffect)
         {
-            return;
+            _hasStartedPlayingSpawnEntranceEffect = false;
+            StartEntranceEffect();
         }
+        else
+        {
+            Debug.LogWarning("Tried to force start an entrance effect while an entrance effect was already running. Cancelling..");
+        }
+    }
+
+    private void StartEntranceEffect()
+    {
         CanSpawnEnemies = true;
         if (!_hasStartedPlayingSpawnEntranceEffect)
         {
@@ -146,6 +155,15 @@ public class EnemySpawnerGroup : MonoBehaviour
                 IsRunningEntranceEffect = true;
             }
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject != _player)
+        {
+            return;
+        }
+        StartEntranceEffect();
     }
 
     void Start()
