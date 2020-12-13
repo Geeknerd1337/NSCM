@@ -16,12 +16,16 @@ public class TutorialEvent : MonoBehaviour
 
     public List<SpawnWave> waves;
     private int waveIndex;
+
+    public Material mm;
     // Start is called before the first frame update
     void Start()
     {
         totalTime = time;
         m = r.materials[matIndex];
         gc = FindObjectOfType<GlitchControl>();
+
+        
     }
 
     // Update is called once per frame
@@ -29,6 +33,7 @@ public class TutorialEvent : MonoBehaviour
     {
         if (started)
         {
+
             time -= Time.deltaTime;
             float value = time / totalTime;
             value = Mathf.Floor(value * 20f) / 20f;
@@ -72,6 +77,10 @@ public class TutorialEvent : MonoBehaviour
     public void StartThisThing()
     {
         started = true;
+        if (mm != null)
+        {
+            r.materials[matIndex] = mm;
+        }
     }
 }
 
