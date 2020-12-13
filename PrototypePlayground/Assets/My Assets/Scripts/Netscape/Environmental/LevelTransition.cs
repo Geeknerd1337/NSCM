@@ -3,22 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
-    public BoxCollider box;
+    private BoxCollider box;
     public int buildIndex = 1;
     
     private GameObject player;
+    private GlitchControl glitch;
 
     void Start()
     {
         player = FindObjectOfType<CyberSpaceFirstPerson>().gameObject;
-
+        glitch = FindObjectOfType<GlitchControl>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == player)
         {
-            SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
+            glitch.StartCoroutine("TransitionToLevel", buildIndex);
+
+            //SceneManager.LoadScene(buildIndex, LoadSceneMode.Single);
         }
     }
 

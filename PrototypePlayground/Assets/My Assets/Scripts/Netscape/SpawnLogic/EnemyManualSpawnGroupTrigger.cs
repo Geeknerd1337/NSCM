@@ -10,6 +10,7 @@ public class EnemyManualSpawnGroupTrigger : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<CyberSpaceFirstPerson>().gameObject;
+
     }
 
     private void OnTriggerEnter(Collider other)
