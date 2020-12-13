@@ -21,6 +21,7 @@ public class PlayAnimationAction : AIAction
             {
                 if (!controller.EntityAnimator.GetCurrentAnimatorStateInfo(0).IsName(animation))
                 {
+                    controller.Agent.SetDestination(controller.transform.position);
                     controller.EntityAnimator.Play(animation);
                 }
             }

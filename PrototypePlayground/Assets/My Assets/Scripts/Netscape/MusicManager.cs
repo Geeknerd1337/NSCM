@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour
 
     public AudioClip combatStart;
     public AudioClip combatLoop;
-
+    public float musicVolume = 0.7f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +34,25 @@ public class MusicManager : MonoBehaviour
         StartCoroutine("AmbienceFadeIn");
    }
 
-   IEnumerator AmbienceFadeIn()
+    public void PlayAmbienceSmall()
     {
-        while(ambientSource.volume < 1)
+        ambientSource.volume = 0;
+        StartCoroutine("AmbienceFadeInSmall");
+    }
+
+    IEnumerator AmbienceFadeIn()
+    {
+        while(ambientSource.volume < musicVolume)
+        {
+            ambientSource.volume += Time.deltaTime / 4f;
+            yield return null;
+        }
+    }
+
+
+    IEnumerator AmbienceFadeInSmall()
+    {
+        while (ambientSource.volume < 0.6f)
         {
             ambientSource.volume += Time.deltaTime / 4f;
             yield return null;
@@ -45,7 +61,7 @@ public class MusicManager : MonoBehaviour
 
     IEnumerator CombatFade()
     {
-        while(combatSource.volume < 1)
+        while(combatSource.volume < musicVolume)
         {
             combatSource.volume += Time.deltaTime / 4f;
             ambientSource.volume -= Time.deltaTime / 4f;
