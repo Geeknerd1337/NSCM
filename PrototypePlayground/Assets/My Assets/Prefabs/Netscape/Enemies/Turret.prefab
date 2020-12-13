@@ -10009,6 +10009,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   componentsToDisable: []
+  thingtoDestroy: {fileID: 0}
+  deathTime: 20
 --- !u!82 &881339116110628719
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10033,7 +10035,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 74.1
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -10041,23 +10043,77 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.013495277
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -74.12963
+      outSlope: -74.12963
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.026990553
+      value: 0.5
+      inSlope: -18.532408
+      outSlope: -18.532408
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.053981107
+      value: 0.25
+      inSlope: -4.633102
+      outSlope: -4.633102
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.10796221
+      value: 0.125
+      inSlope: -1.1582755
+      outSlope: -1.1582755
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.21592443
+      value: 0.0625
+      inSlope: -0.28956887
+      outSlope: -0.28956887
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.43184885
+      value: 0.03125
+      inSlope: -0.07239222
+      outSlope: -0.07239222
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.82317036
+      value: 0
+      inSlope: -0.018098054
+      outSlope: -0.018098054
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.013500662
+      outSlope: -0.013500662
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
