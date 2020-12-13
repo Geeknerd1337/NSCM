@@ -63,6 +63,10 @@ public class PlayerStats : MonoBehaviour
         {
             shield -= f * 0.6f;
             health -= f * 0.4f;
+            if(shield <= 0)
+            {
+                shield = 0;
+            }
         }
         else
         {
