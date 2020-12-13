@@ -186,11 +186,11 @@ public class EnemySpawnerGroup : MonoBehaviour
         {
             _player = playerTest.gameObject;
         }
-        _directionalLight = GameObject.FindGameObjectWithTag("ShadowCastingLight").GetComponent<Light>();
+        _directionalLight = GameObject.FindGameObjectWithTag("ShadowCastingLight")?.GetComponent<Light>();
         //_directionalLight = FindObjectsOfType<Light>().Where(x => x.type == LightType.Directional).SingleOrDefault();
         if (_directionalLight == null)
         {
-            Debug.LogError("can't find single directional light, either missing or more than one");
+            //Debug.Log("can't find single directional light, either missing or more than one");
         }
         else
         {
