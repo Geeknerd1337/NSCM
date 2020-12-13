@@ -30,6 +30,10 @@ public class EnemySpawnerGroup : MonoBehaviour
     [Range(0.0f,1.0f)]
     private float burstRatio = 1.0f;
 
+    // If this is true the entrance effect and trigger will enable the first time the player
+    // enters the volume
+    [SerializeField] private bool autoTrigger = true;
+
 
     // public properties
     public int SpawnerCount => _spawners.Count;
@@ -160,6 +164,10 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!autoTrigger)
+        {
+            return;
+        }
         if (other.gameObject != _player)
         {
             return;
