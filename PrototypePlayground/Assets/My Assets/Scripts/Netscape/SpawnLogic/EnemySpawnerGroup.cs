@@ -107,6 +107,10 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject != _player)
+        {
+            return;
+        }
         CanSpawnEnemies = true;
         if (!_hasStartedPlayingSpawnEntranceEffect)
         {
