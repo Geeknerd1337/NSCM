@@ -42,12 +42,9 @@ public class GlitchControl : MonoBehaviour
             yield return null;
 
         }
-        
 
+        FindObjectOfType<LevelSaveDataController>().Save();
         SceneManager.LoadScene(i);
-
-
-
     }
 
     IEnumerator FadeIn()

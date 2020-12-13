@@ -52,11 +52,7 @@ public class LevelSaveDataController : MonoBehaviour
         Save();
     }
 
-    // In theory this will run when you switch to the next level.
-    private void OnDestroy()
-    {
-        Save();   
-    }
+  
 
     public void Save()
     {
