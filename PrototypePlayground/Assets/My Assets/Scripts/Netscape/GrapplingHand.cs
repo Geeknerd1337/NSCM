@@ -31,6 +31,8 @@ public class GrapplingHand : MonoBehaviour
     [SerializeField]
     private float rotationSpeed;
 
+    public AudioSource sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,7 @@ public class GrapplingHand : MonoBehaviour
         UIMaster UI = FindObjectOfType<UIMaster>();
         myCanvas = UI.gameObject.GetComponent<Canvas>();
         myElement = UI.grappleElement;
-        
+        sound = GetComponent<AudioSource>();
 
 
     }
@@ -142,7 +144,7 @@ public class GrapplingHand : MonoBehaviour
             charController.IsGrappling = true;
             charController.GrapplePosition = grapplePosition;
             charController.GiveCurrentPlayerVelocityToGrapple();
-
+            sound.Play();
             grapplingHookInstance = Instantiate(grapplingHookPrefab);
             grappleRend = grapplingHookInstance.GetComponentInChildren<GrapplingLineRenderer>();
             grappleRend.desination.position = grapplePosition;
