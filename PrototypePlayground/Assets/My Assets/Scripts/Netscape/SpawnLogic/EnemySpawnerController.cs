@@ -107,7 +107,11 @@ public class EnemySpawnerController : MonoBehaviour
         PerformMaintenenceSweep();
         if (_lastCachedEnemyCount < maxAliveEnemies)
         {
-            group.GetRandomSpawner().Spawn();
+            var spawner = group.GetRandomSpawner();
+            if (spawner != null)
+            {
+                spawner.Spawn();
+            }
         }
     }
 
