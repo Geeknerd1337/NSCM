@@ -10,6 +10,13 @@ public class EnemySpawnerController : MonoBehaviour
     public float minSpawnTime = 5.0f;
     public bool debugEnabled = false;
 
+    // how long after an enemy dies before we clean it up
+    public float timeToCleanupDeadBodies = 10.0f;
+
+    // will not spawn new enemies if there are more than this number of enemies alive
+    [SerializeField] private int maxAliveEnemies = 50;
+
+
     void Start()
     {
         _spawners = FindObjectsOfType<EnemySpawner>().ToList();
@@ -79,9 +86,29 @@ public class EnemySpawnerController : MonoBehaviour
         }
     }
 
+    private void PerformMaintenenceSweep()
+    {
+        var enemies = FindObjectsOfType<AIEntity>();
+        int numEnemies = enemies.Count();
+        foreach (var enemy in enemies)
+        {
+            var health = enemy.gameObject.GetComponent<EntityHealth>();
+            if (health.IsDead)
+            {
+                Destroy(enemy.transform.root.gameObject, timeToCleanupDeadBodies);
+                numEnemies--;
+            }
+        }
+        _lastCachedEnemyCount = numEnemies;
+    }
+
     private void PerformSpawn(EnemySpawnerGroup group)
     {
-        group.GetRandomSpawner().Spawn();
+        PerformMaintenenceSweep();
+        if (_lastCachedEnemyCount < maxAliveEnemies)
+        {
+            group.GetRandomSpawner().Spawn();
+        }
     }
 
     private void OnGUI()
@@ -89,9 +116,10 @@ public class EnemySpawnerController : MonoBehaviour
         if (debugEnabled)
         {
             GUI.Label(new Rect(25, 25, 1000, 50),"current spawn timer = " + _currentSpawnTime);
+            GUI.Label(new Rect(25, 45, 1000, 50),"last cached num alive enemies" + _lastCachedEnemyCount);
+            GUI.Label(new Rect(25, 65, 1000, 50),"max allowed alive enemies " + maxAliveEnemies);
         }
     }
-
 
     private EnemySpawnerGroup FindBestSpawnGroup()
     {
@@ -143,4 +171,7 @@ public class EnemySpawnerController : MonoBehaviour
     private GameObject _player;
     private List<EnemySpawnerGroup> _spawnerGroups = new List<EnemySpawnerGroup>();
     private List<EnemySpawner> _spawners = new List<EnemySpawner>();
+
+    private int _lastCachedEnemyCount = 0;
+
 }

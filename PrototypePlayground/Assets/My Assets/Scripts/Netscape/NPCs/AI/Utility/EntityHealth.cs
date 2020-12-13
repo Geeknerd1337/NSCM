@@ -21,6 +21,8 @@ public class EntityHealth : MonoBehaviour
     private UnityEvent deathEvents;
     public List<MonoBehaviour> componentsToDisable;
 
+    public bool IsDead => dead;
+
     public float Health
     {
         get { return health; }
