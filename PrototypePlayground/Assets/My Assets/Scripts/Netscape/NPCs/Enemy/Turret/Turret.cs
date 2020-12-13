@@ -43,7 +43,9 @@ public class Turret : MonoBehaviour
     public float zspeed;
     public float recoil;
 
-    
+    private AudioSource sound;
+    public AudioClip[] talks;
+    public AudioClip[] fires;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +53,7 @@ public class Turret : MonoBehaviour
         player = FindObjectOfType<CyberSpaceFirstPerson>();
         origPostion = turretTransform.localPosition;
         //Baba
+        sound = GetComponent<AudioSource>();
     }
 
     public void Die()
@@ -73,6 +76,7 @@ public class Turret : MonoBehaviour
         {
             if (PlayerFound())
             {
+                PlayTalk();
                 aggro = true;
             }
         }
@@ -120,6 +124,7 @@ public class Turret : MonoBehaviour
             g.GetComponent<EntityProjectile>().creator = transform;
             ztar = recoil;
             fireTimer = 0;
+            PlayFire();
         }
     }
 
@@ -132,6 +137,7 @@ public class Turret : MonoBehaviour
             if (hit.collider.tag == "Player")
             {
                 return true;
+                
             }
             
         }
@@ -140,5 +146,19 @@ public class Turret : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void PlayTalk()
+    {
+        int i = Random.Range(0, talks.Length - 1);
+
+        sound.PlayOneShot(talks[i]);
+    }
+
+    public void PlayFire()
+    {
+        int i = Random.Range(0, fires.Length - 1);
+
+        sound.PlayOneShot(fires[i]);
     }
 }

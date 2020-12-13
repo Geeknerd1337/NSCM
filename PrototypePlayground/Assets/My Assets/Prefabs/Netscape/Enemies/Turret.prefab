@@ -9914,6 +9914,7 @@ GameObject:
   - component: {fileID: 1439106881935496534}
   - component: {fileID: 1439106881935264113}
   - component: {fileID: 1439106881935264115}
+  - component: {fileID: 881339116110628719}
   m_Layer: 13
   m_Name: Turret
   m_TagString: Untagged
@@ -9967,6 +9968,16 @@ MonoBehaviour:
   p: {fileID: 1194057393551465568}
   zspeed: 10
   recoil: 2
+  talks:
+  - {fileID: 8300000, guid: 479e9a989cdd9d846a319e94dfd72a66, type: 3}
+  - {fileID: 8300000, guid: 8ad2eba2d7a263b409b90a19444ebb44, type: 3}
+  - {fileID: 8300000, guid: 0589d700e94ff9343b7e8a165411369e, type: 3}
+  - {fileID: 8300000, guid: be82a4ecad2aaff47971c0ad2c211f33, type: 3}
+  fires:
+  - {fileID: 8300000, guid: 6c3143d23bb7bbb4fb1aa046e55e7871, type: 3}
+  - {fileID: 8300000, guid: aad747846ccb6d94a85407d7b8784986, type: 3}
+  - {fileID: 8300000, guid: 79e6b1c0fed729745ad229a110235fb4, type: 3}
+  - {fileID: 8300000, guid: 42c5dd18c70ba9d4ab2eba21b3130722, type: 3}
 --- !u!114 &1439106881935264115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9998,3 +10009,100 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   componentsToDisable: []
+--- !u!82 &881339116110628719
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439106881935264118}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 74.1
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
