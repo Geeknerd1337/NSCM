@@ -138,6 +138,7 @@ public class EnemySpawnerGroup : MonoBehaviour
                     _lightingFadeOutTimerCurrent = lightFadeOutTime;
                     _lightingFadeHoldTimerCurrent = lightFadeHoldTime;
                     _lightingFadeInTimerCurrent = lightFadeInTime;
+                    _lightingHasSpawned = false;
                     if (lightFadeOutSound != null)
                     {
                         _darkenStateAudioSource.PlayOneShot(lightFadeOutSound);
@@ -207,6 +208,7 @@ public class EnemySpawnerGroup : MonoBehaviour
                     }
                     break;
                 case DarkenDirectionalLightAndBurstSpawnState.FadeHold:
+ 
                     _lightingFadeHoldTimerCurrent -= Time.deltaTime;
                     if (_lightingFadeHoldTimerCurrent <= 0)
                     {
@@ -218,19 +220,19 @@ public class EnemySpawnerGroup : MonoBehaviour
                     }
                     break;
                 case DarkenDirectionalLightAndBurstSpawnState.FadingIn:
+                    if (!_lightingHasSpawned)
+                    {
+                        _lightingHasSpawned = true;
+                        ResetUnusedSpawners();
+                        foreach (var spawner in _unusedSpawners)
+                        {
+                            spawner.Spawn();
+                        }
+                    }
                     _lightingFadeInTimerCurrent -= Time.deltaTime;
                     _directionalLight.intensity =
                         Mathf.Lerp(_originalDirectionalLightIntensity, 0.0f, _lightingFadeInTimerCurrent / lightFadeInTime);
-                    int numUniqueSpawnsLeft = _unusedSpawners.Count;
-                    if (numUniqueSpawnsLeft > 0)
-                    {
-                        float interval = 1.0f / numUniqueSpawnsLeft;
-                        if (_lightingFadeInTimerCurrent / lightFadeInTime < interval)
-                        {
-                            var spawn = GetRandomSpawner();
-                            spawn.Spawn();
-                        }
-                    }
+   
                     if (_lightingFadeInTimerCurrent <= 0)
                     {
                         _darkenState = DarkenDirectionalLightAndBurstSpawnState.Done;
@@ -298,6 +300,7 @@ public class EnemySpawnerGroup : MonoBehaviour
     private float _lightingFadeOutTimerCurrent = 0.0f;
     private float _lightingFadeHoldTimerCurrent = 0.0f;
     private float _lightingFadeInTimerCurrent = 0.0f;
+    private bool _lightingHasSpawned = false;
     private AudioSource _darkenStateAudioSource = new AudioSource();
 
 }
