@@ -63,6 +63,8 @@ public class AIEntity : MonoBehaviour
     private bool aiActive;
     #endregion
 
+
+    
     private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();

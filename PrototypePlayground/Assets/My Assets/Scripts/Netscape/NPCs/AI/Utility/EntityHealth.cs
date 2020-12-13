@@ -22,7 +22,8 @@ public class EntityHealth : MonoBehaviour
     public List<MonoBehaviour> componentsToDisable;
 
     public bool IsDead => dead;
-
+    public GameObject thingtoDestroy;
+    public float deathTime = 20f;
     public float Health
     {
         get { return health; }
@@ -53,6 +54,23 @@ public class EntityHealth : MonoBehaviour
                 ActivateRagdoll();
                 deathEvents.Invoke();
             }
+        }
+
+
+        if (dead) {
+            deathTime -= Time.deltaTime;
+            if(deathTime <= 0)
+            {
+                if (thingtoDestroy != null)
+                {
+                    Destroy(thingtoDestroy);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
+            }
+                
         }
     }
 

@@ -13,6 +13,9 @@ public class TutorialEvent : MonoBehaviour
     private Material m;
     public GlitchControl gc;
     public int levelToLoad = 1;
+
+    public List<SpawnWave> waves;
+    private int waveIndex;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class TutorialEvent : MonoBehaviour
             float value = time / totalTime;
             value = Mathf.Floor(value * 20f) / 20f;
             m.SetFloat("_amt", 1 - value);
+            SpawnWaves();
             if(!ended && time <= 0)
             {
                 gc.StartCoroutine("TransitionToLevel", levelToLoad);
@@ -38,8 +42,42 @@ public class TutorialEvent : MonoBehaviour
         }
     }
 
+
+    void SpawnWaves()
+    {
+        if(waves.Count == 0)
+        {
+            return;
+        }
+        if(waveIndex >= waves.Count)
+        {
+            return;
+        }
+
+        SpawnWave wave = waves[waveIndex];
+        float value = time / totalTime;
+        value = 1 - value;
+
+        if (value > wave.whenToSpawn)
+        {
+            foreach(EnemySpawner e in wave.spawners)
+            {
+                e.Spawn();
+                
+            }
+            waveIndex++;
+        }
+    }
+
     public void StartThisThing()
     {
         started = true;
     }
+}
+
+[System.Serializable]
+public class SpawnWave
+{
+    public float whenToSpawn;
+    public EnemySpawner[] spawners;
 }
