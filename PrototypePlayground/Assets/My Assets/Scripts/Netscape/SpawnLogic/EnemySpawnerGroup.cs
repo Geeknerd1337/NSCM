@@ -5,7 +5,8 @@ using UnityEngine;
 public enum EnemySpawnerGroupEntranceEffect
 {
     None,
-    DarkenDirectionalLightAndBurstSpawn
+    DarkenDirectionalLightAndBurstSpawn,
+    BurstSpawn
 }
 
 public class EnemySpawnerGroup : MonoBehaviour
@@ -23,6 +24,12 @@ public class EnemySpawnerGroup : MonoBehaviour
     [SerializeField] private float lightFadeInTime = 5.0f;
     [SerializeField] private AudioClip lightFadeOutSound;
     [SerializeField] private AudioClip lightFadeInSound;
+
+    //BurstSpawn
+    [SerializeField] 
+    [Range(0.0f,1.0f)]
+    private float burstRatio = 1.0f;
+
 
     // public properties
     public int SpawnerCount => _spawners.Count;
@@ -127,6 +134,9 @@ public class EnemySpawnerGroup : MonoBehaviour
                         _darkenStateAudioSource.PlayOneShot(lightFadeOutSound);
                     }
                     break;
+                case EnemySpawnerGroupEntranceEffect.BurstSpawn:
+
+                    break;
                 case EnemySpawnerGroupEntranceEffect.None:
                 default:
                     break;
@@ -140,7 +150,6 @@ public class EnemySpawnerGroup : MonoBehaviour
 
     void Start()
     {
-        
         var playerTest = FindObjectOfType<CyberSpaceFirstPerson>();
         if (playerTest == null)
         {
@@ -215,12 +224,32 @@ public class EnemySpawnerGroup : MonoBehaviour
                     break;
             }
         };
-        if (!_hasCompletedPlayingSpawnEntranceEffect)
+        void HandleBurstSpawn()
+        {
+            
+            ResetUnusedSpawners();
+            int numToSpawn = (int)(_unusedSpawners.Count * burstRatio);
+            foreach (var spawner in _unusedSpawners)
+            {
+                spawner.Spawn();
+                numToSpawn--;
+                if (numToSpawn < 0)
+                {
+                    break;
+                }
+            }
+            _hasCompletedPlayingSpawnEntranceEffect = true;
+            IsRunningEntranceEffect = false;
+        };
+        if (IsRunningEntranceEffect && !_hasCompletedPlayingSpawnEntranceEffect)
         {
             switch (entranceEffect)
             {
                 case EnemySpawnerGroupEntranceEffect.DarkenDirectionalLightAndBurstSpawn:
                     HandleDarkenDirectionalLightAndBurstSpawn();
+                    break;
+                case EnemySpawnerGroupEntranceEffect.BurstSpawn:
+                    HandleBurstSpawn();
                     break;
                 case EnemySpawnerGroupEntranceEffect.None:
                 default:
@@ -252,4 +281,5 @@ public class EnemySpawnerGroup : MonoBehaviour
     private float _lightingFadeHoldTimerCurrent = 0.0f;
     private float _lightingFadeInTimerCurrent = 0.0f;
     private AudioSource _darkenStateAudioSource = new AudioSource();
+
 }
