@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2913875697935848693}
   - component: {fileID: 3381021042677134065}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 6272522790196622792}
   - component: {fileID: 6272522790196622794}
   - component: {fileID: 6272522790196622793}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 6272522791549051070}
   - component: {fileID: 6272522791549051064}
   - component: {fileID: 6272522791549051071}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9542,7 +9542,7 @@ GameObject:
   - component: {fileID: 6272522791596062922}
   - component: {fileID: 6272522791596062932}
   - component: {fileID: 6272522791596062923}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14240,7 +14240,7 @@ GameObject:
   - component: {fileID: 6272522791721812851}
   - component: {fileID: 6272522791722582867}
   - component: {fileID: 6272522791723712915}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14317,7 +14317,7 @@ GameObject:
   - component: {fileID: 6272522791721812853}
   - component: {fileID: 6272522791722582869}
   - component: {fileID: 6272522791723712917}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14395,7 +14395,7 @@ GameObject:
   - component: {fileID: 6272522790504930885}
   - component: {fileID: 6272522790504930884}
   - component: {fileID: 7193438214038856570}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Turret Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14454,6 +14454,7 @@ MonoBehaviour:
   life: 5
   onDestroyCreate: {fileID: 260160679745186965, guid: d54a8d9b78f4ba4428339aa738978ca5,
     type: 3}
+  creator: {fileID: 0}
 --- !u!54 &7193438214038856570
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14480,7 +14481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8364925479010624645}
   - component: {fileID: 6709409194962923585}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14620,6 +14621,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: FirstPerson
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 01e6e24c3f2c90e40a80d7102cf529e9, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 01e6e24c3f2c90e40a80d7102cf529e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -14706,6 +14711,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 01e6e24c3f2c90e40a80d7102cf529e9, type: 3}
       propertyPath: m_TagString
       value: FirstPerson
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 01e6e24c3f2c90e40a80d7102cf529e9, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 01e6e24c3f2c90e40a80d7102cf529e9, type: 3}
       propertyPath: m_LocalPosition.x
