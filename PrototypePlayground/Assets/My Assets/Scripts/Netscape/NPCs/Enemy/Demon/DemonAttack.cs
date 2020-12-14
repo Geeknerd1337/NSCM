@@ -12,10 +12,12 @@ public class DemonAttack : MonoBehaviour
     public Transform effectPoint;
     public float damage;
     private AIEntity ai;
+    public AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
         ai = GetComponent<AIEntity>();
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -27,6 +29,7 @@ public class DemonAttack : MonoBehaviour
     public void PlayParticle()
     {
         p.Play();
+        sound.Play();
     }
 
     public void Attack()
