@@ -50,6 +50,6 @@ public class TitleCard : MonoBehaviour
 
     public void Leave()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 }

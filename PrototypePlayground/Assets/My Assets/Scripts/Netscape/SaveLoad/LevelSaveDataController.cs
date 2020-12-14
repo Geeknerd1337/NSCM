@@ -20,10 +20,12 @@ public class LevelSaveDataController : MonoBehaviour
     {
         playerStats = FindObjectOfType<PlayerStats>();
         weaponManager = FindObjectOfType<WeaponManager>();
-        weaponManager.GunUI.gameObject.SetActive(true);
-        gunUI = weaponManager.GunUI;
-        weaponManager.GunUI.gameObject.SetActive(false);
-
+        if (weaponManager != null)
+        {
+            weaponManager.GunUI.gameObject.SetActive(true);
+            gunUI = weaponManager.GunUI;
+            weaponManager.GunUI.gameObject.SetActive(false);
+        }
 
         Debug.Log(gunUI + " " + weaponManager);
 
@@ -48,8 +50,10 @@ public class LevelSaveDataController : MonoBehaviour
                 }
             }
         }
-
-        Save();
+        if (weaponManager != null)
+        {
+            Save();
+        }
     }
 
   
