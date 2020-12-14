@@ -8,10 +8,11 @@ public class DogAttack : MonoBehaviour
     public ParticleSystem part;
     public float damage;
     public float blastRadius;
+    private AudioSource a;
     // Start is called before the first frame update
     void Start()
     {
-        
+        a = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class DogAttack : MonoBehaviour
     {
         AreaDamageEnemies(transform.position, blastRadius, damage);
         part.Play();
+        a.Play();
     }
 
     void AreaDamageEnemies(Vector3 location, float radius, float damage)

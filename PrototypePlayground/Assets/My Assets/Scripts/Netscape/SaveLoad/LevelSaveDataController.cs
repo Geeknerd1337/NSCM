@@ -33,6 +33,10 @@ public class LevelSaveDataController : MonoBehaviour
         if (SaveLoadGlobalManager.HasValidData)
         {
             // Do all data loading here
+            if(playerStats == null)
+            {
+                return;
+            }
             var data = SaveLoadGlobalManager.Data;
             playerStats.Health = data.health;
             playerStats.Shield = data.sheild;

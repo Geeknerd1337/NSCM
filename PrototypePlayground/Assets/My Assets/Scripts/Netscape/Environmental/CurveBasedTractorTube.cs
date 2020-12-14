@@ -14,6 +14,7 @@ public class CurveBasedTractorTube : MonoBehaviour
     [SerializeField]
     private float targetTime = 0;
     Vector3 targetPosition = Vector3.zero;
+    public AudioSource entrance;
     
 
     private void Start()
@@ -59,6 +60,7 @@ public class CurveBasedTractorTube : MonoBehaviour
                 targetPosition = p.path.GetPointAtTime(targetTime);
                 targetTime += 1 / followQuality;
                 loop.Play();
+                entrance.Play();
             }
             isTravelling = true;
             

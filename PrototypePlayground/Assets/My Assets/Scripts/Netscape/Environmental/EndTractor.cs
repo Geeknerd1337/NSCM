@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndTractor : MonoBehaviour
 {
     public AudioSource loop;
+    public AudioSource exit;
     public CurveBasedTractorTube myTube;
     public float speedCoefficient; 
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class EndTractor : MonoBehaviour
             myTube.player.leftOverVelocity = transform.forward * myTube.tractorSpeed * speedCoefficient;
             myTube.isTravelling = false;
             loop.Stop();
+            exit.Play();
             
         }
     }
