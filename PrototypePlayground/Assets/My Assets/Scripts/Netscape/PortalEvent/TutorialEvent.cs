@@ -38,7 +38,6 @@ public class TutorialEvent : MonoBehaviour
             float value = time / totalTime;
             value = Mathf.Floor(value * 20f) / 20f;
             m.SetFloat("_amt", 1 - value);
-            Debug.Log("HECK2");
             SpawnWaves();
             if(!ended && time <= 0)
             {
@@ -80,7 +79,7 @@ public class TutorialEvent : MonoBehaviour
         started = true;
         if (mm != null)
         {
-            Debug.Log("HECK");
+
             r.material = mm;
             r.materials[matIndex] = mm;
         }
