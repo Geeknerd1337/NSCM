@@ -6,7 +6,7 @@ using PathCreation;
 public class CurveBasedTractorTube : MonoBehaviour
 {
     public PathCreator p;
-
+    public AudioSource loop;
     public float tractorSpeed;
     public CyberSpaceFirstPerson player;
     public bool isTravelling;
@@ -58,6 +58,7 @@ public class CurveBasedTractorTube : MonoBehaviour
                 targetTime = p.path.GetClosestTimeOnPath(player.transform.position);
                 targetPosition = p.path.GetPointAtTime(targetTime);
                 targetTime += 1 / followQuality;
+                loop.Play();
             }
             isTravelling = true;
             

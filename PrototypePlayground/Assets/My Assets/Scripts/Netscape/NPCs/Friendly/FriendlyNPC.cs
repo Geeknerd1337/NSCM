@@ -74,6 +74,7 @@ public class FriendlyNPC : MonoBehaviour
     public GameObject UIElement;
     private Quaternion originalArmatureRotation;
     public Collider col;
+    private bool bb;
 
 
     // Start is called before the first frame update
@@ -145,6 +146,12 @@ public class FriendlyNPC : MonoBehaviour
         TravelPoints();
         FourthLine();
         UpdateObjects();
+
+        Debug.Log(dialogSource.clip + " " + clips[4] + " " + dialogSource.isPlaying);
+        if(bb && !dialogSource.isPlaying)
+        {
+            col.enabled = false;
+        }
     }
 
     void GoToCurrentTarget()
@@ -295,7 +302,8 @@ public class FriendlyNPC : MonoBehaviour
                         dialogSource.PlayOneShot(clips[4]);
                         gunEquip.Play();
                         setCheats = true;
-                        col.enabled = false;
+                        bb = true;
+                        
                     }
                 }
             }
