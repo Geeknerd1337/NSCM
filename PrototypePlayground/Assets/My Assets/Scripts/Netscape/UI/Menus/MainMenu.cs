@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log("HELLO");
         saveController.LaunchAutosaveLevel();
     }
 

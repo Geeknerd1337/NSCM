@@ -33,24 +33,25 @@ public class LevelSaveDataController : MonoBehaviour
         if (SaveLoadGlobalManager.HasValidData)
         {
             // Do all data loading here
-            if(playerStats == null)
+            if (playerStats != null)
             {
-                return;
-            }
-            var data = SaveLoadGlobalManager.Data;
-            playerStats.Health = data.health;
-            playerStats.Shield = data.sheild;
 
-            for (int i = 0; i < weaponManager.guns.Count; ++i)
-            {
-                if (data.weaponUnlocks[i] == true)
+
+                var data = SaveLoadGlobalManager.Data;
+                playerStats.Health = data.health;
+                playerStats.Shield = data.sheild;
+
+                for (int i = 0; i < weaponManager.guns.Count; ++i)
                 {
-                    weaponManager.UnlockWeapon(i);
-                }
-                var weapon = weaponManager.GetWeaponFromIndex(i);
-                if (weapon != null)
-                {
-                    weapon.ShotsLeft = data.weaponAmmoCounts[i];
+                    if (data.weaponUnlocks[i] == true)
+                    {
+                        weaponManager.UnlockWeapon(i);
+                    }
+                    var weapon = weaponManager.GetWeaponFromIndex(i);
+                    if (weapon != null)
+                    {
+                        weapon.ShotsLeft = data.weaponAmmoCounts[i];
+                    }
                 }
             }
         }
@@ -101,7 +102,6 @@ public class LevelSaveDataController : MonoBehaviour
             }
         }
         data.weaponAmmoCounts = ammos;
-
         SaveLoadGlobalManager.Save();
     }
 
@@ -118,6 +118,7 @@ public class LevelSaveDataController : MonoBehaviour
     {
         SaveLoadGlobalManager.Load();
         var data = SaveLoadGlobalManager.Data;
+        Debug.Log(data.health);
         SceneManager.LoadScene(data.level, LoadSceneMode.Single);
 
     }
