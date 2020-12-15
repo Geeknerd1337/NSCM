@@ -2057,7 +2057,8 @@ AudioSource:
   m_GameObject: {fileID: 155104140}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243017919813941538, guid: 8d343f6ee696c8341b42ade6852bccdc,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d9c5a5aab1b690446bb50fced0703f7f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
@@ -3752,11 +3753,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 775253093837157544, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 775253093837157545, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: myCanvas
@@ -3777,12 +3773,6 @@ PrefabInstance:
       propertyPath: fullyFilledImage
       value: 
       objectReference: {fileID: 669211928}
-    - target: {fileID: 775253092916798315, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
-        type: 2}
     - target: {fileID: 775253094003288958, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: myCanvas
@@ -3798,6 +3788,17 @@ PrefabInstance:
       propertyPath: grapplingRange
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 775253093837157544, guid: 288c54ceadbe30045b06942efa7c611b,
+        type: 3}
+      propertyPath: far clip plane
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 775253092916798315, guid: 288c54ceadbe30045b06942efa7c611b,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288c54ceadbe30045b06942efa7c611b, type: 3}
 --- !u!1001 &241472188
@@ -13173,11 +13174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 775253093837157544, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: far clip plane
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 775253093837157545, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: myCanvas
@@ -13198,12 +13194,6 @@ PrefabInstance:
       propertyPath: fullyFilledImage
       value: 
       objectReference: {fileID: 669211928}
-    - target: {fileID: 775253092916798315, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
-        type: 2}
     - target: {fileID: 775253094003288958, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: myCanvas
@@ -13219,6 +13209,17 @@ PrefabInstance:
       propertyPath: grapplingRange
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 775253093837157544, guid: 288c54ceadbe30045b06942efa7c611b,
+        type: 3}
+      propertyPath: far clip plane
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 775253092916798315, guid: 288c54ceadbe30045b06942efa7c611b,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288c54ceadbe30045b06942efa7c611b, type: 3}
 --- !u!4 &904819874 stripped
@@ -15899,6 +15900,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonitorV2
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 1b4ac4e2304f32b47a91c24663cfeda0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: cbc238488e22aee49bd2d390155aafcb, type: 2}
+    - target: {fileID: 2300000, guid: 1b4ac4e2304f32b47a91c24663cfeda0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 620d53d6c4e8cd74c85be5e87a28046d, type: 2}
     - target: {fileID: 400000, guid: 1b4ac4e2304f32b47a91c24663cfeda0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -615.3424
@@ -15955,14 +15964,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 350.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 1b4ac4e2304f32b47a91c24663cfeda0, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: cbc238488e22aee49bd2d390155aafcb, type: 2}
-    - target: {fileID: 2300000, guid: 1b4ac4e2304f32b47a91c24663cfeda0, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 620d53d6c4e8cd74c85be5e87a28046d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b4ac4e2304f32b47a91c24663cfeda0, type: 3}
 --- !u!4 &1059087026 stripped
@@ -20330,7 +20331,8 @@ AudioSource:
   m_GameObject: {fileID: 1309799803}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243662978267477188, guid: 8d343f6ee696c8341b42ade6852bccdc,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 206287c681ca7bf40b101bcf3ed28c9a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -24868,6 +24870,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -8.45
       objectReference: {fileID: 0}
+    - target: {fileID: 8253769433119660447, guid: b8031a9d44d3e3e4ca7784a91263275b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.29
+      objectReference: {fileID: 0}
     - target: {fileID: 8253769433500414817, guid: b8031a9d44d3e3e4ca7784a91263275b,
         type: 3}
       propertyPath: m_Parameters.colorGradient.key0.r
@@ -24927,11 +24934,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8253769433119660447, guid: b8031a9d44d3e3e4ca7784a91263275b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -6.29
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8031a9d44d3e3e4ca7784a91263275b, type: 3}
@@ -31595,7 +31597,8 @@ AudioSource:
   m_GameObject: {fileID: 1982800145}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243662978267477188, guid: 8d343f6ee696c8341b42ade6852bccdc,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: c58413056455a0d4794a798514c04e3e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

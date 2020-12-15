@@ -1076,6 +1076,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3782426551041974227, guid: 84ebfddd4982d4e4e918e3437c214c53,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243017919813941538, guid: 8d343f6ee696c8341b42ade6852bccdc,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84ebfddd4982d4e4e918e3437c214c53, type: 3}
 --- !u!1001 &232768105
@@ -1269,7 +1275,7 @@ AudioSource:
   m_GameObject: {fileID: 244635441}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
+  OutputAudioMixerGroup: {fileID: 243017919813941538, guid: 8d343f6ee696c8341b42ade6852bccdc,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 2595dab8830edca4abf3e07712bb6ba3, type: 3}
   m_PlayOnAwake: 0
@@ -2793,7 +2799,7 @@ AudioSource:
   m_GameObject: {fileID: 774986074}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
+  OutputAudioMixerGroup: {fileID: 243017919813941538, guid: 8d343f6ee696c8341b42ade6852bccdc,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c9d0327690eed1c4483ca7c824120df7, type: 3}
   m_PlayOnAwake: 0
@@ -4595,7 +4601,7 @@ AudioSource:
   m_GameObject: {fileID: 1769682213}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 8d343f6ee696c8341b42ade6852bccdc,
+  OutputAudioMixerGroup: {fileID: 243017919813941538, guid: 8d343f6ee696c8341b42ade6852bccdc,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 081e0b5efc3127842b776de3ef849481, type: 3}
   m_PlayOnAwake: 0
@@ -5778,7 +5784,7 @@ PrefabInstance:
     - target: {fileID: 2736317066504167447, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066504167447, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -5798,7 +5804,7 @@ PrefabInstance:
     - target: {fileID: 2736317066665241247, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066665241247, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -5818,7 +5824,7 @@ PrefabInstance:
     - target: {fileID: 2736317065145717705, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 230
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736317065145717705, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
@@ -5838,7 +5844,7 @@ PrefabInstance:
     - target: {fileID: 2736317066582223295, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 340
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2736317066582223295, guid: 49a80d3b488d91140a5217bee65c38b2,
         type: 3}

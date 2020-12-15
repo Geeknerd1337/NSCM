@@ -80,6 +80,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool smoothAimTrans;
     [SerializeField] private float zoomSpeed;
     [SerializeField] private Vector2 minMaxFOV;
+    private MenuPause settings;
 
 
     // Start is called before the first frame update
@@ -103,8 +104,13 @@ public class Weapon : MonoBehaviour
         playerStats = GetComponentInParent<PlayerStats>();
         //Plays the draw animation on start
         weaponAnimator.Play(weaponObject.drawAnimation);
+        //This is so we can use the FOV slider
+        //This goes in awake since the settings menu is usually deactivated
+        settings = FindObjectOfType<MenuPause>();
+
 
     }
+
 
     // Update is called once per frame
     void Update()
@@ -349,7 +355,7 @@ public class Weapon : MonoBehaviour
     {
         if (zoomOnAim)
         {
-            float val = minMaxFOV.x;
+            float val = minMaxFOV.x + settings.FOV;
             if (weaponAnimator.GetBool("isAiming"))
             {
                 val = minMaxFOV.y;
@@ -368,8 +374,8 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            weaponCam.fieldOfView = minMaxFOV.x;
-            playerCam.fieldOfView = minMaxFOV.x;
+            weaponCam.fieldOfView = minMaxFOV.x + settings.FOV;
+            playerCam.fieldOfView = minMaxFOV.x + settings.FOV;
         }
     }
 

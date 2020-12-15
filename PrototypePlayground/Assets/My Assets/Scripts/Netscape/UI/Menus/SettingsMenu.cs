@@ -9,6 +9,17 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer mixer;
     public Resolution[] resolutions;
     public Dropdown resDropDown;
+    public Slider sfxSlider;
+    public Slider musicSlider;
+    public Text fovText;
+    private float fov;
+    public float FOV
+    {
+        get
+        {
+            return fov;
+        }
+    }
     private void Start()
     {
 
@@ -31,12 +42,30 @@ public class SettingsMenu : MonoBehaviour
         resDropDown.AddOptions(options);
         resDropDown.value = currResolutionIndex;
         resDropDown.RefreshShownValue();
+        float value;
+        bool result = mixer.GetFloat("SFXvolume", out value);
+        if (result)
+        {
+            sfxSlider.value = value;
+        }
+        result = mixer.GetFloat("MusicVolume", out value);
+        if (result)
+        {
+            musicSlider.value = value;
+        }
+
+        fovText.text = "60";
     }
 
 
     public void SetVolume(float f)
     {
-        mixer.SetFloat("volume", f);
+        mixer.SetFloat("SFXvolume", f);
+    }
+
+    public void SetMusicVolume(float f)
+    {
+        mixer.SetFloat("MusicVolume", f);
     }
 
     public void SetQuality(int i)
@@ -53,5 +82,11 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution r = resolutions[i];
         Screen.SetResolution(r.width, r.height, Screen.fullScreen);
+    }
+
+    public void SetFOV(float f)
+    {
+        fov = Mathf.Round(f);
+        fovText.text = (60f + Mathf.Round(f)).ToString();
     }
 }

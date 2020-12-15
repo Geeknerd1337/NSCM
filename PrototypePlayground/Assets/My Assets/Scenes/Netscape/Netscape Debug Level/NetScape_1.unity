@@ -375,12 +375,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1797540745}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &84714496 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 2736317065964171535, guid: 49a80d3b488d91140a5217bee65c38b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2736317065881097487}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &102361189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3803,12 +3797,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5301264849773491414, guid: 7f72e80333ddcc449b8c220a28737563,
     type: 3}
   m_PrefabInstance: {fileID: 5301264850852744565}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1125250055 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 2736317067006271752, guid: 49a80d3b488d91140a5217bee65c38b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2736317065881097487}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1175307083
 PrefabInstance:
@@ -7588,21 +7576,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 775253093837157545, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: myCanvas
-      value: 
-      objectReference: {fileID: 84714496}
-    - target: {fileID: 775253094003288958, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: myCanvas
-      value: 
-      objectReference: {fileID: 84714496}
-    - target: {fileID: 775253094003288958, guid: 288c54ceadbe30045b06942efa7c611b,
-        type: 3}
-      propertyPath: myElement
-      value: 
-      objectReference: {fileID: 1125250055}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288c54ceadbe30045b06942efa7c611b, type: 3}
 --- !u!1001 &789279104043971078

@@ -8,6 +8,24 @@ public class MenuPause : MonoBehaviour
 {
     public static bool GamePaused = false;
     public GameObject pauseMenuUI;
+    [SerializeField]
+    private SettingsMenu settings;
+    private float fov;
+    public float FOV
+    {
+        get
+        {
+            return fov;
+        }
+    }
+    private void Start()
+    {
+        if (settings != null)
+        {
+            fov = settings.FOV;
+        }
+
+    }
 
     private void Update()
     {
@@ -53,6 +71,14 @@ public class MenuPause : MonoBehaviour
     {
         Resume();
         SceneManager.LoadScene(0);
+    }
+
+    public void UpdateFOV()
+    {
+        if (settings != null)
+        {
+            fov = settings.FOV;
+        }
     }
 
 }
