@@ -54,7 +54,7 @@ public static class SaveLoadGlobalManager
 
     public static void Load()
     {
-        Load(Filename);
+        Load(SavePath + "/" + Filename);
     }
 
     public static void Load(string filename)
