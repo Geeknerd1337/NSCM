@@ -374,8 +374,9 @@ public class Weapon : MonoBehaviour
         }
         else
         {
-            weaponCam.fieldOfView = minMaxFOV.x + settings.FOV;
-            playerCam.fieldOfView = minMaxFOV.x + settings.FOV;
+            
+            weaponCam.fieldOfView = minMaxFOV.x + SaveLoadSettingManager.FOV;
+            playerCam.fieldOfView = minMaxFOV.x + SaveLoadSettingManager.FOV;
         }
     }
 
