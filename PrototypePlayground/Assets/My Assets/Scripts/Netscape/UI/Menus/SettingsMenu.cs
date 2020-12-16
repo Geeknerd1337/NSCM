@@ -120,7 +120,8 @@ public class SettingsMenu : MonoBehaviour
         SettingsSaveLoadData data = new SettingsSaveLoadData();
         data.fov = fov;
         data.graphicsSelection = QualitySettings.GetQualityLevel();
-        data.resolutionSelection = resolutions[resDropDown.value];
+        data.resWidth = resolutions[resDropDown.value].width;
+        data.resHeight = resolutions[resDropDown.value].height;
         data.resolutionSelectionIndex = resDropDown.value;
         data.fullscreen = Screen.fullScreen;
         data.musicVolume = musicSlider.value;

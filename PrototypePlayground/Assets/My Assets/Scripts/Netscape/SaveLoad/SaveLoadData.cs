@@ -25,10 +25,11 @@ public class SettingsSaveLoadData
     public float fov;
     public float musicVolume;
     public float sfxVolume;
-    public Resolution resolutionSelection;
     public int resolutionSelectionIndex;
     public bool fullscreen;
     public int graphicsSelection;
+    public int resWidth;
+    public int resHeight;
 }
 
 // use this static interface from anywhere to set the current data as well saving it and loading it from file

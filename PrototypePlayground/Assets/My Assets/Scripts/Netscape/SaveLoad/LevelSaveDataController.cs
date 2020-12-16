@@ -152,7 +152,8 @@ public class LevelSaveDataController : MonoBehaviour
         var data = SaveLoadSettingManager.Data;
         data.fov = externalData.fov;
         Debug.Log(data.fov + "boppo" + externalData.fov);
-        data.resolutionSelection = externalData.resolutionSelection;
+        data.resWidth = externalData.resWidth;
+        data.resHeight = externalData.resHeight;
         data.resolutionSelectionIndex = externalData.resolutionSelectionIndex;
         data.musicVolume = externalData.musicVolume;
         data.sfxVolume = externalData.sfxVolume;
@@ -167,7 +168,7 @@ public class LevelSaveDataController : MonoBehaviour
         if (SaveLoadSettingManager.HasValidData)
         {
             var data = SaveLoadSettingManager.Data;
-            Screen.SetResolution(data.resolutionSelection.width, data.resolutionSelection.height, Screen.fullScreen);
+            Screen.SetResolution(data.resWidth, data.resHeight, Screen.fullScreen);
             
             mixer.SetFloat("SFXvolume", data.sfxVolume);
 

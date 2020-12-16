@@ -40158,6 +40158,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 6ca663fc52b62ba4d86e86eb226e080f, type: 2}
+    - target: {fileID: 9500000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -40174,6 +40178,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 3ca584dc9a6968a46807461730913960, type: 2}
+    - target: {fileID: 13700002, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 100168, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
       value: 9
