@@ -9,6 +9,19 @@ public class LevelSaveDataController : MonoBehaviour
     private PlayerStats playerStats;
     private WeaponManager weaponManager;
     private GunSelectionUI gunUI;
+    private float fov;
+    public float FOV
+    {
+        get
+        {
+            return fov;
+        }
+
+        set
+        {
+            fov = value;
+        }
+    }
 
     private void Awake()
     {

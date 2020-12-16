@@ -80,7 +80,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool smoothAimTrans;
     [SerializeField] private float zoomSpeed;
     [SerializeField] private Vector2 minMaxFOV;
-    private MenuPause settings;
+    private LevelSaveDataController settings;
 
 
     // Start is called before the first frame update
@@ -106,7 +106,7 @@ public class Weapon : MonoBehaviour
         weaponAnimator.Play(weaponObject.drawAnimation);
         //This is so we can use the FOV slider
         //This goes in awake since the settings menu is usually deactivated
-        settings = FindObjectOfType<MenuPause>();
+        settings = FindObjectOfType<LevelSaveDataController>();
 
 
     }

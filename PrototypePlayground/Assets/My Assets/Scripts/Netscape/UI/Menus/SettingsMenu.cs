@@ -13,6 +13,7 @@ public class SettingsMenu : MonoBehaviour
     public Slider musicSlider;
     public Text fovText;
     private float fov;
+
     public float FOV
     {
         get
@@ -20,6 +21,7 @@ public class SettingsMenu : MonoBehaviour
             return fov;
         }
     }
+    private LevelSaveDataController dataController;
     private void Start()
     {
 
@@ -55,6 +57,7 @@ public class SettingsMenu : MonoBehaviour
         }
 
         fovText.text = "60";
+        dataController = FindObjectOfType<LevelSaveDataController>();
     }
 
 
@@ -88,5 +91,6 @@ public class SettingsMenu : MonoBehaviour
     {
         fov = Mathf.Round(f);
         fovText.text = (60f + Mathf.Round(f)).ToString();
+        dataController.FOV = fov;
     }
 }
