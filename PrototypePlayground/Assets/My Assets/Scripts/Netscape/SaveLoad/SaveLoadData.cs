@@ -19,6 +19,18 @@ public class SaveLoadData
     // etc etc
 }
 
+[Serializable]
+public class SettingsSaveLoadData
+{
+    public float fov;
+    public float musicVolume;
+    public float sfxVolume;
+    public Resolution resolutionSelection;
+    public int resolutionSelectionIndex;
+    public bool fullscreen;
+    public int graphicsSelection;
+}
+
 // use this static interface from anywhere to set the current data as well saving it and loading it from file
 public static class SaveLoadGlobalManager
 {
@@ -73,4 +85,59 @@ public static class SaveLoadGlobalManager
     }
 
     private static SaveLoadData _data;
+}
+
+public static class SaveLoadSettingManager
+{
+    public static SettingsSaveLoadData Data => _settingData;
+    public const string Filename = "settings.json";
+    public const string SavePath = "Settings";
+    public static bool HasValidData { get; private set; } = false;
+    public static float FOV;
+
+    static SaveLoadSettingManager()
+    {
+        _settingData = new SettingsSaveLoadData();
+    }
+
+    public static void Save()
+    {
+        Save(_settingData, Filename);
+    }
+
+    public static void Save(SettingsSaveLoadData data, string filename)
+    {
+        if (!Directory.Exists(SavePath))
+        {
+            Directory.CreateDirectory(SavePath);
+        }
+        var stringData = JsonUtility.ToJson(data);
+        string path = SavePath + "/" + filename;
+        StreamWriter writer = new StreamWriter(path, false);
+        writer.Write(stringData);
+        writer.Close();
+        HasValidData = true;
+    }
+
+    public static void Load()
+    {
+        Load(SavePath + "/" + Filename);
+    }
+
+    public static void Load(string filename)
+    {
+        if (File.Exists(filename))
+        {
+            StreamReader reader = new StreamReader(filename);
+            string jsonData = reader.ReadToEnd();
+            reader.Close();
+            SettingsSaveLoadData data = JsonUtility.FromJson<SettingsSaveLoadData>(jsonData);
+            _settingData = data;
+            HasValidData = true;
+        }
+        // since this is not a monobehavior we can't look up components. All this load does is makes sure 
+        // the autosave is loaded. The data is used to initalize various things inside LevelSaveDataController
+    }
+
+    private static SettingsSaveLoadData _settingData;
 }

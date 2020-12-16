@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class LevelSaveDataController : MonoBehaviour
 {
@@ -23,14 +24,16 @@ public class LevelSaveDataController : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        
-
-    }
+    [SerializeField]
+    private AudioMixer mixer;
 
     void Start()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            SetSettings();
+        }
+
         playerStats = FindObjectOfType<PlayerStats>();
         weaponManager = FindObjectOfType<WeaponManager>();
         if (weaponManager != null)
@@ -72,6 +75,8 @@ public class LevelSaveDataController : MonoBehaviour
         {
             Save();
         }
+
+
     }
 
   
@@ -140,5 +145,37 @@ public class LevelSaveDataController : MonoBehaviour
     {
         Resources.UnloadUnusedAssets();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+    public void SaveSettings(SettingsSaveLoadData externalData)
+    {
+        var data = SaveLoadSettingManager.Data;
+        data.fov = externalData.fov;
+        Debug.Log(data.fov + "boppo" + externalData.fov);
+        data.resolutionSelection = externalData.resolutionSelection;
+        data.resolutionSelectionIndex = externalData.resolutionSelectionIndex;
+        data.musicVolume = externalData.musicVolume;
+        data.sfxVolume = externalData.sfxVolume;
+        data.graphicsSelection = externalData.graphicsSelection;
+        data.fullscreen = externalData.fullscreen;
+        SaveLoadSettingManager.Save();
+    }
+
+    public void SetSettings()
+    {
+        SaveLoadSettingManager.Load();
+        if (SaveLoadSettingManager.HasValidData)
+        {
+            var data = SaveLoadSettingManager.Data;
+            Screen.SetResolution(data.resolutionSelection.width, data.resolutionSelection.height, Screen.fullScreen);
+            
+            mixer.SetFloat("SFXvolume", data.sfxVolume);
+
+            mixer.SetFloat("MusicVolume", data.musicVolume);
+            Screen.fullScreen = data.fullscreen;
+            QualitySettings.SetQualityLevel(data.graphicsSelection);
+            SaveLoadSettingManager.FOV = data.fov;
+
+        }
     }
 }

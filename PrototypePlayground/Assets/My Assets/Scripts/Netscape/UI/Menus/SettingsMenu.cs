@@ -9,8 +9,11 @@ public class SettingsMenu : MonoBehaviour
     public AudioMixer mixer;
     public Resolution[] resolutions;
     public Dropdown resDropDown;
+    public Dropdown graphicsDropdown;
+    public Toggle fullscreenToggle;
     public Slider sfxSlider;
     public Slider musicSlider;
+    public Slider fovSlider;
     public Text fovText;
     private float fov;
 
@@ -58,6 +61,7 @@ public class SettingsMenu : MonoBehaviour
 
         fovText.text = "60";
         dataController = FindObjectOfType<LevelSaveDataController>();
+        SetSettings();
     }
 
 
@@ -91,6 +95,37 @@ public class SettingsMenu : MonoBehaviour
     {
         fov = Mathf.Round(f);
         fovText.text = (60f + Mathf.Round(f)).ToString();
-        dataController.FOV = fov;
+        SaveLoadSettingManager.FOV = fov;
+    }
+    public void SetSettings()
+    {
+        SaveLoadSettingManager.Load();
+        if (SaveLoadSettingManager.HasValidData)
+        {
+            var data = SaveLoadSettingManager.Data;
+            fovSlider.value = data.fov;
+            musicSlider.value = data.musicVolume;
+            sfxSlider.value = data.sfxVolume;
+            resDropDown.value = data.resolutionSelectionIndex;
+            graphicsDropdown.value = data.graphicsSelection;
+            fullscreenToggle.isOn = data.fullscreen;
+            
+
+        }
+    }
+
+    public void SaveSettings()
+    {
+        //LevelSaveDataController saveController = FindObjectOfType<LevelSaveDataController>();
+        SettingsSaveLoadData data = new SettingsSaveLoadData();
+        data.fov = fov;
+        data.graphicsSelection = QualitySettings.GetQualityLevel();
+        data.resolutionSelection = resolutions[resDropDown.value];
+        data.resolutionSelectionIndex = resDropDown.value;
+        data.fullscreen = Screen.fullScreen;
+        data.musicVolume = musicSlider.value;
+        data.sfxVolume = sfxSlider.value;
+
+        dataController.SaveSettings(data);
     }
 }
