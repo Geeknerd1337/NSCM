@@ -65,6 +65,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private float doubleJumpDelay;
     [SerializeField] private float doubleJumpTimer;
     private bool m_doublejumping;
+    [SerializeField]
+    private AudioClip doubleJumpClip;
 
     [Header("Grappling Hook")]
     [SerializeField] private Vector3 grapplePosition;
@@ -94,6 +96,10 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private float universalDecayAmt;
     [SerializeField] private bool waitForCarryVelocityBeforeMove;
 
+
+    [Header("Misc")]
+    [SerializeField] private FallManager fallM;
+
     // Use this for initialization
     private void Start()
     {
@@ -111,6 +117,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         grappling = false;
         grappleSpeed = initialGrappleSpeed;
         grappleAddSpeed = Vector3.zero;
+        fallM = GetComponent<FallManager>();
     }
 
 
@@ -166,6 +173,10 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         m_AudioSource.clip = m_LandSound;
         m_AudioSource.Play();
         m_NextStep = m_StepCycle + .5f;
+        if(fallM != null)
+        {
+            fallM.originalPosition = transform.position;
+        }
     }
 
 
@@ -226,6 +237,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
                 m_doublejump = false;
                 rollEffects.vectorAdditions.x += 15f;
                 m_doublejumping = true;
+                PlayDoubleJumpSound();
             }
             //Add gravity while in the air, but not when grappling
             if (!grappling && AddDirVector == Vector3.zero)
@@ -368,6 +380,11 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         // move picked sound to index 0 so it's not picked next time
         m_FootstepSounds[n] = m_FootstepSounds[0];
         m_FootstepSounds[0] = m_AudioSource.clip;
+    }
+
+    private void PlayDoubleJumpSound()
+    {
+        m_AudioSource.PlayOneShot(doubleJumpClip);
     }
 
 
