@@ -175,7 +175,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         m_NextStep = m_StepCycle + .5f;
         if(fallM != null)
         {
-            fallM.originalPosition = transform.position;
+            //fallM.originalPosition = transform.position;
         }
     }
 

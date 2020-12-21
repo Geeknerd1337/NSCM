@@ -14908,6 +14908,7 @@ MonoBehaviour:
   airDrag: 5
   universalDecayAmt: 0
   waitForCarryVelocityBeforeMove: 1
+  fallM: {fileID: 0}
 --- !u!54 &775253093206177908
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24866,6 +24867,7 @@ MonoBehaviour:
   iconMoveSpeed: 20000
   rotationSpeed: 100
   sound: {fileID: 0}
+  lookTolerance: 3
 --- !u!114 &775253094407720372
 MonoBehaviour:
   m_ObjectHideFlags: 0

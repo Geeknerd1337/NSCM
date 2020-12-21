@@ -33,6 +33,9 @@ public class GrapplingHand : MonoBehaviour
 
     public AudioSource sound;
 
+    [SerializeField]
+    private float lookTolerance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +61,7 @@ public class GrapplingHand : MonoBehaviour
     {
         RaycastHit hit;
         myElement.gameObject.SetActive(false);
-        if (Physics.SphereCast(playerCam.transform.position, 2f, playerCam.transform.forward, out hit, grapplingRange, rayCastLayerMask))
+        if (Physics.SphereCast(playerCam.transform.position, lookTolerance, playerCam.transform.forward, out hit, grapplingRange, rayCastLayerMask))
         {
             if (hit.transform.tag == "Grapple" && !charController.IsGrappling)
             {
@@ -71,7 +74,7 @@ public class GrapplingHand : MonoBehaviour
     Vector3 GetGrapplePosition()
     {
         RaycastHit hit;
-        if (Physics.SphereCast(playerCam.transform.position, 2f, playerCam.transform.forward, out hit, grapplingRange, rayCastLayerMask))
+        if (Physics.SphereCast(playerCam.transform.position, lookTolerance, playerCam.transform.forward, out hit, grapplingRange, rayCastLayerMask))
         {
             if (hit.transform != null && hit.transform.tag == "Grapple")
             {
