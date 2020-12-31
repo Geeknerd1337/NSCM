@@ -88,7 +88,6 @@ public class VirusCannon : AIWeapon
     {
 
         
-        Debug.Log(fireTimer);
         while(fireTimer < fireTime)
         {
             fireTimer += Time.deltaTime;

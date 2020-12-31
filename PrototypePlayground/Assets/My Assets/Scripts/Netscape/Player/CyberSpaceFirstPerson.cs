@@ -84,6 +84,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private float grappleGravityModifier;
     [SerializeField] private float grappleCutDistance;
     [SerializeField] private float grappleCameraInfluence;
+    [SerializeField] private float grappleEndForce;
     private Vector3 inheritedPlayerVelocity;
     private Vector3 grappleAddSpeed;
 
@@ -275,6 +276,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             if (Vector3.Distance(transform.position, grapplePosition) < grappleCutDistance)
             {
                 ResetGrapple();
+                leftOverVelocity += m_Camera.transform.forward * grappleEndForce;
 
             }
 
@@ -329,6 +331,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         grappleAddSpeed = Vector3.zero;
         leftOverVelocity.x = m_MoveDir.x;
         leftOverVelocity.z = m_MoveDir.z;
+        Debug.Log(leftOverVelocity);
         can_doublejump = true;
         //leftOverVelocity.y = m_MoveDir.y;
 

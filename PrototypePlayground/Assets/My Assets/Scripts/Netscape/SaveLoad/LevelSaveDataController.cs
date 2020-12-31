@@ -43,7 +43,7 @@ public class LevelSaveDataController : MonoBehaviour
             weaponManager.GunUI.gameObject.SetActive(false);
         }
 
-        Debug.Log(gunUI + " " + weaponManager);
+
 
         SaveLoadGlobalManager.Load();
         if (SaveLoadGlobalManager.HasValidData)

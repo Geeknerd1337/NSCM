@@ -26,10 +26,14 @@ public class HeadMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RotateHead();
+        
         offset = Mathf.Lerp(offset, 0, offsetSpeed * Time.deltaTime);
     }
 
+    private void LateUpdate()
+    {
+        RotateHead();
+    }
     void RotateHead()
     {
 
@@ -59,7 +63,8 @@ public class HeadMovement : MonoBehaviour
 
     public void HitMe()
     {
-        offset = 45f;
+        offset = 90f;
+        Debug.Log("HECK");
     }
 
     public void Die()

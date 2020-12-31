@@ -355,7 +355,7 @@ public class Weapon : MonoBehaviour
     {
         if (zoomOnAim)
         {
-            float val = minMaxFOV.x + settings.FOV;
+            float val = minMaxFOV.x + SaveLoadSettingManager.FOV;
             if (weaponAnimator.GetBool("isAiming"))
             {
                 val = minMaxFOV.y;
@@ -363,8 +363,10 @@ public class Weapon : MonoBehaviour
             if (smoothAimTrans)
             {
 
-                weaponCam.fieldOfView = Mathf.MoveTowards(weaponCam.fieldOfView, val, zoomSpeed * Time.deltaTime);
-                playerCam.fieldOfView = Mathf.MoveTowards(weaponCam.fieldOfView, val, zoomSpeed * Time.deltaTime);
+                playerCam.fieldOfView = Mathf.MoveTowards(playerCam.fieldOfView, val, zoomSpeed * Time.deltaTime);
+
+                
+
             }
             else
             {
@@ -375,8 +377,9 @@ public class Weapon : MonoBehaviour
         else
         {
             
-            weaponCam.fieldOfView = minMaxFOV.x + SaveLoadSettingManager.FOV;
+            weaponCam.fieldOfView = minMaxFOV.x;
             playerCam.fieldOfView = minMaxFOV.x + SaveLoadSettingManager.FOV;
+            
         }
     }
 
