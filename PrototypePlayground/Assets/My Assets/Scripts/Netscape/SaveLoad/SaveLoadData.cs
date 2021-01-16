@@ -94,6 +94,8 @@ public static class SaveLoadSettingManager
     public const string Filename = "settings.json";
     public const string SavePath = "Settings";
     public static bool HasValidData { get; private set; } = false;
+
+    //User settings that need to updated in scene, using this singleton to manage them
     public static float FOV;
 
     static SaveLoadSettingManager()

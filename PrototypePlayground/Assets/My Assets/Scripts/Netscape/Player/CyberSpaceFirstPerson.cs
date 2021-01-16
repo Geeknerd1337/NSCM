@@ -331,7 +331,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         grappleAddSpeed = Vector3.zero;
         leftOverVelocity.x = m_MoveDir.x;
         leftOverVelocity.z = m_MoveDir.z;
-        Debug.Log(leftOverVelocity);
+
         can_doublejump = true;
         //leftOverVelocity.y = m_MoveDir.y;
 

@@ -35,6 +35,12 @@ public class HackController : MonoBehaviour
     private Image fullyFilledImage;
     [SerializeField]
     private float filledAlphaSpeed;
+    [SerializeField]
+    private AudioSource riseSound;
+    [SerializeField]
+    private AudioSource successSound;
+    [SerializeField]
+    private AnimationCurve pitchCurve;
     
     #endregion
 
@@ -68,6 +74,15 @@ public class HackController : MonoBehaviour
             if (hackTimer < hackTime)
             {
                 hackTimer += Time.deltaTime * currentHackable.hackTimeMod;
+
+                if (riseSound.isPlaying)
+                {
+                    riseSound.pitch = Mathf.Lerp(0.8f, 1.1f, pitchCurve.Evaluate(hackTimer / hackTime));
+                }
+            }
+            if (!riseSound.isPlaying)
+            {
+                riseSound.Play();
             }
         }
         else
@@ -76,6 +91,7 @@ public class HackController : MonoBehaviour
             {
                 hackTimer -= Time.deltaTime * 2f;
             }
+            riseSound.Stop();
         }
 
         if(hackTimer > hackTime)
@@ -84,7 +100,9 @@ public class HackController : MonoBehaviour
             c.a = 1;
             fullyFilledImage.color = c;
             currentHackable.Interact();
+            successSound.Play();
             hackTimer = 0;
+            riseSound.Stop();
             
         }
 
@@ -105,13 +123,13 @@ public class HackController : MonoBehaviour
                 {
                     Hackable myHackable = null;
                     myHackable = hit.transform.GetComponent<Hackable>();
-                    if (myHackable != null)
+                    if (myHackable != null && myHackable.canUse)
                     {
                         worldTarget = hit.transform;
                         currentHackable = myHackable;
                         myElement.gameObject.SetActive(true);
-                        Debug.Log("Ray Hit: " + rayHit.distance + " Name: " + rayHit.transform.name);
-                        Debug.Log("Hit Distance: " + hit.distance + "Name: " + rayHit.transform.name);
+                        //Debug.Log("Ray Hit: " + rayHit.distance + " Name: " + rayHit.transform.name);
+                        //Debug.Log("Hit Distance: " + hit.distance + "Name: " + rayHit.transform.name);
                     }
 
                 }

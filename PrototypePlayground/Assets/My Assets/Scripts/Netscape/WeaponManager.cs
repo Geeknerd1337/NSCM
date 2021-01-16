@@ -14,6 +14,14 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     private GunSelectionUI gunUI;
 
+    [SerializeField]
+    private AudioSource sounds;
+
+    [SerializeField]
+    private AudioClip hoverSound;
+    [SerializeField]
+    private AudioClip selectSound;
+
     
     public GunSelectionUI GunUI
     {
@@ -45,6 +53,52 @@ public class WeaponManager : MonoBehaviour
     void Update()
     {
         ScrollWeapon();
+        NumberWeapon();
+    }
+
+    void NumberWeapon()
+    {
+        for(int i = 1; i < gunUI.weaponCategories.Count + 1; i++)
+        {
+            if(Input.GetKeyDown("" + i))
+            {
+                if (!gunUI.gameObject.activeSelf)
+                {
+                    gunUI.gameObject.SetActive(true);
+                    Debug.Log(i);
+                    //gunIndex = gunUI.weaponCategories[i - 1].GetWeaponSlot(i - 1);
+                    int slot = gunUI.GetSlotFromCategory(i - 1);
+                    if (slot != -1)
+                    {
+                        gunIndex = slot;
+                        PlayHoverSound();
+                    }
+                    else
+                    {
+                        gunUI.gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    
+                    gunUI.weaponCategories[i - 1].Increment();
+                    int slot = gunUI.GetSlotFromCategory(i - 1);
+                    if (slot != -1)
+                    {
+                        gunIndex = slot;
+                        PlayHoverSound();
+                    }
+                    Debug.Log(gunIndex);
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            //ActivateGun(w.gunIndex);
+           //gunUI.gameObject.SetActive(false);
+            //gunUI.ResetAllGunCategories();
+        }
     }
 
     void ScrollWeapon()
@@ -61,22 +115,36 @@ public class WeaponManager : MonoBehaviour
 
         if(f > 0)
         {
+            PlayHoverSound();
             Decrement();
         }
 
         if(f < 0)
         {
+            PlayHoverSound();
             Increment();
         }
 
 
-        
 
+        
         WeaponSlot w = gunUI.SelectWeapon(gunIndex);
         if (Input.GetMouseButtonDown(0))
         {
-            ActivateGun(w.gunIndex);
+
+            if (!guns[gunIndex].activeSelf)
+            {
+                PlaySelectSound();
+                ActivateGun(w.gunIndex);
+            }
+            else {
+                if (gunUI.gameObject.activeSelf)
+                {
+                    currentWeapon.StartCoroutine("WaitToAllowFire");
+                }
+            }
             gunUI.gameObject.SetActive(false);
+            gunUI.ResetAllGunCategories();
         }
     }
 
@@ -105,6 +173,7 @@ public class WeaponManager : MonoBehaviour
     {
         gunUI.gameObject.SetActive(true);
         gunUI.weaponSlots[i].HasWeapon = true;
+        gunUI.weaponSlots[i].EnableSlot();
         gunUI.SelectWeapon(i);
         gunIndex = i;
         ActivateGun(i);
@@ -131,12 +200,14 @@ public class WeaponManager : MonoBehaviour
 
     void ActivateGun(int gun)
     {
+        
         for (int i = 0; i < guns.Count; i++)
         {
             if (i == gun)
             {
                 guns[i].SetActive(true);
                 gunIndexActual = i;
+                gunIndex = i;
             }
             else
             {
@@ -170,5 +241,17 @@ public class WeaponManager : MonoBehaviour
         {
             return null;
         }
+    }
+
+    public void PlaySelectSound()
+    {
+        sounds.clip = selectSound;
+        sounds.Play();
+    }
+
+    public void PlayHoverSound()
+    {
+        sounds.clip = hoverSound;
+        sounds.Play();
     }
 }

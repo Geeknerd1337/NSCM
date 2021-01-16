@@ -108,7 +108,6 @@ public class Weapon : MonoBehaviour
         //This goes in awake since the settings menu is usually deactivated
         settings = FindObjectOfType<LevelSaveDataController>();
 
-
     }
 
 
@@ -381,6 +380,19 @@ public class Weapon : MonoBehaviour
             playerCam.fieldOfView = minMaxFOV.x + SaveLoadSettingManager.FOV;
             
         }
+    }
+
+    public IEnumerator WaitToAllowFire()
+    {
+        isBusy = true;
+        float i = 0;
+        while(i < 0.05)
+        {
+            i += Time.deltaTime;
+            yield return null;
+        }
+        isBusy = false;
+        Debug.Log("Success");
     }
 
 

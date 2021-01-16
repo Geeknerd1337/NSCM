@@ -29,6 +29,13 @@ public class EntityHealth : MonoBehaviour
         get { return health; }
     }
 
+    [SerializeField]
+    private AudioSource hitSource;
+    [SerializeField]
+    private AudioClip[] hitSounds;
+    [SerializeField]
+    private Vector2 hitPitchRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,5 +101,16 @@ public class EntityHealth : MonoBehaviour
     public void Damage(float h)
     {
         health -= h;
+        PlayHitSound();
+    }
+    private void PlayHitSound()
+    {
+        if (hitSource != null)
+        {
+            hitSource.clip = hitSounds[Random.Range(0, hitSounds.Length)];
+            hitSource.pitch = Random.Range(hitPitchRange.x, hitPitchRange.y);
+            hitSource.Play();
+            Debug.Log("HECK");
+        }
     }
 }

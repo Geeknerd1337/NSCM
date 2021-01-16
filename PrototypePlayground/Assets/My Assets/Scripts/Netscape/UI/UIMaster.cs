@@ -9,4 +9,6 @@ public class UIMaster : MonoBehaviour
     public Image hackFillElement;
 
     public Transform grappleElement;
+
+    public MessageSystem messageSystem;
 }

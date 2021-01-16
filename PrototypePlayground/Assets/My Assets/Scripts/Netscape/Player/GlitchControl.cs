@@ -13,6 +13,10 @@ public class GlitchControl : MonoBehaviour
     public float glitchTime;
     private float glitchTimer;
     public AudioSource transition;
+
+    private bool loading;
+    private float loadTimer;
+    private int levelToLoad;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +34,25 @@ public class GlitchControl : MonoBehaviour
         {
             g.intensity = amt;
         }
+
+        if (loading)
+        {
+            loadTimer += Time.deltaTime;
+            if(loadTimer > 15f)
+            {
+                FindObjectOfType<LevelSaveDataController>().Save();
+                SceneManager.LoadScene(levelToLoad);
+            }
+        }
     }
 
     IEnumerator TransitionToLevel(int i)
     {
         transition.Play();
+
+        loading = true;
+        levelToLoad = i;
+
         while(glitchTimer > 0)
         {
             glitchTimer -= Time.deltaTime;

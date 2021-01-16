@@ -31,6 +31,11 @@ public class WeaponSlot : MonoBehaviour
         set { hasWeapon = value; }
     }
 
+    public void EnableSlot()
+    {
+        slot.enabled = true;
+    }
+
     public int gunIndex;
     // Start is called before the first frame update
     void Start()

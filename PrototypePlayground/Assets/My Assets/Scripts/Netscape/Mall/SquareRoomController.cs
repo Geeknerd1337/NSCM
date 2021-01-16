@@ -38,7 +38,7 @@ public class SquareRoomController : MonoBehaviour
         }
         else
         {
-            Debug.LogError("SquareRoomController got OnExitTrigger during unexpected state");
+            //Debug.LogError("SquareRoomController got OnExitTrigger during unexpected state");
         }
     }
 

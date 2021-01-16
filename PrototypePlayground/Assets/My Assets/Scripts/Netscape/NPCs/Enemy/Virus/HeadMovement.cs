@@ -64,7 +64,6 @@ public class HeadMovement : MonoBehaviour
     public void HitMe()
     {
         offset = 90f;
-        Debug.Log("HECK");
     }
 
     public void Die()
