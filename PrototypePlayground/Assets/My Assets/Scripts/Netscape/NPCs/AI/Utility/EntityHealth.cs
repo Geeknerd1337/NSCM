@@ -98,6 +98,15 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
+    public void ExplodeRagdoll(Vector3 position, float force)
+    {
+        ActivateRagdoll();
+        foreach(Rigidbody rb in ragdoll)
+        {
+            rb.AddExplosionForce(force, position, 5f, 2f);
+        }
+    }
+
     public void Damage(float h)
     {
         health -= h;

@@ -138,7 +138,7 @@ public class HackController : MonoBehaviour
             {
                 Hackable myHackable = null;
                     myHackable = hit.transform.GetComponent<Hackable>();
-                    if (myHackable != null)
+                    if (myHackable != null && myHackable.canUse)
                     {
                         worldTarget = hit.transform;
                         currentHackable = myHackable;
