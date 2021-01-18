@@ -285,8 +285,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 15
-      minScalar: 10
+      scalar: 25
+      minScalar: 15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -4746,7 +4746,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 3
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -14703,7 +14703,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8596524692170112861}
-  m_LocalRotation: {x: -0, y: 0.7071087, z: -0, w: -0.707105}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: -163.09, y: -131.062, z: -2.95}
   m_LocalScale: {x: 2.6874638, y: 2.6874638, z: 2.6874638}
   m_Children:
@@ -14747,7 +14747,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243017919813941538, guid: 8d343f6ee696c8341b42ade6852bccdc,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 081e0b5efc3127842b776de3ef849481, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1778565f2b13ecf4f83321eb6499a4a5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -14793,7 +14793,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14845,7 +14845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e5af28ab737254ba0f1767f4bb7dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 8
   damage: 40
   explosiveForce: 100
   playerExplosiveForce: 25

@@ -25,6 +25,7 @@ public class Explosive : MonoBehaviour
     public void Explode()
     {
         AreaDamageEnemies(transform.position, radius, damage);
+        sound.Play();
     }
 
     void AreaDamageEnemies(Vector3 location, float radius, float damage)
