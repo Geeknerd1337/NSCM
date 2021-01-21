@@ -38,6 +38,8 @@ public class HackController : MonoBehaviour
     [SerializeField]
     private AudioSource riseSound;
     [SerializeField]
+    private AudioSource typeSound;
+    [SerializeField]
     private AudioSource successSound;
     [SerializeField]
     private AnimationCurve pitchCurve;
@@ -83,6 +85,7 @@ public class HackController : MonoBehaviour
             if (!riseSound.isPlaying)
             {
                 riseSound.Play();
+                typeSound.Play();
             }
         }
         else
@@ -92,6 +95,7 @@ public class HackController : MonoBehaviour
                 hackTimer -= Time.deltaTime * 2f;
             }
             riseSound.Stop();
+            typeSound.Stop();
         }
 
         if(hackTimer > hackTime)
@@ -103,7 +107,7 @@ public class HackController : MonoBehaviour
             successSound.Play();
             hackTimer = 0;
             riseSound.Stop();
-            
+            typeSound.Stop();
         }
 
         UpdateFill(hackTimer / hackTime);
