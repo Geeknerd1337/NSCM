@@ -119,7 +119,6 @@ public class EntityHealth : MonoBehaviour
             hitSource.clip = hitSounds[Random.Range(0, hitSounds.Length)];
             hitSource.pitch = Random.Range(hitPitchRange.x, hitPitchRange.y);
             hitSource.Play();
-            Debug.Log("HECK");
         }
     }
 }
