@@ -11,6 +11,10 @@ public class PlayerStats : MonoBehaviour
     [SerializeField]
     private WeaponManager weaponManager;
 
+    private int hack;
+    [SerializeField]
+    private int maxHack;
+
     private HurtIconsUI hurtIcons;
 
     private LevelSaveDataController levelController;
@@ -32,8 +36,15 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public int Hack
+    {
+        get { return hack; }
+        set { hack = Mathf.Clamp(value, 0, maxHack); }
+    }
+
     public float MaxHealth { get { return maxHealth; } }
     public float MaxShield { get { return maxShield; } }
+    public int MaxHack { get { return maxHack; } }
     public Weapon PlayerWeapon { get { return weaponManager.currentWeapon; } }
 
     public int[] ammoTypes;
@@ -45,6 +56,7 @@ public class PlayerStats : MonoBehaviour
         hurtIcons = FindObjectOfType<HurtIconsUI>();
         health = maxHealth;
         shield = maxShield;
+        hack = maxHack;
 
         levelController = FindObjectOfType<LevelSaveDataController>();
     }

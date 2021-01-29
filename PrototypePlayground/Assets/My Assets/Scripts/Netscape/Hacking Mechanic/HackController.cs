@@ -27,6 +27,8 @@ public class HackController : MonoBehaviour
     [SerializeField]
     private Image fillImage;
     [SerializeField]
+    private Image myElementImage;
+    [SerializeField]
     private float hackTime;
     private float hackTimer;
     [SerializeField]
@@ -43,6 +45,13 @@ public class HackController : MonoBehaviour
     private AudioSource successSound;
     [SerializeField]
     private AnimationCurve pitchCurve;
+    [SerializeField]
+    private Text hackCostText;
+    [SerializeField]
+    private Animator hackHandAnimator;
+    [SerializeField]
+    private bool enableHackAnimations;
+    private PlayerStats playerStats;
     
     #endregion
 
@@ -58,6 +67,9 @@ public class HackController : MonoBehaviour
         fillImage = UI.hackRadialElement;
         fullyFilledImage = UI.hackFillElement;
         initialElementScale = myElement.transform.localScale.x;
+        myElementImage = UI.hackElement.GetComponent<Image>();
+        hackCostText = UI.hackElement.GetComponentInChildren<Text>();
+        playerStats = UIMaster.playerStats;
            
     }
 
@@ -73,6 +85,14 @@ public class HackController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Q) && worldTarget != null && currentHackable.canUse)
         {
+            if (currentHackable.enableHackCost)
+            {
+                
+                if(playerStats.Hack < currentHackable.hackCost)
+                {
+                    return;
+                }
+            }
             if (hackTimer < hackTime)
             {
                 hackTimer += Time.deltaTime * currentHackable.hackTimeMod;
@@ -108,6 +128,8 @@ public class HackController : MonoBehaviour
             hackTimer = 0;
             riseSound.Stop();
             typeSound.Stop();
+            hackHandAnimator.Play("Hands|hack_quick_success");
+            playerStats.Hack -= currentHackable.hackCost;
         }
 
         UpdateFill(hackTimer / hackTime);
@@ -160,6 +182,59 @@ public class HackController : MonoBehaviour
         Color c = fullyFilledImage.color;
         c.a = Mathf.Lerp(c.a, 0, Time.deltaTime * filledAlphaSpeed);
         fullyFilledImage.color = c;
+
+        //This is some experimentation with the animator
+        if (enableHackAnimations && f > 0)
+        {
+            if (f < 1)
+            {
+                if (Input.GetKey(KeyCode.Q))
+                {
+                    hackHandAnimator.Play("Hands|hack_quick", -1, f);
+                }
+                else
+                {
+                    hackHandAnimator.Play("Hands | third_arm_idle");
+                }
+            }
+        }
+
+        //Essentially, this says whether or not we have a hackable in our sights and if it uses hack sot
+        if (currentHackable != null && currentHackable.enableHackCost)
+        {
+            //If it does, then use the rarity gradient to set a color based on its price
+            Color cc = currentHackable.hackGradient.Evaluate(currentHackable.hackCost / (float)currentHackable.MaxHackCost);
+            myElementImage.color = cc;
+            fillImage.color = cc;
+            //Set the text to be the cost of the hack
+            hackCostText.text = currentHackable.hackCost.ToString();
+            //This just makes the text invisible if we're hacking, then moves the alpha of the text back to one if we're not
+            if (f > 0)
+            {
+                hackCostText.text = "";
+                Color hackTextColor = hackCostText.color;
+                hackTextColor.a = 0;
+                hackCostText.color = hackTextColor;
+
+                
+            }
+            else
+            {
+                Vector3 currentRotation = new Vector3(myElement.transform.eulerAngles.x, myElement.transform.eulerAngles.y, myElement.transform.eulerAngles.z);
+                if (currentRotation.z <= 0.1f)
+                {
+                    Color hackTextColor = hackCostText.color;
+                    hackTextColor.a = Mathf.Lerp(hackTextColor.a, 1f, Time.deltaTime * (filledAlphaSpeed / 2f)); ;
+                    hackCostText.color = hackTextColor;
+                }
+            }
+        }
+        else
+        {
+            fillImage.color = Color.white;
+            myElementImage.color = Color.white;
+            hackCostText.text = "";
+        }
     }
 
     void UpdateIconPosition()

@@ -11,4 +11,13 @@ public class UIMaster : MonoBehaviour
     public Transform grappleElement;
 
     public MessageSystem messageSystem;
+
+    public Slider hackSlider;
+
+    public static PlayerStats playerStats;
+
+    private void Awake()
+    {
+        playerStats = FindObjectOfType<PlayerStats>();
+    }
 }
