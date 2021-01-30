@@ -1,0 +1,136 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cam
+  m_Shader: {fileID: 4800000, guid: c03cfff8a7097dc4ea1c89f8ca93f419, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 8400000, guid: b84def00a4bd46f44b696989e4a1cc42, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _cam:
+        m_Texture: {fileID: 8400000, guid: b84def00a4bd46f44b696989e4a1cc42, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _emiss:
+        m_Texture: {fileID: 2800000, guid: c4680a72bc531c44dbf1207b94504f48, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _eye:
+        m_Texture: {fileID: 2800000, guid: af9c31578bd607646972f1045b090343, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _pixel:
+        m_Texture: {fileID: 2800000, guid: 843804d7203887945a8dd01fa2ae5934, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _static:
+        m_Texture: {fileID: 2800000, guid: 1a7b150f384b67642bc17d2ac54e0fa3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _tex:
+        m_Texture: {fileID: 8400000, guid: b84def00a4bd46f44b696989e4a1cc42, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    - _amp: 13.23077
+    - _blend: 1
+    - _crossHairInfluence: 0
+    - _crossHairSize: 0.0306
+    - _eyeOpen: 0.335
+    - _eyeX: -0.164
+    - _eyeY: 0
+    - _fresnel: 3.635212
+    - _gamma: 1.2
+    - _glitchAmt: 0
+    - _glitchAnimSpeed: 0
+    - _glitchSize: 20
+    - _influence: 1
+    - _intensity: 2.81
+    - _largeScanAmt: 0.9052682
+    - _largeScanFalloff: 4
+    - _largeScanSize: 7
+    - _largeScanSpeed: -1
+    - _lineOffset: 1.5
+    - _monitorShiny: 0
+    - _noiseInfluence: 0.352
+    - _numLines: 4493.3
+    - _offset: 0
+    - _power: 0.3589744
+    - _scanLineBrightness: 0.627
+    - _scanLineInfluence: 0.487
+    - _scanLineSize: 226.08
+    - _scanLines: 330
+    - _scrollSpeed: 0
+    - _speed: 0
+    - _staticSpeed: 0.5
+    - _textureSize: 256
+    m_Colors:
+    - _Col: {r: 0.31603768, g: 1, b: 0.9643449, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _colorChange: {r: 1, g: 1, b: 1, a: 1}
+    - _emissColor: {r: 1, g: 1, b: 1, a: 1}
