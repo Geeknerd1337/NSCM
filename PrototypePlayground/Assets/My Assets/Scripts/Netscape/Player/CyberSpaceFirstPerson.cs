@@ -259,7 +259,9 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         RaycastHit hitInfo;
         bool b = Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo, m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
 
+        Vector3 groundNormal;
         bool isGrounded = m_CharacterController.isGrounded;
+        isGrounded = IsGrounded(out groundNormal);
 
 
 
@@ -285,13 +287,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             Accelerate(ref velocity, desiredMove, groundAccelCoef);
             
             //Project our velocity to the ground normal we calculated earlier
-            velocity = Vector3.ProjectOnPlane(velocity, hitInfo.normal);
+            velocity = Vector3.ProjectOnPlane(velocity, groundNormal);
 
-            if (!m_Jump)
-            {
-                //Stick to the ground force
-                velocity.y -= m_StickToGroundForce;
-            }
 
             //This is the m_Jump variable, it is checked in the update event so that jumping can happen more accurately as fixed update may not register the input
             if (m_Jump)
@@ -558,10 +555,11 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
         if (m_CharacterController.isGrounded)
         {
-            leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, drag * Time.fixedDeltaTime);
+            ApplyFriction(ref leftOverVelocity);
         }
         else
         {
+            leftOverVelocity.y = 0;
             leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
         }
 
