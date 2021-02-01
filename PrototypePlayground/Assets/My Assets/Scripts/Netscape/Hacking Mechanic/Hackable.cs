@@ -92,9 +92,11 @@ public class Hackable : MonoBehaviour
             alphaKey[i].time = colorKey[i].time;
             
         }
-
-        hackGradient.SetKeys(colorKey, alphaKey);
-        hackGradient.mode = GradientMode.Fixed;
+        if (hackGradient != null)
+        {
+            hackGradient.SetKeys(colorKey, alphaKey);
+            hackGradient.mode = GradientMode.Fixed;
+        }
 
     }
 

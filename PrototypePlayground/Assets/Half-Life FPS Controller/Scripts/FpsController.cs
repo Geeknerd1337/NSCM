@@ -99,7 +99,7 @@ public class FpsController : MonoBehaviour
 
     private void Start()
     {
-        Application.targetFrameRate = 60; // My laptop is shitty and burn itself to death if not for this
+        //Application.targetFrameRate = 60; // My laptop is shitty and burn itself to death if not for this
         _transform = transform;
         _ghostJumpRayPosition = _groundedRayPositions.Last();
     }
