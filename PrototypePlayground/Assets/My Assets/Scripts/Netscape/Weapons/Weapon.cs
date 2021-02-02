@@ -52,6 +52,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] private ParticleSystem muzzleFlash;
     [SerializeField] private GameObject hitEffect;
     [SerializeField] private Transform projectileOrigin;
+    //Tracers
+    [SerializeField]
+    private ParticleSystem tracerSystem;
+    [SerializeField]
+    private float maxTracers;
+
+    private ParticleSystem.Particle[] tracerParticles;
+    private ParticleSystem.EmitParams emitParams;
+    private int lastParticleIndex = 0;
 
     [Header("Weapon Stats")]
     private int shotsLeft;
@@ -80,6 +89,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private bool smoothAimTrans;
     [SerializeField] private float zoomSpeed;
     [SerializeField] private Vector2 minMaxFOV;
+    [SerializeField] private bool useTracers;
     private LevelSaveDataController settings;
 
 
@@ -107,6 +117,8 @@ public class Weapon : MonoBehaviour
         //This is so we can use the FOV slider
         //This goes in awake since the settings menu is usually deactivated
         settings = FindObjectOfType<LevelSaveDataController>();
+        //Initiates the array that will hold our pooled particle tracers
+        tracerParticles = new ParticleSystem.Particle[tracerSystem.main.maxParticles];
 
     }
 
@@ -282,6 +294,11 @@ public class Weapon : MonoBehaviour
                     entityLimb.DamageEnemy(weaponObject.damage, transform.forward);
                 }
             }
+
+            if (useTracers)
+            {
+                CreateTracer(tracerSystem.transform.position, directionActual);
+            }
         }
     }
 
@@ -393,6 +410,29 @@ public class Weapon : MonoBehaviour
         }
         isBusy = false;
         Debug.Log("Success");
+    }
+
+    void CreateTracer(Vector3 position, Vector3 direction)
+    {
+        int activeParticles = tracerSystem.GetParticles(tracerParticles);
+
+        if (activeParticles >= tracerSystem.main.maxParticles)
+        {
+            tracerParticles[lastParticleIndex].remainingLifetime = -1;
+
+            if (lastParticleIndex >= maxTracers)
+            {
+                lastParticleIndex = 0;
+            }
+
+            tracerSystem.SetParticles(tracerParticles, tracerParticles.Length);
+        }
+
+        emitParams.position = position;
+        emitParams.velocity = direction * 60f;
+        emitParams.rotation3D = direction + new Vector3(0,90f,0);
+        tracerSystem.Emit(emitParams, 1);
+
     }
 
 
