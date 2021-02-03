@@ -97,6 +97,13 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private float universalDecayAmt;
     [SerializeField] private bool waitForCarryVelocityBeforeMove;
 
+    //nat's vars
+    private Vector3 lastMove;
+    private Vector3 airMove;
+    public float airSpeed;
+    public float airMovementMod;
+    public float groundedDrag;
+
 
     [Header("Misc")]
     [SerializeField] private FallManager fallM;
@@ -212,8 +219,28 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             grappleVal = grappleVal.normalized;
         }
 
-        m_MoveDir.x = desiredMove.x * speed;
-        m_MoveDir.z = desiredMove.z * speed;
+        //movetowards to make the movement flow
+        if (m_CharacterController.isGrounded)
+        {
+            lastMove = Vector3.MoveTowards(lastMove, desiredMove, groundedDrag * Time.fixedDeltaTime);
+
+            m_MoveDir.x = lastMove.x * speed;
+            m_MoveDir.z = lastMove.z * speed;
+
+            airMove = lastMove;
+        }
+        else
+        {
+            print(desiredMove);
+            airMove = Vector3.MoveTowards(airMove, desiredMove * airSpeed, airDrag * Time.fixedDeltaTime);
+
+            m_MoveDir.x = airMove.x;
+            m_MoveDir.z = airMove.z;
+        }
+
+        
+
+        
 
 
         if (m_CharacterController.isGrounded)
@@ -297,6 +324,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         {
             leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
         }
+
+
 
         m_CollisionFlags = m_CharacterController.Move((m_MoveDir + leftOverVelocity) * Time.fixedDeltaTime);
 
