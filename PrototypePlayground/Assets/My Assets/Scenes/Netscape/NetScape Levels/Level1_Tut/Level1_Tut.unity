@@ -11305,17 +11305,17 @@ PrefabInstance:
     - target: {fileID: 775253093206177899, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 42.74
+      value: -178.35
       objectReference: {fileID: 0}
     - target: {fileID: 775253093206177899, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 93.8
+      value: -128.28
       objectReference: {fileID: 0}
     - target: {fileID: 775253093206177899, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.4
+      value: -25.6
       objectReference: {fileID: 0}
     - target: {fileID: 775253093206177899, guid: 288c54ceadbe30045b06942efa7c611b,
         type: 3}
@@ -11362,6 +11362,16 @@ PrefabInstance:
       propertyPath: rollEffects
       value: 
       objectReference: {fileID: 1717092345}
+    - target: {fileID: 775253093206177909, guid: 288c54ceadbe30045b06942efa7c611b,
+        type: 3}
+      propertyPath: airSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 775253093206177909, guid: 288c54ceadbe30045b06942efa7c611b,
+        type: 3}
+      propertyPath: groundedDrag
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 288c54ceadbe30045b06942efa7c611b, type: 3}
 --- !u!4 &903225733 stripped

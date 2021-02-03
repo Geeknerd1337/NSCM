@@ -102,8 +102,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     //nat's vars
     [Header("Stuff Nat Added")]
     
-    
-    
     [Tooltip("The speed of the player in the air")]
     public float airSpeed;
     [Tooltip("The modifier applied to in-air movement. more = more drag")]
@@ -183,7 +181,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     private void Update()
     {
 
-        print("grounded: " + m_CharacterController.isGrounded);
         // the jump state needs to read here to make sure it is not missed
         if (!m_Jump && m_CharacterController.isGrounded)
         {
@@ -503,21 +500,17 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             m_MoveDir.x = lastMove.x * speed;
             m_MoveDir.z = lastMove.z * speed;
 
-            airMove = lastMove;
+            airMove = m_MoveDir;
         }
         else
         {
-            print(desiredMove);
-            airMove = Vector3.MoveTowards(airMove, desiredMove * airSpeed, airDrag * Time.fixedDeltaTime);
+            airMove = Vector3.MoveTowards(airMove, desiredMove.normalized * airSpeed, airDrag * Time.fixedDeltaTime);
 
             m_MoveDir.x = airMove.x;
             m_MoveDir.z = airMove.z;
+
+            print(m_MoveDir);
         }
-
-        
-
-        
-
 
         if (m_CharacterController.isGrounded)
         {
