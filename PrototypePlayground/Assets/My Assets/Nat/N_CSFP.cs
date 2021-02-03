@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
@@ -11,7 +9,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(AudioSource))]
-public class CyberSpaceFirstPerson : MonoBehaviour
+public class N_CSFP : MonoBehaviour
 {
     [SerializeField] private bool m_IsWalking;
     [SerializeField] private float m_WalkSpeed;
@@ -99,64 +97,12 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private float universalDecayAmt;
     [SerializeField] private bool waitForCarryVelocityBeforeMove;
 
-    //nat's vars
-    [Header("Stuff Nat Added")]
-    
-    
-    
-    [Tooltip("The speed of the player in the air")]
-    public float airSpeed;
-    [Tooltip("The modifier applied to in-air movement. more = more drag")]
-    public float groundedDrag;
-    /// <summary>
-    /// the last movement if the player is grounded
-    /// </summary>
-    private Vector3 lastMove;
-    /// <summary>
-    /// same as lastmove if grounded, if in air used to facilitate air calculations.
-    /// </summary>
-    private Vector3 airMove;
+
+    Vector3 lastApply;
 
 
     [Header("Misc")]
     [SerializeField] private FallManager fallM;
-
-    [Space(3)]
-    [Header("Re-Write")]
-    [SerializeField]
-    private Vector2 inputVector;
-    [SerializeField]
-    private bool groundedInPreviousFrame;
-    [SerializeField]
-    private Vector3 velocity;
-    [SerializeField]
-    private float groudAccel;
-    [SerializeField]
-    private float maxSpeedAD = 8f;
-    [SerializeField]
-    private float groundAccelCoef = 500.0f;
-    [SerializeField]
-    private float friction = 15f;
-    [SerializeField]
-    private float frictionThresh = 0.5f;
-    [SerializeField]
-    private float jumpStrength;
-
-    [Header("Air Control")]
-    [SerializeField]
-    private float airAccelCoef = 1f;
-    [SerializeField]
-    private float airDeccelCoef = 1.5f;
-    [SerializeField]
-    private float airControlPrecision = 16f;
-    [SerializeField]
-    private float airControlAdditionForward = 8f;
-    [SerializeField]
-    private bool grounded;
-    [SerializeField]
-    private List<Transform> groundedRayPositions;
-    [SerializeField]
-    private LayerMask excludedLayers;
 
     // Use this for initialization
     private void Start()
@@ -183,22 +129,18 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     private void Update()
     {
 
-        print("grounded: " + m_CharacterController.isGrounded);
         // the jump state needs to read here to make sure it is not missed
         if (!m_Jump && m_CharacterController.isGrounded)
         {
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-
         }
-        
+
         //Double jump
         if (can_doublejump && !m_doublejump && !m_CharacterController.isGrounded && doubleJumpTimer > doubleJumpDelay)
         {
             m_doublejump = CrossPlatformInputManager.GetButtonDown("Jump");
 
         }
-
-        
 
         if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
         {
@@ -235,7 +177,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         m_AudioSource.clip = m_LandSound;
         m_AudioSource.Play();
         m_NextStep = m_StepCycle + .5f;
-        if(fallM != null)
+        if (fallM != null)
         {
             //fallM.originalPosition = transform.position;
         }
@@ -243,229 +185,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
 
     private void FixedUpdate()
-    {
-        OldMovement();
-        //NewMovement();
-    }
-
-    void NewMovement()
-    {
-        //The get input is what sets the m_Input vector2 from our control button or key presses. 
-        //This is basically the first 'are we moving' or 'are we trying to move'
-        //This gets input from the input axes in the input manager
-        //This also sets a variable, 'speed', to show how fast we are currently moving
-        //This is done using the getrawinput because that is more responsive
-        float speed = m_WalkSpeed;
-        m_Input.x = Input.GetAxisRaw("Horizontal");
-        m_Input.y = Input.GetAxisRaw("Vertical");
-
-
-        //This is jsut storing out input into another input vector. This originally had a purpose but does not any longer
-        //TODO: Replace all instances of this in this function with the m_input variable 
-        inputVector.x = m_Input.x;
-        inputVector.y = m_Input.y;
-
-
-        //I am defining a Vector3 called desired move. This is essentially a vector that says 'I want to move to this location, this is where I intend to go"
-        //I'm not entirely sure what transform direction horizontal does other than project the movement vector into a Vector3 using the cameras direction
-        Vector3 desiredMove = m_Camera.transform.TransformDirectionHorizontal(new Vector3(inputVector.x, 0, inputVector.y));
-
-
-        //Now this is some math I'm not too familiar with, but I will do my best to explain it. A sphere cast is just a 'thick' raycast. Simple enough, what this is doing it sending
-        //a raycast directly at out feet. We're getting the normal direction of the surface we're colliding with, essentially. In order to make sure we are moving parallel with this normal
-        //(Which means basically if you press forward on a slope you don't just fly forward into space, you follow the slope) We use project on plane to make sure our movement vector stays paralell
-        //with the ground
-        RaycastHit hitInfo;
-        bool b = Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo, m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
-
-        Vector3 groundNormal;
-        bool isGrounded = m_CharacterController.isGrounded;
-        isGrounded = IsGrounded(out groundNormal);
-
-
-
-        //If the character controller is touching the ground, there are several operations we perform when it is, and isn't. All of them will be in this block of code
-        if (isGrounded)
-        {
-            //So what this does is basically say how well we stick to the ground if we're already touching it. This is in the case of going up a hill that is bumpy or going up a slope that suddenly changes
-            //its angle. This basically keeps us stuck to the ground unless we are jumping;
-            //May be unecessary
-            //desiredMove.y = -m_StickToGroundForce;
-
-            //Okay, so what this does is uses fancy math to apply friction to the character when it is collided with the ground.
-           //The reason we check if we were grounded in the previous frame is, presumably for game feel reasons, that we do not want to apply friction right before we jump or right after we land
-            if (m_PreviouslyGrounded && !m_Jump)
-            {
-                ApplyFriction(ref velocity);
-            }
-
-           
-            
-
-            //Accelerate our velocity in the direction of our desired movement
-            Accelerate(ref velocity, desiredMove, groundAccelCoef);
-            
-            //Project our velocity to the ground normal we calculated earlier
-            velocity = Vector3.ProjectOnPlane(velocity, groundNormal);
-
-
-            //This is the m_Jump variable, it is checked in the update event so that jumping can happen more accurately as fixed update may not register the input
-            if (m_Jump)
-            {
-                Debug.Log("HELLO");
-                velocity += Vector3.up * jumpStrength;
-                m_Jump = false;
-            }
-
-            
-
-        }
-        else
-        {
-            //If the controller is not grounded
-            
-            
-
-            //Okay, so I'm not a scientist and i'm not sure what this is trying to achieve or why, but here's my basic understanding of it
-            //If we are moving in the direction of our desired velocity then we use the acceleration coefficient, but if we are not then we use the other one
-            //Unsure how this improves the experience
-            float coeff = Vector3.Dot(velocity, desiredMove) > 0 ? airAccelCoef : airDeccelCoef;
-            Accelerate(ref velocity, desiredMove, coeff);
-
-            //This controls air control somehow. Through some math and vector checking that I don't entirely understand the purpose of. Basically if you are moving forward,
-            //Do some air control
-            if (Mathf.Abs(inputVector.y) > 0.0001) // Pure side velocity doesn't allow air control
-            {
-                ApplyAirControl(ref velocity, desiredMove);
-            }
-
-            //For now, this is a function that applies the basic gravity to our movement vector. Eventually this function might also calculate drag
-            ApplyGravity();
-
-
-
-        }
-
-        //This will basically tell the next frame that we were grounded this frame
-        groundedInPreviousFrame = isGrounded;
-
-        //And finally, the moment of truth applying our fancy new movement vector to the character controller and moving it.
-        m_CollisionFlags = m_CharacterController.Move((velocity) * Time.fixedDeltaTime);
-
-    }
-
-
-    private void Accelerate(ref Vector3 playerVelocity, Vector3 accelDir, float accelCoeff)
-    {
-        //How much speed we already have in the direction we want to go. Prevents us from accelerating past a certain limit if we're already moving that quickly.
-        float projSpeed = Vector3.Dot(playerVelocity, accelDir);
-
-        // How much speed we need to add (in that direction) to reach max speed
-        float addSpeed = maxSpeedAD - projSpeed;
-        if (addSpeed <= 0)
-        {
-            return;
-        }
-
-        // How much we are gonna increase our speed
-        // maxSpeed * dt => the real deal. a = v / t
-        // accelCoeff => ad hoc approach to make it feel better
-        float accelAmount = accelCoeff * maxSpeedAD * Time.fixedDeltaTime;
-
-        // If we are accelerating more than in a way that we exceed maxSpeedInOneDimension, crop it to max
-        if (accelAmount > addSpeed)
-        {
-            accelAmount = addSpeed;
-        }
-
-        playerVelocity += accelDir * accelAmount;
-    }
-
-    private void ApplyFriction(ref Vector3 playerVelocity)
-    {
-        //Get the players current speed as a magnitude of their velocity
-        float speed = playerVelocity.magnitude;
-        //If the player is already effectively stopped, do not apply friction any more
-        if (speed <= 0.00001)
-        {
-            return;
-        }
-
-        //Basically keep whether or not the speed is less than the friction threshold
-        float downLimit = Mathf.Max(speed, frictionThresh); // Don't drop below treshold
-        //Not sure what this does yet
-        float dropAmount = speed - (downLimit * friction * Time.fixedDeltaTime);
-        if (dropAmount < 0)
-        {
-            dropAmount = 0;
-        }
-
-        //Decrease the players velocity according to friction
-        playerVelocity *= dropAmount / speed; // Reduce the velocity by a certain percent
-    }
-
-    private void ApplyAirControl(ref Vector3 playerVelocity, Vector3 accelDir)
-    {
-        // This only happens in the horizontal plane
-        // TODO: Verify that these work with various gravity values
-        var playerDirHorz = playerVelocity.ToHorizontal().normalized;
-        var playerSpeedHorz = playerVelocity.ToHorizontal().magnitude;
-
-        var dot = Vector3.Dot(playerDirHorz, accelDir);
-        if (dot > 0)
-        {
-            var k = airControlPrecision * dot * dot * Time.fixedDeltaTime;
-
-            // CPMA thingy:
-            // If we want pure forward movement, we have much more air control
-            bool isPureForward = Mathf.Abs(inputVector.x) < 0.0001 && Mathf.Abs(inputVector.y) > 0;
-            if (isPureForward)
-            {
-                k *= airControlAdditionForward;
-            }
-
-            // A little bit closer to accelDir
-            playerDirHorz = playerDirHorz * playerSpeedHorz + accelDir * k;
-            playerDirHorz.Normalize();
-
-            // Assign new direction, without touching the vertical speed
-            playerVelocity = (playerDirHorz * playerSpeedHorz).ToHorizontal() + Gravity.Up * playerVelocity.VerticalComponent();
-        }
-
-    }
-
-    void ApplyGravity()
-    {
-        velocity += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
-    }
-
-    // If one of the rays hit, we're considered to be grounded
-    private bool IsGrounded(out Vector3 groundNormal)
-    {
-        groundNormal = -Physics.gravity * m_GravityMultiplier;
-
-        bool isGrounded = false;
-        foreach (var t in groundedRayPositions)
-        {
-            // The last one is reserved for ghost jumps
-            // Don't check that one if already on the ground
-            if (isGrounded)
-            {
-                continue;
-            }
-
-            RaycastHit hit;
-            if (Physics.Raycast(t.position, Physics.gravity * m_GravityMultiplier, out hit, 0.51f, ~excludedLayers))
-            {
-                groundNormal = hit.normal;
-                isGrounded = true;
-            }
-        }
-
-        return isGrounded;
-    }
-
-    void OldMovement()
     {
         float speed;
         GetInput(out speed);
@@ -484,7 +203,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
         // get a normal for the surface that is being touched to move along it
         RaycastHit hitInfo;
-        Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo, m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
+        Physics.SphereCast(transform.position, m_CharacterController.radius, Vector3.down, out hitInfo,
+                           m_CharacterController.height / 2f, Physics.AllLayers, QueryTriggerInteraction.Ignore);
         desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
         //Get the grapple vector
@@ -495,29 +215,21 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             grappleVal = grappleVal.normalized;
         }
 
-        //movetowards to make the movement flow
-        if (m_CharacterController.isGrounded)
-        {
-            lastMove = Vector3.MoveTowards(lastMove, desiredMove, groundedDrag * Time.fixedDeltaTime);
+        m_MoveDir.x = desiredMove.x * speed;
+        m_MoveDir.z = desiredMove.z * speed;
 
-            m_MoveDir.x = lastMove.x * speed;
-            m_MoveDir.z = lastMove.z * speed;
+        //if (m_MoveDir.x == 0 && m_MoveDir.z == 0)
+        //{
+        //    lastApply = Vector3.MoveTowards(lastApply, Vector3.zero, 50f * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    lastApply = Vector3.MoveTowards(lastApply, m_MoveDir, 50f * Time.deltaTime);
+        //}
 
-            airMove = lastMove;
-        }
-        else
-        {
-            print(desiredMove);
-            airMove = Vector3.MoveTowards(airMove, desiredMove * airSpeed, airDrag * Time.fixedDeltaTime);
+        //Debug.Log(lastApply);
 
-            m_MoveDir.x = airMove.x;
-            m_MoveDir.z = airMove.z;
-        }
-
-        
-
-        
-
+        //print(new Vector3(lastApply.x, m_MoveDir.y, lastApply.z));
 
         if (m_CharacterController.isGrounded)
         {
@@ -594,17 +306,26 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
         if (m_CharacterController.isGrounded)
         {
-            ApplyFriction(ref leftOverVelocity);
+            leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, drag * Time.fixedDeltaTime);
         }
         else
         {
-            leftOverVelocity.y = 0;
             leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
         }
 
+        if (m_MoveDir.x == 0 && m_MoveDir.z == 0)
+        {
+            lastApply = Vector3.MoveTowards(lastApply, Vector3.zero, 100f * Time.deltaTime);
+        }
+        else
+        {
+            lastApply = Vector3.MoveTowards(lastApply, m_MoveDir, 100f * Time.deltaTime);
+        }
 
+        Debug.Log(lastApply);
 
-        m_CollisionFlags = m_CharacterController.Move((m_MoveDir + leftOverVelocity) * Time.fixedDeltaTime);
+        print(new Vector3(lastApply.x, m_MoveDir.y, lastApply.z));
+        m_CollisionFlags = m_CharacterController.Move((new Vector3(lastApply.x, m_MoveDir.y, lastApply.z) + leftOverVelocity) * Time.fixedDeltaTime);
 
         ProgressStepCycle(speed);
         UpdateCameraPosition(speed);
