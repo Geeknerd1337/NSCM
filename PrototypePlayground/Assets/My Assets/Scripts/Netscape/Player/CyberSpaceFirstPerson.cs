@@ -98,11 +98,22 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private bool waitForCarryVelocityBeforeMove;
 
     //nat's vars
-    private Vector3 lastMove;
-    private Vector3 airMove;
+    [Header("Stuff Nat Added")]
+    
+    
+    
+    [Tooltip("The speed of the player in the air")]
     public float airSpeed;
-    public float airMovementMod;
+    [Tooltip("The modifier applied to in-air movement. more = more drag")]
     public float groundedDrag;
+    /// <summary>
+    /// the last movement if the player is grounded
+    /// </summary>
+    private Vector3 lastMove;
+    /// <summary>
+    /// same as lastmove if grounded, if in air used to facilitate air calculations.
+    /// </summary>
+    private Vector3 airMove;
 
 
     [Header("Misc")]
@@ -133,6 +144,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     private void Update()
     {
 
+        print("grounded: " + m_CharacterController.isGrounded);
         // the jump state needs to read here to make sure it is not missed
         if (!m_Jump && m_CharacterController.isGrounded)
         {

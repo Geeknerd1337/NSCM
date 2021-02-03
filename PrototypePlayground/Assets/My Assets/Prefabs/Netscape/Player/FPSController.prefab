@@ -15038,9 +15038,11 @@ MonoBehaviour:
   rollEffects: {fileID: 775253093656672382}
   leftOverVelocity: {x: 0, y: 0, z: 0}
   drag: 20
-  airDrag: 8
+  airDrag: 20
   universalDecayAmt: 0
   waitForCarryVelocityBeforeMove: 1
+  airSpeed: 11
+  groundedDrag: 10
   fallM: {fileID: 0}
 --- !u!54 &775253093206177908
 Rigidbody:
