@@ -43,6 +43,11 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private AudioClip m_DashSound;
 
     private Camera m_Camera;
+    //Public reference to the camera
+    public Camera PlayerCamera
+    {
+        get { return m_Camera; }
+    }
     private bool m_Jump;
     private float m_YRotation;
     private Vector2 m_Input;
@@ -155,6 +160,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     private List<Transform> groundedRayPositions;
     [SerializeField]
     private LayerMask excludedLayers;
+
+    
 
     // Use this for initialization
     private void Start()
@@ -509,7 +516,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             m_MoveDir.x = airMove.x;
             m_MoveDir.z = airMove.z;
 
-            print(m_MoveDir);
         }
 
         if (m_CharacterController.isGrounded)
@@ -544,6 +550,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         }
 
         dirVector = Vector3.MoveTowards(dirVector, AddDirVector, dirVectorSpeed);
+
+
         if (dirVector != Vector3.zero)
         {
             m_MoveDir = dirVector;
@@ -591,8 +599,9 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         }
         else
         {
-            leftOverVelocity.y = 0;
-            leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
+            //leftOverVelocity.y = 0;
+            ApplyAirControl(ref leftOverVelocity, Vector3.zero);
+            //  leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
         }
 
 
