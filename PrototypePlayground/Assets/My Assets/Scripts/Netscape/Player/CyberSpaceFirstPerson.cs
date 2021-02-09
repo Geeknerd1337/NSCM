@@ -21,6 +21,13 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField] private float m_StickToGroundForce;
     [SerializeField] private float m_GravityMultiplier;
     [SerializeField] private MouseLook m_MouseLook;
+    [SerializeField] public MouseLook mLook
+    {
+        get
+        {
+            return m_MouseLook;
+        }
+    }
     [SerializeField]
     public float m_MouseLook_x
     {
@@ -123,6 +130,17 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
     [Header("Misc")]
     [SerializeField] private FallManager fallM;
+    /// <summary>
+    /// Tells us whether or not we're travelling on a moving platform
+    /// </summary>
+    [HideInInspector]
+    public bool movingPlatform;
+    /// <summary>
+    /// Vector3 representing the direction and magnitude of our platform's movement
+    /// </summary>
+    [HideInInspector]
+    public Vector3 platformDirMag;
+
 
     [Space(3)]
     [Header("Re-Write")]
@@ -161,7 +179,13 @@ public class CyberSpaceFirstPerson : MonoBehaviour
     [SerializeField]
     private LayerMask excludedLayers;
 
-    
+    /// <summary>
+    /// This is a boolean used to stop the RotateView function for one frame so the rotation can be set
+    /// </summary>
+    [HideInInspector]
+    public bool outsideRot;
+
+
 
     // Use this for initialization
     private void Start()
@@ -231,6 +255,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
     private void LateUpdate()
     {
+
         RotateView();
     }
 
@@ -476,6 +501,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         // always move along the camera forward as it is the direction that it being aimed at
         Vector3 desiredMove = transform.forward * m_Input.y + transform.right * m_Input.x;
 
+        
+
         //Air Control while carrying over velocity
         if (waitForCarryVelocityBeforeMove)
         {
@@ -545,6 +572,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             //Add gravity while in the air, but not when grappling
             if (!grappling && AddDirVector == Vector3.zero)
             {
+
+
                 m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
             }
         }
@@ -574,7 +603,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
             m_MoveDir = (grappleVal * grappleSpeed) + grappleAddSpeed + inheritedPlayerVelocity + (m_Camera.transform.forward * grappleCameraInfluence * (1 - Mathf.Pow(dot, 10f)));
 
-
+            
 
 
             if (Vector3.Distance(transform.position, grapplePosition) < grappleCutDistance)
@@ -603,6 +632,25 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             ApplyAirControl(ref leftOverVelocity, Vector3.zero);
             //  leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
         }
+
+
+
+        
+        #region Moving Platform Stuff
+
+
+        if (platformDirMag.y > 0)
+        {
+            Physics.SyncTransforms();
+        }
+
+
+        if (m_CollisionFlags != CollisionFlags.Below)
+        {
+            movingPlatform = false;
+        }
+        #endregion
+
 
 
 
@@ -758,6 +806,13 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
     private void RotateView()
     {
+        if (outsideRot)
+        {
+
+            outsideRot = false;
+            return;
+        }
+        
         if (MenuPause.GamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -776,6 +831,11 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         {
             return;
         }
+        else
+        {
+            movingPlatform = false;
+            platformDirMag = Vector3.zero;
+        }
 
         if (body == null || body.isKinematic)
         {
@@ -783,5 +843,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         }
         body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
     }
-}
 
+   
+}

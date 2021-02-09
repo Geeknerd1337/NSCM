@@ -21,6 +21,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             set { yAdj = value; }
         }
 
+        public float xAdjust;
+        
+
 
         private Quaternion m_CharacterTargetRot;
         private Quaternion m_CameraTargetRot;
@@ -38,10 +41,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             yRot = CrossPlatformInputManager.GetAxis("Mouse X") * XSensitivity;
             xRot = CrossPlatformInputManager.GetAxis("Mouse Y") * YSensitivity;
 
+
             if (yAdj != 0)
             {
                 xRot += yAdj;
                 yAdj = 0;
+            }
+
+            if(xAdjust != 0)
+            {
+                yRot += xAdjust;
+                xAdjust = 0;
             }
 
             m_CharacterTargetRot *= Quaternion.Euler (0f, yRot, 0f);
