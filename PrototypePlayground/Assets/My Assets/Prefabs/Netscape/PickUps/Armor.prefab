@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 6567085613545964300}
   - component: {fileID: 6567085613545964302}
   - component: {fileID: 6567085613545964303}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Armor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.12, y: 3.27, z: 8.019706}
+  m_Size: {x: 5, y: 5, z: 8.019706}
   m_Center: {x: 0, y: -1.4964097e-14, z: 4.009867}
 --- !u!114 &6567085613545964303
 MonoBehaviour:
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  shield: 25
+  shield: 10
   ammoIndex: 0
   ammoAmount: 0
   weaponIndex: 0
