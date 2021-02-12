@@ -85,6 +85,14 @@ public static class SaveLoadGlobalManager
         // the autosave is loaded. The data is used to initalize various things inside LevelSaveDataController
     }
 
+    public static void Delete()
+    {
+        if (File.Exists(SavePath + "/" + Filename))
+        {
+            File.Delete(SavePath + "/" + Filename);
+        }
+    }
+
     private static SaveLoadData _data;
 }
 

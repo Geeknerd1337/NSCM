@@ -433,6 +433,29 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         playerVelocity *= dropAmount / speed; // Reduce the velocity by a certain percent
     }
 
+    private void ApplyDrag(ref Vector3 playerVelocity)
+    {
+        //Get the players current speed as a magnitude of their velocity
+        float speed = playerVelocity.magnitude;
+        //If the player is already effectively stopped, do not apply friction any more
+        if (speed <= 0.00001)
+        {
+            return;
+        }
+
+        //Basically keep whether or not the speed is less than the friction threshold
+        float downLimit = Mathf.Max(speed, frictionThresh); // Don't drop below treshold
+        //Not sure what this does yet
+        float dropAmount = speed - (downLimit * airDeccelCoef * Time.fixedDeltaTime);
+        if (dropAmount < 0)
+        {
+            dropAmount = 0;
+        }
+
+        //Decrease the players velocity according to friction
+        playerVelocity *= dropAmount / speed; // Reduce the velocity by a certain percent
+    }
+
     private void ApplyAirControl(ref Vector3 playerVelocity, Vector3 accelDir)
     {
         // This only happens in the horizontal plane
@@ -456,6 +479,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             // A little bit closer to accelDir
             playerDirHorz = playerDirHorz * playerSpeedHorz + accelDir * k;
             playerDirHorz.Normalize();
+
+            
 
             // Assign new direction, without touching the vertical speed
             playerVelocity = (playerDirHorz * playerSpeedHorz).ToHorizontal() + Gravity.Up * playerVelocity.VerticalComponent();
@@ -572,8 +597,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             //Add gravity while in the air, but not when grappling
             if (!grappling && AddDirVector == Vector3.zero)
             {
-
-
                 m_MoveDir += Physics.gravity * m_GravityMultiplier * Time.fixedDeltaTime;
             }
         }
@@ -630,6 +653,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
         {
             //leftOverVelocity.y = 0;
             ApplyAirControl(ref leftOverVelocity, Vector3.zero);
+            ApplyDrag(ref   leftOverVelocity);
             //  leftOverVelocity = Vector3.MoveTowards(leftOverVelocity, Vector3.zero, airDrag * Time.fixedDeltaTime);
         }
 

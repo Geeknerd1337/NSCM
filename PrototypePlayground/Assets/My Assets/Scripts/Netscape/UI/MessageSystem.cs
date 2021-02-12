@@ -74,6 +74,22 @@ public class MessageSystem : MonoBehaviour
         UpdateText();
     }
 
+    //This is the public say message function, this adds a message to the message list
+    public void SingleMessage(string message)
+    {
+        string str = "";
+
+        //Construct the message, add it to the list, then enable the subtitles momentarily
+        str += "<color=#" + messageColor + ">" + message + "</color> \n";
+        AddMessage(str);
+        //Renable text reset subtitle timer
+        textField.enabled = true;
+        subtitleTimer = subtitleDelay;
+
+        //Update the text field
+        UpdateText();
+    }
+
     //Adds a message to the message list directly, removing the first message (oldest) if there are more than 4 messages
     private void AddMessage(string str)
     {
