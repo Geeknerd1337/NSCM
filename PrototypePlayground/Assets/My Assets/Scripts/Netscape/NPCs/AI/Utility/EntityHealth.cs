@@ -76,9 +76,19 @@ public class EntityHealth : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+
+                foreach (Collider collider in GetComponentsInChildren<Collider>())
+                {
+                    if (collider != null)
+                    {
+                        GetComponent<Collider>().enabled = false;
+                    }
+                }
             }
-                
+            
         }
+
+
     }
 
     void ActivateRagdoll()
