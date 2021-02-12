@@ -87,9 +87,10 @@ public static class SaveLoadGlobalManager
 
     public static void Delete()
     {
-        if (File.Exists(SavePath + "/" + Filename))
+        string filename = SavePath + "/" + Filename;
+        if (File.Exists(filename))
         {
-            File.Delete(SavePath + "/" + Filename);
+            File.Delete(filename);
         }
     }
 

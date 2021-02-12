@@ -78,7 +78,7 @@ public class GrapplingHand : MonoBehaviour
         {
             if (hit.transform != null && hit.transform.tag == "Grapple")
             {
-                return hit.point;
+                return hit.transform.position;
             }
         }
 
