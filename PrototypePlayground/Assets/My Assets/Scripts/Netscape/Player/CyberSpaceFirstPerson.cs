@@ -847,7 +847,8 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        print(hit.gameObject.tag);
+        if (hit.gameObject.layer == 16) return;
+
         Debug.DrawRay(hit.point, transform.up);
         if(hit.gameObject.tag == "Moving Platform")
         {

@@ -65,9 +65,15 @@ public class EntityHealth : MonoBehaviour
 
 
         if (dead) {
+            //set layer to deadenemy
+            //print("set dead enemy");
+            //gameObject.layer = 16;
+
             deathTime -= Time.deltaTime;
             if(deathTime <= 0)
             {
+                
+
                 if (thingtoDestroy != null)
                 {
                     Destroy(thingtoDestroy);
@@ -77,13 +83,7 @@ public class EntityHealth : MonoBehaviour
                     Destroy(gameObject);
                 }
 
-                foreach (Collider collider in GetComponentsInChildren<Collider>())
-                {
-                    if (collider != null)
-                    {
-                        GetComponent<Collider>().enabled = false;
-                    }
-                }
+                //GetComponent<EntityHealth>().enabled = false;
             }
             
         }
