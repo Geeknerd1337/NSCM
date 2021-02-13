@@ -19678,7 +19678,6 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 0
-  autoreloadIfEmpty: 1
 --- !u!1 &775253093206177910
 GameObject:
   m_ObjectHideFlags: 0
@@ -19886,7 +19885,7 @@ MonoBehaviour:
   frictionThresh: 0.5
   jumpStrength: 0
   airAccelCoef: 1
-  airDeccelCoef: 2.5
+  airDeccelCoef: 0.22
   airControlPrecision: 8
   airControlAdditionForward: 4
   grounded: 0
@@ -29716,7 +29715,6 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
-  autoreloadIfEmpty: 1
 --- !u!114 &775253093738106704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30129,7 +30127,6 @@ MonoBehaviour:
   zoomSpeed: 350
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
-  autoreloadIfEmpty: 1
 --- !u!114 &775253093565441747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35505,7 +35502,6 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
-  autoreloadIfEmpty: 1
 --- !u!1 &775253094116929614
 GameObject:
   m_ObjectHideFlags: 0
@@ -40393,13 +40389,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   allowAim: 0
-  fullAuto: 1
+  fullAuto: 0
   zoomOnAim: 0
   smoothAimTrans: 1
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
-  autoreloadIfEmpty: 1
 --- !u!82 &775253093511625624
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40535,7 +40530,6 @@ MonoBehaviour:
   zoomSpeed: 0
   minMaxFOV: {x: 0, y: 0}
   useTracers: 0
-  autoreloadIfEmpty: 1
 --- !u!1 &1803643194995627181
 GameObject:
   m_ObjectHideFlags: 0

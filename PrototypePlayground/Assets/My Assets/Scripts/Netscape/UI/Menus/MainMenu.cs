@@ -33,6 +33,7 @@ public class MainMenu : MonoBehaviour
     {
         if (!a.GetCurrentAnimatorStateInfo(0).IsName("FadeOut"))
         {
+            SaveLoadGlobalManager.Delete();
             a.Play("FadeOut");
         }
     }
