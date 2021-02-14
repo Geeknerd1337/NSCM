@@ -19678,6 +19678,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!1 &775253093206177910
 GameObject:
   m_ObjectHideFlags: 0
@@ -29715,6 +29716,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 1
 --- !u!114 &775253093738106704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30127,6 +30129,7 @@ MonoBehaviour:
   zoomSpeed: 350
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 1
 --- !u!114 &775253093565441747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35502,6 +35505,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 1
 --- !u!1 &775253094116929614
 GameObject:
   m_ObjectHideFlags: 0
@@ -40389,12 +40393,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   allowAim: 0
-  fullAuto: 0
+  fullAuto: 1
   zoomOnAim: 0
   smoothAimTrans: 1
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 1
 --- !u!82 &775253093511625624
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40530,6 +40535,7 @@ MonoBehaviour:
   zoomSpeed: 0
   minMaxFOV: {x: 0, y: 0}
   useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!1 &1803643194995627181
 GameObject:
   m_ObjectHideFlags: 0
@@ -68130,10 +68136,6 @@ PrefabInstance:
       propertyPath: m_UpdateWhenOffscreen
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 100168, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -69917,6 +69919,10 @@ PrefabInstance:
     - target: {fileID: 100070, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
@@ -72402,10 +72408,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 7d16325727f215041a40e27c64ef3893, type: 2}
-    - target: {fileID: 400218, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400028, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -89.98021
@@ -72621,22 +72623,6 @@ PrefabInstance:
     - target: {fileID: 400044, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -135.07101
-      objectReference: {fileID: 0}
-    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 86b53c628b13aeb499d2523e339bd3bf, type: 2}
-    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 5daba31499dcd6e48870b1d6f9187c0d, type: 2}
-    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_UpdateWhenOffscreen
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_CastShadows
@@ -74974,6 +74960,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 400218, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 86b53c628b13aeb499d2523e339bd3bf, type: 2}
+    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5daba31499dcd6e48870b1d6f9187c0d, type: 2}
+    - target: {fileID: 13700006, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
 --- !u!1 &775253093598544060 stripped
@@ -76919,10 +76925,6 @@ PrefabInstance:
       propertyPath: m_UpdateWhenOffscreen
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 100168, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -78754,6 +78756,10 @@ PrefabInstance:
     - target: {fileID: 100070, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
