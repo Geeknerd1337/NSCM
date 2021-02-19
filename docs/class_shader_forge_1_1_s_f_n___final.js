@@ -1,0 +1,27 @@
+var class_shader_forge_1_1_s_f_n___final =
+[
+    [ "SFN_Final", "class_shader_forge_1_1_s_f_n___final.html#abf29a7ecf8f4a2e7f67a2d496b26eb41", null ],
+    [ "Initialize", "class_shader_forge_1_1_s_f_n___final.html#a71cabd1e2d81827919b15f08b975ea3c", null ],
+    [ "OnUpdateNode", "class_shader_forge_1_1_s_f_n___final.html#a9262cb0f252c549a92a134faf43e483f", null ],
+    [ "alpha", "class_shader_forge_1_1_s_f_n___final.html#a48a6efd3d3e1bf6326b263d3746d31ac", null ],
+    [ "alphaClip", "class_shader_forge_1_1_s_f_n___final.html#a2f16c845205eeee4725cea1f9e761960", null ],
+    [ "ambientDiffuse", "class_shader_forge_1_1_s_f_n___final.html#ace04ba2bc5fdce0b361c15508ae8aad1", null ],
+    [ "ambientSpecular", "class_shader_forge_1_1_s_f_n___final.html#a9ae55197cb6d7b2bf3b42dc03a03e66d", null ],
+    [ "customLighting", "class_shader_forge_1_1_s_f_n___final.html#a103dab613c0284cb633a2fab0bb7343e", null ],
+    [ "diffuse", "class_shader_forge_1_1_s_f_n___final.html#a2037b7ecf554513f56aa0f0adf33e4d8", null ],
+    [ "diffuseOcclusion", "class_shader_forge_1_1_s_f_n___final.html#a491d332b1aea012f4166cb3968e9f8f5", null ],
+    [ "diffusePower", "class_shader_forge_1_1_s_f_n___final.html#a3ec824ff6dd796b6f6579db9ff021f79", null ],
+    [ "displacement", "class_shader_forge_1_1_s_f_n___final.html#a47dbbbd50b45370e18c57d2bcb9b2222", null ],
+    [ "emissive", "class_shader_forge_1_1_s_f_n___final.html#a98fd295bff02f7299746ed425d7fa90b", null ],
+    [ "gloss", "class_shader_forge_1_1_s_f_n___final.html#ac341f6b9d78e76e93778c0ea6ed4a7b0", null ],
+    [ "lightWrap", "class_shader_forge_1_1_s_f_n___final.html#a4a85d55f75e2068aa74a34918c46f767", null ],
+    [ "normal", "class_shader_forge_1_1_s_f_n___final.html#aacfaf6b04215fd1d3f84c8c6c88b6c70", null ],
+    [ "outlineColor", "class_shader_forge_1_1_s_f_n___final.html#a41957a83d69133e4021afe0f580a1839", null ],
+    [ "outlineWidth", "class_shader_forge_1_1_s_f_n___final.html#a672e655860cea3296c27f28a39a72e9a", null ],
+    [ "refraction", "class_shader_forge_1_1_s_f_n___final.html#a1553c23a596dd4d96427ef7b60007804", null ],
+    [ "specular", "class_shader_forge_1_1_s_f_n___final.html#af965d4aaf721b7adfa06bf51469d4fbb", null ],
+    [ "specularOcclusion", "class_shader_forge_1_1_s_f_n___final.html#a8e8e55922c23688f260eb858b365692d", null ],
+    [ "tessellation", "class_shader_forge_1_1_s_f_n___final.html#a231426cdadfb508f879c86ba5788aff5", null ],
+    [ "transmission", "class_shader_forge_1_1_s_f_n___final.html#af8c3af6dd65c274ab229de08ce1028ed", null ],
+    [ "vertexOffset", "class_shader_forge_1_1_s_f_n___final.html#a4f9ec8750a611adea928b42d257a067b", null ]
+];
