@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['largetextfield_12443',['LargeTextField',['../class_shader_forge_1_1_s_f___styles.html#a53f7723567919944aa891106362bb7c8',1,'ShaderForge::SF_Styles']]],
-  ['largetextfieldnoframe_12444',['LargeTextFieldNoFrame',['../class_shader_forge_1_1_s_f___styles.html#a971a616549939d12b22634c4a3d2638e',1,'ShaderForge::SF_Styles']]],
-  ['layermask_12445',['layerMask',['../class_unity_engine_1_1_a_i_1_1_nav_mesh_surface.html#a4fe846e0f32d064be221dccb46581233',1,'UnityEngine::AI::NavMeshSurface']]],
-  ['length_12446',['Length',['../class_spline_mesh_1_1_cubic_bezier_curve.html#aed8f4f70efc44000533611df4c40db74',1,'SplineMesh.CubicBezierCurve.Length()'],['../class_unity_standard_assets_1_1_utility_1_1_waypoint_circuit.html#a0cb31df6885aa3bd8924ece61343c529',1,'UnityStandardAssets.Utility.WaypointCircuit.Length()']]],
-  ['logo_12447',['Logo',['../class_shader_forge_1_1_s_f___g_u_i.html#acc6492cd415124b495939b7b4f06b504',1,'ShaderForge::SF_GUI']]]
+  ['shield_2703',['Shield',['../class_player_stats.html#ac832b547bc03fceb11b1ac66213f5f63',1,'PlayerStats']]],
+  ['shotsleft_2704',['ShotsLeft',['../class_weapon.html#a272e8e78a3b9688e3974131fa235abe7',1,'Weapon']]],
+  ['spawnercount_2705',['SpawnerCount',['../class_enemy_spawner_group.html#a6be2b948047b66e5bdadfab06abdd318',1,'EnemySpawnerGroup']]],
+  ['stoppingdistance_2706',['StoppingDistance',['../class_a_i_entity.html#a741608c0943575ee00e603e9269318e0',1,'AIEntity']]],
+  ['strafemod_2707',['StrafeMod',['../class_a_i_entity.html#a2e6d41602eb33cac71fbc2bd118a23d4',1,'AIEntity']]],
+  ['strafetimer_2708',['StrafeTimer',['../class_a_i_entity.html#af136944d4daf87008859bce2de338827',1,'AIEntity']]]
 ];
