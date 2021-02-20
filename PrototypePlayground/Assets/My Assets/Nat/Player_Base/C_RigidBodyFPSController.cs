@@ -136,12 +136,7 @@ public class C_RigidBodyFPSController : MonoBehaviour
 
 
     //nonserialized vars
-
-    /*
-     * @name: currentRotation
-     * @desc: container variable for the current rotation of the parent gameobject. Used to contain, manipulate, and 
-        apply modifiers.
-     */
+        
     /// <summary>
     /// container variable for the current rotation of the parent gameobject. Used to contain, manipulate, and apply modifiers.
     /// </summary>

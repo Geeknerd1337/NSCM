@@ -1,0 +1,25 @@
+var class_weapon_manager =
+[
+    [ "ActivateGun", "class_weapon_manager.html#acbb44dad76c1223d04b54b15be19cbb0", null ],
+    [ "Awake", "class_weapon_manager.html#a17c71eee98930fcdff10bd9085fb6c4e", null ],
+    [ "CurrentWeapon", "class_weapon_manager.html#a9a564da7a292f36f6eed3bd9e5c12699", null ],
+    [ "Decrement", "class_weapon_manager.html#a32c7286a9f3a78cad6ca4ba67b6e2ba0", null ],
+    [ "GetWeaponFromIndex", "class_weapon_manager.html#a28db0d5634b45e7811535469358470a0", null ],
+    [ "Increment", "class_weapon_manager.html#ac2f6eda5e45140aa7e48d73c6f9a2d08", null ],
+    [ "NumberWeapon", "class_weapon_manager.html#ac35f40dc095c2b35238bfdb6460a6887", null ],
+    [ "PlayHoverSound", "class_weapon_manager.html#a1f3e9144ffe900f5e6659af37fba528a", null ],
+    [ "PlaySelectSound", "class_weapon_manager.html#a5bc7421760b6e6bbd5c1d3db9f90ef01", null ],
+    [ "ScrollWeapon", "class_weapon_manager.html#ad8c13f1f9f2b5ffe21c6bca921dff7a7", null ],
+    [ "Start", "class_weapon_manager.html#a2529cde0debf88221eb090ec41a1021b", null ],
+    [ "UnlockWeapon", "class_weapon_manager.html#ad2151c90fa0649688860c10752953d87", null ],
+    [ "Update", "class_weapon_manager.html#ab30e7ac3d8a58e98f52ebb93a1d7e8e5", null ],
+    [ "currentWeapon", "class_weapon_manager.html#af8e29fde8218a7f447b35d552cd7c5ea", null ],
+    [ "gunIndex", "class_weapon_manager.html#a17d70244296f0ad8a7678e7ed223a195", null ],
+    [ "gunIndexActual", "class_weapon_manager.html#a4cd1f6c46b60338019129237725b6202", null ],
+    [ "guns", "class_weapon_manager.html#aab944109c6d4d5607c2edfd12e03e29b", null ],
+    [ "gunUI", "class_weapon_manager.html#abdb617769d62e31a7a47b798039f8298", null ],
+    [ "hoverSound", "class_weapon_manager.html#ac1dfbb05c5e3df134d2829c42b9d25c0", null ],
+    [ "selectSound", "class_weapon_manager.html#a013df8d312ad660d1b97a643198efca6", null ],
+    [ "sounds", "class_weapon_manager.html#a13f4a4392385aa7d10b89fc5858e508a", null ],
+    [ "GunUI", "class_weapon_manager.html#afc2c2d9231f30be9c62706111dd920da", null ]
+];
