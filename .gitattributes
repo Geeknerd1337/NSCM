@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+*/cudnn64_7.dll filter=lfs diff=lfs merge=lfs -text
+*/Server_Train/LightingData.asset filter=lfs diff=lfs merge=lfs -text
+*[[:space:]]text=auto filter=lfs diff=lfs merge=lfs -text
+#lfs pls
