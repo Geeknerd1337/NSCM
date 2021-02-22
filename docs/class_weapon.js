@@ -1,6 +1,5 @@
 var class_weapon =
 [
-    [ "CalculateFireAngle", "class_weapon.html#a02588c0b84ff999aeba1c419cd7042cd", null ],
     [ "CreateTracer", "class_weapon.html#a54c6e5ee3056642a657a1bb06dc1603a", null ],
     [ "FireGun", "class_weapon.html#a60a0a2f7fa98bc08596f6c74dc1a4e98", null ],
     [ "FireProjectile", "class_weapon.html#a0c4378fb248f6c2a066fcb372e53bbef", null ],
@@ -11,7 +10,6 @@ var class_weapon =
     [ "LateUpdate", "class_weapon.html#a0fbdc0835938caae5defef37801f3457", null ],
     [ "OnEnable", "class_weapon.html#a903391d55ea46c1da6abbc9c4cfac403", null ],
     [ "PlayWeaponSound", "class_weapon.html#a951ac69f2ae7a147ab1a86e51fb1045a", null ],
-    [ "RandomInsideCone", "class_weapon.html#a20a5b08b5c1697bc191e10eee8a18df0", null ],
     [ "Start", "class_weapon.html#ae4f517eead254a905b55b9d9cd9b651c", null ],
     [ "Update", "class_weapon.html#a7c7b901870c742eb854eff9312ce6a33", null ],
     [ "WaitToAllowFire", "class_weapon.html#a165c4a4fcba36968bc718bb3ded64a2a", null ],

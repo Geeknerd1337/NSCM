@@ -5,22 +5,61 @@ using UnityStandardAssets.Characters.FirstPerson;
 using EZCameraShake;
 using UnityEngine.Events;
 
+/// <summary>
+/// This class handles the guns in the game. It is powered using a Scriptable Object and handles the animations, stats, and firing of the weapon.
+/// </summary>
 public class Weapon : MonoBehaviour
 {
 
     #region Private Members
+    /// <summary>
+    /// Reference to the weapons animator component.
+    /// </summary>
     private Animator weaponAnimator;
+    /// <summary>
+    /// Reference to the cameras roll effects
+    /// </summary>
     private CameraRollEffects rollEffects;
+    /// <summary>
+    /// A reference to the players camera
+    /// </summary>
     [SerializeField]
     private Camera playerCam;
+    /// <summary>
+    /// A reference to the view model camera. Rendered on a seperate layer above everything else so the weapon doesn't clip through world geometry.
+    /// </summary>
     [SerializeField]
     private Camera weaponCam;
+
+    /// <summary>
+    /// A reference to the character controller
+    /// </summary>
     private CyberSpaceFirstPerson charController;
+    /// <summary>
+    /// A reference to the audio source from which all weapon sounds are made. 
+    /// </summary>
     private AudioSource weaponSound;
+    /// <summary>
+    /// A reference to the player stats class.
+    /// </summary>
     private PlayerStats playerStats;
     #endregion
 
     #region Booleans
+    /// <summary>
+    /// A boolean representing whether or not the weapon can fire. This is based on the various animations listed in the weapon object scriptable object. This is used to give information on whether
+    /// any of the listed animations are playing.
+    /// 
+    /// </summary>
+    /// <listheader>Animations That Prevent Firing</listheader>
+    /// <list type="number">
+    /// <item>Fire Animation</item>
+    /// <item>Aim Fire Animationn</item>
+    /// <item>Reload Animation</item>
+    /// <item>Aim Dry Fire Animationn</item>
+    /// <item>Draw Animation</item>
+    /// <item>Dry Fire Animation</item>
+    /// </list>
     private bool CanFire { get
         {
 
@@ -36,60 +75,142 @@ public class Weapon : MonoBehaviour
 
     private bool isBusy;
 
+    /// <summary>
+    /// A boolean that checks if the animators reload animation is playing. Used to check if the player is reloading
+    /// </summary>
     public bool IsReloading { get { return weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.reloadAnimation); } }
     #endregion
 
+    /// <summary>
+    /// A reference to the scriptable object that provides all the data on the individual weapons stats.
+    /// </summary>
     [Header("Weapon Object")]
     [SerializeField] private Weapon_SO weaponObject;
 
+    /// <summary>
+    /// The intensity of the weapons 'sway'
+    /// </summary>
     [Header("Weapon Sway")]
     public float swayIntensity;
+    /// <summary>
+    /// The smoothing value for the weapon sway. Higher values will result in a 'slower' sway.
+    /// </summary>
     public float smooth;
+    /// <summary>
+    /// This is a value that holds the original rotation of the weapon. This is used to determine what value the sway needs to smooth to. 
+    /// </summary>
     [SerializeField]
     private Quaternion originRotation;
 
+    /// <summary>
+    /// A reference to the muzzle flash particle system
+    /// </summary>
     [Header("Weapon Visual Effects")]
     [SerializeField] private ParticleSystem muzzleFlash;
+    /// <summary>
+    /// A reference to the effect spawned by a buller
+    /// TODO: Convert this to a pooled particle system
+    /// </summary>
     [SerializeField] private GameObject hitEffect;
+    /// <summary>
+    /// If the weapon fires projectiles, this is a transform holding the position where the projectile is spawned. 
+    /// </summary>
     [SerializeField] private Transform projectileOrigin;
-    //Tracers
+
+    /// <summary>
+    /// A reference to a particle system for the tracers
+    /// </summary>
     [SerializeField]
     private ParticleSystem tracerSystem;
+    /// <summary>
+    /// The max number of tracers allowed at a time
+    /// </summary>
     [SerializeField]
     private float maxTracers;
 
+    /// <summary>
+    /// A reference to the actual particles of the tracer particle system
+    /// </summary>
     private ParticleSystem.Particle[] tracerParticles;
+    /// <summary>
+    /// Emit parameters for a particle
+    /// </summary>
     private ParticleSystem.EmitParams emitParams;
     private int lastParticleIndex = 0;
 
+    /// <summary>
+    /// The number of shts left in a weapon
+    /// </summary>
     [Header("Weapon Stats")]
     private int shotsLeft;
+    /// <summary>
+    /// Public reference to shotsLeft.
+    /// </summary>
     public int ShotsLeft
     {
         get { return shotsLeft; }
         set { shotsLeft = value; }
     }
+    /// <summary>
+    /// Public reference to ammo type.
+    /// </summary>
     public int AmmoType
     {
         get { return ammoType; }
     }
+    /// <summary>
+    /// A variable holding which 'type' of ammo our weapon uses.
+    /// </summary>
     [SerializeField]
     private int ammoType;
 
+    /// <summary>
+    /// A layer mask for the bullets
+    /// </summary>
     [Header("Raycast Fire Setup")]
     [SerializeField] private LayerMask bulletLayerMask;
 
+
+    /// <summary>
+    /// A Unity Event for when we fire the weapon
+    /// </summary>
     [Header("Event Systems")]
     [SerializeField] private UnityEvent fireEvents;
 
+    /// <summary>
+    /// Allows us to Aim the weapon
+    /// </summary>
     [Header("Weapon Toggles")]
     [SerializeField] private bool allowAim;
+    /// <summary>
+    /// A boolean determining whether or not a weapon is fully automatic
+    /// </summary>
     [SerializeField] private bool fullAuto;
+    /// <summary>
+    /// A boolean representing whether or not we want to zoom in when we aim the weapon
+    /// </summary>
     [SerializeField] private bool zoomOnAim;
+    /// <summary>
+    /// A boolean representing whether or not we want to smoothly transition to the zoom when we aim
+    /// </summary>
     [SerializeField] private bool smoothAimTrans;
+    /// <summary>
+    /// The speed at which we zoom
+    /// </summary>
     [SerializeField] private float zoomSpeed;
+    /// <summary>
+    /// The min and max FOV determining our zoomed and unzoomed FOV
+    /// TODO: Convert this to a global
+    /// </summary>
     [SerializeField] private Vector2 minMaxFOV;
+    /// <summary>
+    /// A boolean representing whether or not this weapon creates tracers
+    /// </summary>
     [SerializeField] private bool useTracers;
+
+    /// <summary>
+    /// A private reference to our settings
+    /// </summary>
     private LevelSaveDataController settings;
 
 
@@ -140,6 +261,10 @@ public class Weapon : MonoBehaviour
         
     }
 
+
+    /// <summary>
+    /// This function is what handles the input for our weapons. This controls things like firing the weapon, aiming the weapon, and reloading the weapon.
+    /// </summary>
     void HandleGunInput()
     {
 
@@ -181,6 +306,12 @@ public class Weapon : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// This is a function called when the weapon is fired. If the weapon can be fired, then the weapon will fire either a projectile or a ray bullet
+    /// based on the firesProjectile property on weaponObject. In adition to this, it will play the relevant audio for the sound, also based on a property in the weapon object.
+    /// This function also handles visual effects like the muzzle flash and camera shake. 
+    /// </summary>
     void FireGun()
     {
         if (CanFire && !isBusy)
@@ -267,6 +398,10 @@ public class Weapon : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Fires a 'Ray' bullet using a Unity raycast. In layman's terms, this is a hitscan bullet.
+    /// </summary>
     void FireRayBullet()
     {
         for(int i = 0; i < weaponObject.numberOfShots; i++)
@@ -302,6 +437,10 @@ public class Weapon : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Fires a projectile instead of a ray bullet. Will spawn the projectile at the projectileOrigin position.
+    /// </summary>
     void FireProjectile()
     {
         //This handles the fire spread and is kind of black magic
@@ -317,25 +456,9 @@ public class Weapon : MonoBehaviour
         projectile.transform.position = projectileOrigin.position;
     }
 
-    public static Vector3 RandomInsideCone(float radius)
-    {
-        //(sqrt(1 - z^2) * cosϕ, sqrt(1 - z^2) * sinϕ, z)
-        float radradius = radius * Mathf.PI / 360;
-        float z = Random.Range(Mathf.Cos(radradius), 1);
-        float t = Random.Range(0, Mathf.PI * 2);
-        return new Vector3(Mathf.Sqrt(1 - z * z) * Mathf.Cos(t), Mathf.Sqrt(1 - z * z) * Mathf.Sin(t), z);
-    }
-
-    float CalculateFireAngle(float f) {
-        float sign = Mathf.Sign(f) * 1;
-        float amt = Mathf.Abs(f);
-        float amtActual = Mathf.Lerp(0, (1 / 360f) * weaponObject.maxFireAngle, amt);
-        Debug.Log(amtActual * sign);
-        return (amt / weaponObject.maxFireAngle) * sign;
-
-
-    }
-
+    /// <summary>
+    /// Handles the weapon sway by adjusting the rotation based on the input from the mouse X and Y axis.
+    /// </summary>
     void HandleWeaponSway()
     {
 
@@ -350,6 +473,10 @@ public class Weapon : MonoBehaviour
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, smooth * 10f * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Plays the relevant weapon sound from the WeaponSound class.
+    /// </summary>
+    /// <param name="w">The WeaponSound object we are passing in in order to play a sound</param>
     void PlayWeaponSound(WeaponSound w)
     {
         weaponSound.clip = w.sound;
@@ -366,7 +493,10 @@ public class Weapon : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Thhis is what handles the FOV of the camera. Takes into account the SaveLoadSettingsManager FOV value
+    /// TODO: Move more aspects of this to a global scope.
+    /// </summary>
     void HandleFOV()
     {
         if (zoomOnAim)
@@ -399,6 +529,10 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Temporarily prevents the user from firing. Used when selecting weapons
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator WaitToAllowFire()
     {
         isBusy = true;
@@ -412,6 +546,12 @@ public class Weapon : MonoBehaviour
         Debug.Log("Success");
     }
 
+
+    /// <summary>
+    /// Creates a tracer on the tracerParticles particle system at a given location and in a given direction
+    /// </summary>
+    /// <param name="position">The position of the tracer</param>
+    /// <param name="direction">The direction of the tracer</param>
     void CreateTracer(Vector3 position, Vector3 direction)
     {
         int activeParticles = tracerSystem.GetParticles(tracerParticles);
