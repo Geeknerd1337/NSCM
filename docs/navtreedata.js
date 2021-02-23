@@ -59,10 +59,10 @@ var NAVTREEINDEX =
 "class_cyber_space_first_person.html#a9e9e2fa193d401cdb04cd8472203acb3",
 "class_enemy_spawner_controller.html#a6f3c72052b8c7b7b1f9cfb94a28c6bf7",
 "class_grappling_hand.html#a1f1ec7f775172543c8d957a3dc1e752b",
-"class_menu_pause.html#a3309c41a1848128d0276a7b1a708b386",
-"class_screen_control.html",
-"class_ultimate_tractor_tube.html#a7ebc099031b4c240cb73d588c3560322",
-"dir_992cf94532362c668debbf21a0f51d7e.html"
+"class_menu_pause.html#a3d1bde2cf6b12cedb35439a42df5d0fd",
+"class_screen_control.html#a3db9b109c032ead5af4e21830ae606ff",
+"class_ultimate_tractor_tube.html#aa65bcaac0501f5595f4d9cb70b88364f",
+"dir_a37c9331ac54417acce7857dff86aa28.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

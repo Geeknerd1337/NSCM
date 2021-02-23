@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// A class that references the fall manager and sets a new valid position when the player enters the trigger
+/// </summary>
 public class NewFallPosition : MonoBehaviour
 {
     private FallManager fm;

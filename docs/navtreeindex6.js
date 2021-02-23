@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"class_screen_control.html":[1,0,89],
-"class_screen_control.html#a22a5fff0d6e63f891ac0f7471549c8ff":[1,0,89,2],
 "class_screen_control.html#a3db9b109c032ead5af4e21830ae606ff":[1,0,89,5],
 "class_screen_control.html#a40b9e3ce24c13cbb07e3ff16e3d9eeba":[1,0,89,3],
 "class_screen_control.html#a49d4f040b11656039490fda40244867d":[1,0,89,6],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "class_ultimate_tractor_tube.html#a63d45a584698985fa2b6599555897447":[1,0,109,17],
 "class_ultimate_tractor_tube.html#a6973b8f285c362980e9d4588df2ae5fa":[1,0,109,25],
 "class_ultimate_tractor_tube.html#a7c3d3e21f1637a920526d81542092a1e":[1,0,109,16],
-"class_ultimate_tractor_tube.html#a7cc5ad12f063127ebc475aa79014a85d":[1,0,109,23]
+"class_ultimate_tractor_tube.html#a7cc5ad12f063127ebc475aa79014a85d":[1,0,109,23],
+"class_ultimate_tractor_tube.html#a7ebc099031b4c240cb73d588c3560322":[1,0,109,26],
+"class_ultimate_tractor_tube.html#a94817720e8650d072385203e224a69cc":[1,0,109,7]
 };

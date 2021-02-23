@@ -91,6 +91,9 @@ $(document).ready(function(){initNavTree('class_camera_roll_effects.html',''); i
 <div class="title">CameraRollEffects Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A series of vector3s that control the rotation of the camera and the shake of the camera. Helps with animating things bullets kicking the camera up slightly or landing from a great distance.  
+ <a href="class_camera_roll_effects.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for CameraRollEffects:</div>
 <div class="dyncontent">
@@ -101,10 +104,13 @@ Inheritance diagram for CameraRollEffects:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8bbb3a1a8f00e75622dd32bf4e562345"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#a8bbb3a1a8f00e75622dd32bf4e562345">rollVector</a></td></tr>
+<tr class="memdesc:a8bbb3a1a8f00e75622dd32bf4e562345"><td class="mdescLeft">&#160;</td><td class="mdescRight">The roll vector for the camera  <a href="class_camera_roll_effects.html#a8bbb3a1a8f00e75622dd32bf4e562345">More...</a><br /></td></tr>
 <tr class="separator:a8bbb3a1a8f00e75622dd32bf4e562345"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7cba84d96207300edad9d00aa1d480f"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#ab7cba84d96207300edad9d00aa1d480f">vectorAdditions</a></td></tr>
+<tr class="memdesc:ab7cba84d96207300edad9d00aa1d480f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aditions to the roll vector we're making  <a href="class_camera_roll_effects.html#ab7cba84d96207300edad9d00aa1d480f">More...</a><br /></td></tr>
 <tr class="separator:ab7cba84d96207300edad9d00aa1d480f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed37068ca2ceee151e734ebe178d63cb"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#aed37068ca2ceee151e734ebe178d63cb">staticVectorAdditions</a></td></tr>
+<tr class="memdesc:aed37068ca2ceee151e734ebe178d63cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A static, unmoving set of vector additions. Unsure why this is till here TODO: See about depreciating  <a href="class_camera_roll_effects.html#aed37068ca2ceee151e734ebe178d63cb">More...</a><br /></td></tr>
 <tr class="separator:aed37068ca2ceee151e734ebe178d63cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bed97c4ae288878500f33a71fb6f0f2"><td class="memItemLeft" align="right" valign="top">Vector3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#a1bed97c4ae288878500f33a71fb6f0f2">positionalVector</a></td></tr>
 <tr class="separator:a1bed97c4ae288878500f33a71fb6f0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,17 +127,22 @@ Private Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a9cd102b42245b1d9997b3b0d5715ab53"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#a9cd102b42245b1d9997b3b0d5715ab53">smoothing</a></td></tr>
+<tr class="memdesc:a9cd102b42245b1d9997b3b0d5715ab53"><td class="mdescLeft">&#160;</td><td class="mdescRight">The smoothing value for rotation  <a href="class_camera_roll_effects.html#a9cd102b42245b1d9997b3b0d5715ab53">More...</a><br /></td></tr>
 <tr class="separator:a9cd102b42245b1d9997b3b0d5715ab53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7bfbc303fabad3fe1835966b1d5a4d74"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#a7bfbc303fabad3fe1835966b1d5a4d74">zeroSmoothing</a></td></tr>
+<tr class="memdesc:a7bfbc303fabad3fe1835966b1d5a4d74"><td class="mdescLeft">&#160;</td><td class="mdescRight">The smoothing value for taking vector additions back down to zero.  <a href="class_camera_roll_effects.html#a7bfbc303fabad3fe1835966b1d5a4d74">More...</a><br /></td></tr>
 <tr class="separator:a7bfbc303fabad3fe1835966b1d5a4d74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2734141b2a1ae11419c1cfff25895351"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#a2734141b2a1ae11419c1cfff25895351">cameraPositionSpeed</a></td></tr>
+<tr class="memdesc:a2734141b2a1ae11419c1cfff25895351"><td class="mdescLeft">&#160;</td><td class="mdescRight">The speed at which the camera moves to a position  <a href="class_camera_roll_effects.html#a2734141b2a1ae11419c1cfff25895351">More...</a><br /></td></tr>
 <tr class="separator:a2734141b2a1ae11419c1cfff25895351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b9d7878065e75dcfc15b1e3c621f0d2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_camera_roll_effects.html#a8b9d7878065e75dcfc15b1e3c621f0d2">cameraPositionSmoothing</a></td></tr>
+<tr class="memdesc:a8b9d7878065e75dcfc15b1e3c621f0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">How smoothly a camera moves to a position  <a href="class_camera_roll_effects.html#a8b9d7878065e75dcfc15b1e3c621f0d2">More...</a><br /></td></tr>
 <tr class="separator:a8b9d7878065e75dcfc15b1e3c621f0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00005">5</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<div class="textblock"><p>A series of vector3s that control the rotation of the camera and the shake of the camera. Helps with animating things bullets kicking the camera up slightly or landing from a great distance. </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00008">8</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7d3ec7fb5b1973d402ff8fbada5a5b1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7d3ec7fb5b1973d402ff8fbada5a5b1b">&#9670;&nbsp;</a></span>Start()</h2>
@@ -156,7 +167,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00019">19</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00044">44</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -183,7 +194,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00025">25</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00050">50</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -208,7 +219,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00017">17</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>How smoothly a camera moves to a position </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00042">42</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -232,7 +245,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00016">16</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>The speed at which the camera moves to a position </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00038">38</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -248,7 +263,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00011">11</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00024">24</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -264,7 +279,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00012">12</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00025">25</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -280,7 +295,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00007">7</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>The roll vector for the camera </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00013">13</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -304,7 +321,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00014">14</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>The smoothing value for rotation </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00030">30</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -320,7 +339,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00009">9</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>A static, unmoving set of vector additions. Unsure why this is till here TODO: See about depreciating </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00022">22</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -336,7 +357,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00008">8</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>Aditions to the roll vector we're making </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00017">17</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>
@@ -360,7 +383,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00015">15</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
+<p>The smoothing value for taking vector additions back down to zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="_camera_roll_effects_8cs_source.html#l00034">34</a> of file <a class="el" href="_camera_roll_effects_8cs_source.html">CameraRollEffects.cs</a>.</p>
 
 </div>
 </div>

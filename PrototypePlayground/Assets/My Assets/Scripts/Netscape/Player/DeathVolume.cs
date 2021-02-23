@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A script that will put the player back at the latest valid fall position if they enter this volume. Typically placed at the bottom of a level
+/// </summary>
 public class DeathVolume : MonoBehaviour
 {
     private FallManager fm;

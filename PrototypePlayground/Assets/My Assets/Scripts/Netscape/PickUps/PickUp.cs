@@ -4,19 +4,39 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    //Player Instance
-    //TODO: Eventually stuff like the player stats, weapons, and the like need to be combined into a single reference within a generalized singleton
+    /// <summary>
+    /// Reference to the player stats class
+    /// TODO: Make global scope
+    /// </summary>
     private PlayerStats playerStats;
+    /// <summary>
+    /// The amount of health this pick up gives
+    /// </summary>
     [SerializeField]
     private float health;
+    /// <summary>
+    /// The amount of shield this pickup gives
+    /// </summary>
     [SerializeField]
     private float shield;
+    /// <summary>
+    /// A reference to the audio source for this pickup
+    /// </summary>
     private AudioSource sound;
 
+    /// <summary>
+    /// The 'ammo type' that this refills on the player stats class
+    /// </summary>
     [SerializeField]
     private int ammoIndex;
+    /// <summary>
+    /// The amount of ammo to give.
+    /// </summary>
     public int ammoAmount;
 
+    /// <summary>
+    /// Basically, this helps double as a a weapon pick up as well so this decides what weapon the pickup gives you.
+    /// </summary>
     [SerializeField]
     private int weaponIndex;
     // Start is called before the first frame update
@@ -31,7 +51,9 @@ public class PickUp : MonoBehaviour
         
     }
 
-
+    /// <summary>
+    /// This plays the sound and destroys the pickup
+    /// </summary>
     void EquipPack()
     {
         //This code lets the sound play and destroys the object

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This manager is what controls the particle system, sound, and teleportation of a player when they fall into a death volume. Does a small amount of damage.
+/// </summary>
 public class FallManager : MonoBehaviour
 {
     public ParticleSystem part;
@@ -19,6 +22,9 @@ public class FallManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Damages the player slightly, teleports them to their last valid position.
+    /// </summary>
     public void Die()
     {
         PlayerStats p = GetComponent<PlayerStats>();

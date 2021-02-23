@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('class_player_stats.html',''); initResi
 <div class="title">PlayerStats Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Player stats is a class that holds things like the players shield, health, and hack mana.  
+ <a href="class_player_stats.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for PlayerStats:</div>
 <div class="dyncontent">
@@ -103,11 +106,13 @@ Inheritance diagram for PlayerStats:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa4f837cad35fdd5fc048a60624081e67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#aa4f837cad35fdd5fc048a60624081e67">DamagePlayer</a> (float f, Vector3 position)</td></tr>
+<tr class="memdesc:aa4f837cad35fdd5fc048a60624081e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">A function that damages the player, taking only a small portion of health and shielf if their shield is greater than 0, additionall  <a href="class_player_stats.html#aa4f837cad35fdd5fc048a60624081e67">More...</a><br /></td></tr>
 <tr class="separator:aa4f837cad35fdd5fc048a60624081e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:ab5d34930a7bd4e63443e9124f0094cfa"><td class="memItemLeft" align="right" valign="top">int[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#ab5d34930a7bd4e63443e9124f0094cfa">ammoTypes</a></td></tr>
+<tr class="memdesc:ab5d34930a7bd4e63443e9124f0094cfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The different ammo types the player has. This is what weapons and pickups reference for ammo  <a href="class_player_stats.html#ab5d34930a7bd4e63443e9124f0094cfa">More...</a><br /></td></tr>
 <tr class="separator:ab5d34930a7bd4e63443e9124f0094cfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
@@ -125,6 +130,7 @@ Properties</h2></td></tr>
 <tr class="memitem:a8ddc3c1bfc1174b77f4836bf0aed3770"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a8ddc3c1bfc1174b77f4836bf0aed3770">MaxHack</a><code> [get]</code></td></tr>
 <tr class="separator:a8ddc3c1bfc1174b77f4836bf0aed3770"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80a0d169af0bebed34a115ddcd3c9056"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weapon.html">Weapon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a80a0d169af0bebed34a115ddcd3c9056">PlayerWeapon</a><code> [get]</code></td></tr>
+<tr class="memdesc:a80a0d169af0bebed34a115ddcd3c9056"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current player weapon  <a href="class_player_stats.html#a80a0d169af0bebed34a115ddcd3c9056">More...</a><br /></td></tr>
 <tr class="separator:a80a0d169af0bebed34a115ddcd3c9056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -137,27 +143,37 @@ Private Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a7b11e94bad18b9a9937ad973f6f52769"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a7b11e94bad18b9a9937ad973f6f52769">health</a></td></tr>
+<tr class="memdesc:a7b11e94bad18b9a9937ad973f6f52769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Players health  <a href="class_player_stats.html#a7b11e94bad18b9a9937ad973f6f52769">More...</a><br /></td></tr>
 <tr class="separator:a7b11e94bad18b9a9937ad973f6f52769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1aa264fe6c7be6fdffe6049a957d0fe5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a1aa264fe6c7be6fdffe6049a957d0fe5">shield</a></td></tr>
+<tr class="memdesc:a1aa264fe6c7be6fdffe6049a957d0fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Player's shield/  <a href="class_player_stats.html#a1aa264fe6c7be6fdffe6049a957d0fe5">More...</a><br /></td></tr>
 <tr class="separator:a1aa264fe6c7be6fdffe6049a957d0fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5746f8e0821b8cf753b23dd8dba09bc"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#ae5746f8e0821b8cf753b23dd8dba09bc">maxHealth</a></td></tr>
+<tr class="memdesc:ae5746f8e0821b8cf753b23dd8dba09bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The max health value of the player  <a href="class_player_stats.html#ae5746f8e0821b8cf753b23dd8dba09bc">More...</a><br /></td></tr>
 <tr class="separator:ae5746f8e0821b8cf753b23dd8dba09bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9094771edc9042404838245ace36f784"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a9094771edc9042404838245ace36f784">maxShield</a></td></tr>
+<tr class="memdesc:a9094771edc9042404838245ace36f784"><td class="mdescLeft">&#160;</td><td class="mdescRight">The max shield value of the player  <a href="class_player_stats.html#a9094771edc9042404838245ace36f784">More...</a><br /></td></tr>
 <tr class="separator:a9094771edc9042404838245ace36f784"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8a20239834e22d096575fbfaea03d4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weapon_manager.html">WeaponManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#af8a20239834e22d096575fbfaea03d4e">weaponManager</a></td></tr>
+<tr class="memdesc:af8a20239834e22d096575fbfaea03d4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference to the weapon manager  <a href="class_player_stats.html#af8a20239834e22d096575fbfaea03d4e">More...</a><br /></td></tr>
 <tr class="separator:af8a20239834e22d096575fbfaea03d4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafedcbde13cff9f3243241aa2904ec01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#aafedcbde13cff9f3243241aa2904ec01">hack</a></td></tr>
+<tr class="memdesc:aafedcbde13cff9f3243241aa2904ec01"><td class="mdescLeft">&#160;</td><td class="mdescRight">The amount of hack mana we have  <a href="class_player_stats.html#aafedcbde13cff9f3243241aa2904ec01">More...</a><br /></td></tr>
 <tr class="separator:aafedcbde13cff9f3243241aa2904ec01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e3b220e4b458d28ab8fcf2f272b8dd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a11e3b220e4b458d28ab8fcf2f272b8dd">maxHack</a></td></tr>
+<tr class="memdesc:a11e3b220e4b458d28ab8fcf2f272b8dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The max amount of hack mana we have  <a href="class_player_stats.html#a11e3b220e4b458d28ab8fcf2f272b8dd">More...</a><br /></td></tr>
 <tr class="separator:a11e3b220e4b458d28ab8fcf2f272b8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04e09c1edcdb028b6c7e2f3579b3a378"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_hurt_icons_u_i.html">HurtIconsUI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a04e09c1edcdb028b6c7e2f3579b3a378">hurtIcons</a></td></tr>
+<tr class="memdesc:a04e09c1edcdb028b6c7e2f3579b3a378"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference to the hurt icons UI, these are the UI elements that tell us where the player is being hurt from  <a href="class_player_stats.html#a04e09c1edcdb028b6c7e2f3579b3a378">More...</a><br /></td></tr>
 <tr class="separator:a04e09c1edcdb028b6c7e2f3579b3a378"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0066c19dd01f1ce02a93f4732833059b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_level_save_data_controller.html">LevelSaveDataController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_stats.html#a0066c19dd01f1ce02a93f4732833059b">levelController</a></td></tr>
+<tr class="memdesc:a0066c19dd01f1ce02a93f4732833059b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference to the level save data controller  <a href="class_player_stats.html#a0066c19dd01f1ce02a93f4732833059b">More...</a><br /></td></tr>
 <tr class="separator:a0066c19dd01f1ce02a93f4732833059b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00003">3</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<div class="textblock"><p>Player stats is a class that holds things like the players shield, health, and hack mana. </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00006">6</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa4f837cad35fdd5fc048a60624081e67"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa4f837cad35fdd5fc048a60624081e67">&#9670;&nbsp;</a></span>DamagePlayer()</h2>
@@ -185,7 +201,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00069">69</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>A function that damages the player, taking only a small portion of health and shielf if their shield is greater than 0, additionall </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">f</td><td>The amount of damage to do to the player</td></tr>
+    <tr><td class="paramname">position</td><td>The position in the world where the damage is coming from, used to calculate which icon to enable</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00111">111</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -212,7 +237,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00053">53</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00090">90</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -239,7 +264,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00064">64</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00101">101</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -256,7 +281,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00050">50</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>The different ammo types the player has. This is what weapons and pickups reference for ammo </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00087">87</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -280,7 +307,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00014">14</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>The amount of hack mana we have </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00035">35</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -304,7 +333,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00005">5</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>Players health </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00011">11</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -328,7 +359,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00018">18</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>A reference to the hurt icons UI, these are the UI elements that tell us where the player is being hurt from </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00045">45</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -352,7 +385,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00020">20</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>A reference to the level save data controller </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00050">50</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -376,7 +411,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00016">16</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>The max amount of hack mana we have </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00040">40</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -400,7 +437,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00008">8</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>The max health value of the player </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00020">20</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -424,7 +463,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00010">10</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>The max shield value of the player </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00025">25</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -448,7 +489,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00006">6</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>Player's shield/ </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00015">15</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -472,7 +515,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00012">12</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>A reference to the weapon manager </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00030">30</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -497,7 +542,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00039">39</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00069">69</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -521,7 +566,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00022">22</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00052">52</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -545,7 +590,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00047">47</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00077">77</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -569,7 +614,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00045">45</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00075">75</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -593,7 +638,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00046">46</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00076">76</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -617,7 +662,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00048">48</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p>The current player weapon </p>
+
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00082">82</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>
@@ -641,7 +688,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00030">30</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_player_stats_8cs_source.html#l00060">60</a> of file <a class="el" href="_player_stats_8cs_source.html">PlayerStats.cs</a>.</p>
 
 </div>
 </div>

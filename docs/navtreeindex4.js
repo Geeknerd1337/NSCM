@@ -53,13 +53,11 @@ var NAVTREEINDEX4 =
 "class_gun_categories.html#af7ca86993a30ac6bbefdc14cf7a74567":[1,0,52,2],
 "class_gun_selection_u_i.html":[1,0,53],
 "class_gun_selection_u_i.html#a1ed7de9aee05d341c745b2c95ce6022b":[1,0,53,0],
-"class_gun_selection_u_i.html#a6cde69b8fe80092ea1d58e964c235ddf":[1,0,53,7],
-"class_gun_selection_u_i.html#a75f969e89a53dc2abaec950de2c157a6":[1,0,53,4],
+"class_gun_selection_u_i.html#a6cde69b8fe80092ea1d58e964c235ddf":[1,0,53,5],
 "class_gun_selection_u_i.html#ac1e66c6a04385296d399baa983daa86c":[1,0,53,2],
 "class_gun_selection_u_i.html#ad2406a8aff76e767bee6c8ee3c3205f4":[1,0,53,1],
-"class_gun_selection_u_i.html#ad7aae04b48264a543704a31016807bf1":[1,0,53,6],
+"class_gun_selection_u_i.html#ad7aae04b48264a543704a31016807bf1":[1,0,53,4],
 "class_gun_selection_u_i.html#adc0040a87f70c84e526670e1970f021e":[1,0,53,3],
-"class_gun_selection_u_i.html#ae0e64d47deeb6476fe73d4b17db4d48c":[1,0,53,5],
 "class_hack_anim_and_sound.html":[1,0,56],
 "class_hack_anim_and_sound.html#a038d7e23ae996db13e242844fb51ee22":[1,0,56,3],
 "class_hack_anim_and_sound.html#a0fa62dfc442880122d008c0544215dbc":[1,0,56,1],
@@ -249,5 +247,7 @@ var NAVTREEINDEX4 =
 "class_menu_pause.html":[1,0,72],
 "class_menu_pause.html#a06730617d4126a6aeee25c2ce2f67721":[1,0,72,10],
 "class_menu_pause.html#a2551d89f271c95ddce89f8567703c4d7":[1,0,72,3],
-"class_menu_pause.html#a2e4df628d19a23a91668d5740ade0130":[1,0,72,4]
+"class_menu_pause.html#a2e4df628d19a23a91668d5740ade0130":[1,0,72,4],
+"class_menu_pause.html#a3309c41a1848128d0276a7b1a708b386":[1,0,72,5],
+"class_menu_pause.html#a3bf480d26ff6bb545aa7a213d9f5ffd0":[1,0,72,6]
 };

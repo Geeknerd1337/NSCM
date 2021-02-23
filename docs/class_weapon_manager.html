@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('class_weapon_manager.html',''); initRe
 <div class="title">WeaponManager Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The weapon manager is partially what handles the UI and also what weapon the player is currently using. It also tracks certain elements of the players weapon selection.  
+ <a href="class_weapon_manager.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for WeaponManager:</div>
 <div class="dyncontent">
@@ -103,10 +106,13 @@ Inheritance diagram for WeaponManager:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2151c90fa0649688860c10752953d87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#ad2151c90fa0649688860c10752953d87">UnlockWeapon</a> (int i)</td></tr>
+<tr class="memdesc:ad2151c90fa0649688860c10752953d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks a weapon from the gunUI weaponslots and activated the gun for us, effectively equipping on pick up. TODO: Make equip on pick up a setting  <a href="class_weapon_manager.html#ad2151c90fa0649688860c10752953d87">More...</a><br /></td></tr>
 <tr class="separator:ad2151c90fa0649688860c10752953d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28db0d5634b45e7811535469358470a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weapon.html">Weapon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a28db0d5634b45e7811535469358470a0">GetWeaponFromIndex</a> (int i)</td></tr>
+<tr class="memdesc:a28db0d5634b45e7811535469358470a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the relevant weapon object from a given index.  <a href="class_weapon_manager.html#a28db0d5634b45e7811535469358470a0">More...</a><br /></td></tr>
 <tr class="separator:a28db0d5634b45e7811535469358470a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a564da7a292f36f6eed3bd9e5c12699"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weapon.html">Weapon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a9a564da7a292f36f6eed3bd9e5c12699">CurrentWeapon</a> ()</td></tr>
+<tr class="memdesc:a9a564da7a292f36f6eed3bd9e5c12699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current weapon the player is holding  <a href="class_weapon_manager.html#a9a564da7a292f36f6eed3bd9e5c12699">More...</a><br /></td></tr>
 <tr class="separator:a9a564da7a292f36f6eed3bd9e5c12699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bc7421760b6e6bbd5c1d3db9f90ef01"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a5bc7421760b6e6bbd5c1d3db9f90ef01">PlaySelectSound</a> ()</td></tr>
 <tr class="separator:a5bc7421760b6e6bbd5c1d3db9f90ef01"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -116,13 +122,16 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aab944109c6d4d5607c2edfd12e03e29b"><td class="memItemLeft" align="right" valign="top">List&lt; GameObject &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#aab944109c6d4d5607c2edfd12e03e29b">guns</a></td></tr>
+<tr class="memdesc:aab944109c6d4d5607c2edfd12e03e29b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A list of game objects representing the physical game objects of each weapon the player has. These are tracked at all times  <a href="class_weapon_manager.html#aab944109c6d4d5607c2edfd12e03e29b">More...</a><br /></td></tr>
 <tr class="separator:aab944109c6d4d5607c2edfd12e03e29b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8e29fde8218a7f447b35d552cd7c5ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weapon.html">Weapon</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#af8e29fde8218a7f447b35d552cd7c5ea">currentWeapon</a></td></tr>
+<tr class="memdesc:af8e29fde8218a7f447b35d552cd7c5ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current weapon we have selected  <a href="class_weapon_manager.html#af8e29fde8218a7f447b35d552cd7c5ea">More...</a><br /></td></tr>
 <tr class="separator:af8e29fde8218a7f447b35d552cd7c5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:afc2c2d9231f30be9c62706111dd920da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gun_selection_u_i.html">GunSelectionUI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#afc2c2d9231f30be9c62706111dd920da">GunUI</a><code> [get]</code></td></tr>
+<tr class="memdesc:afc2c2d9231f30be9c62706111dd920da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public reference to the gun UI  <a href="class_weapon_manager.html#afc2c2d9231f30be9c62706111dd920da">More...</a><br /></td></tr>
 <tr class="separator:afc2c2d9231f30be9c62706111dd920da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -134,34 +143,46 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:ab30e7ac3d8a58e98f52ebb93a1d7e8e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#ab30e7ac3d8a58e98f52ebb93a1d7e8e5">Update</a> ()</td></tr>
 <tr class="separator:ab30e7ac3d8a58e98f52ebb93a1d7e8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac35f40dc095c2b35238bfdb6460a6887"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#ac35f40dc095c2b35238bfdb6460a6887">NumberWeapon</a> ()</td></tr>
+<tr class="memdesc:ac35f40dc095c2b35238bfdb6460a6887"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a function that essentially allows us to select weapons using the number keys ala Half-Life  <a href="class_weapon_manager.html#ac35f40dc095c2b35238bfdb6460a6887">More...</a><br /></td></tr>
 <tr class="separator:ac35f40dc095c2b35238bfdb6460a6887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8c13f1f9f2b5ffe21c6bca921dff7a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#ad8c13f1f9f2b5ffe21c6bca921dff7a7">ScrollWeapon</a> ()</td></tr>
+<tr class="memdesc:ad8c13f1f9f2b5ffe21c6bca921dff7a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Good old fashioned mouse wheel scrolling to scroll through the gun UI  <a href="class_weapon_manager.html#ad8c13f1f9f2b5ffe21c6bca921dff7a7">More...</a><br /></td></tr>
 <tr class="separator:ad8c13f1f9f2b5ffe21c6bca921dff7a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2f6eda5e45140aa7e48d73c6f9a2d08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#ac2f6eda5e45140aa7e48d73c6f9a2d08">Increment</a> ()</td></tr>
+<tr class="memdesc:ac2f6eda5e45140aa7e48d73c6f9a2d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Incremments the gun index up by one, resetting to zero and skipping over weapons we don't already have  <a href="class_weapon_manager.html#ac2f6eda5e45140aa7e48d73c6f9a2d08">More...</a><br /></td></tr>
 <tr class="separator:ac2f6eda5e45140aa7e48d73c6f9a2d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32c7286a9f3a78cad6ca4ba67b6e2ba0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a32c7286a9f3a78cad6ca4ba67b6e2ba0">Decrement</a> ()</td></tr>
+<tr class="memdesc:a32c7286a9f3a78cad6ca4ba67b6e2ba0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as increment, but in reverse.  <a href="class_weapon_manager.html#a32c7286a9f3a78cad6ca4ba67b6e2ba0">More...</a><br /></td></tr>
 <tr class="separator:a32c7286a9f3a78cad6ca4ba67b6e2ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbb44dad76c1223d04b54b15be19cbb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#acbb44dad76c1223d04b54b15be19cbb0">ActivateGun</a> (int gun)</td></tr>
+<tr class="memdesc:acbb44dad76c1223d04b54b15be19cbb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates the gun we want to equip.  <a href="class_weapon_manager.html#acbb44dad76c1223d04b54b15be19cbb0">More...</a><br /></td></tr>
 <tr class="separator:acbb44dad76c1223d04b54b15be19cbb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a17d70244296f0ad8a7678e7ed223a195"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a17d70244296f0ad8a7678e7ed223a195">gunIndex</a></td></tr>
+<tr class="memdesc:a17d70244296f0ad8a7678e7ed223a195"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current gun we have selected on the UI, relates to the guns list  <a href="class_weapon_manager.html#a17d70244296f0ad8a7678e7ed223a195">More...</a><br /></td></tr>
 <tr class="separator:a17d70244296f0ad8a7678e7ed223a195"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4cd1f6c46b60338019129237725b6202"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a4cd1f6c46b60338019129237725b6202">gunIndexActual</a></td></tr>
+<tr class="memdesc:a4cd1f6c46b60338019129237725b6202"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current index of the weapon we are holding in our hand, relates to the guns list  <a href="class_weapon_manager.html#a4cd1f6c46b60338019129237725b6202">More...</a><br /></td></tr>
 <tr class="separator:a4cd1f6c46b60338019129237725b6202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdb617769d62e31a7a47b798039f8298"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gun_selection_u_i.html">GunSelectionUI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#abdb617769d62e31a7a47b798039f8298">gunUI</a></td></tr>
+<tr class="memdesc:abdb617769d62e31a7a47b798039f8298"><td class="mdescLeft">&#160;</td><td class="mdescRight">A reference to the gun selection UI class  <a href="class_weapon_manager.html#abdb617769d62e31a7a47b798039f8298">More...</a><br /></td></tr>
 <tr class="separator:abdb617769d62e31a7a47b798039f8298"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13f4a4392385aa7d10b89fc5858e508a"><td class="memItemLeft" align="right" valign="top">AudioSource&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a13f4a4392385aa7d10b89fc5858e508a">sounds</a></td></tr>
+<tr class="memdesc:a13f4a4392385aa7d10b89fc5858e508a"><td class="mdescLeft">&#160;</td><td class="mdescRight">An audio source for playing various sounds such as hovering over a weapon in the UI or selecting one  <a href="class_weapon_manager.html#a13f4a4392385aa7d10b89fc5858e508a">More...</a><br /></td></tr>
 <tr class="separator:a13f4a4392385aa7d10b89fc5858e508a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1dfbb05c5e3df134d2829c42b9d25c0"><td class="memItemLeft" align="right" valign="top">AudioClip&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#ac1dfbb05c5e3df134d2829c42b9d25c0">hoverSound</a></td></tr>
+<tr class="memdesc:ac1dfbb05c5e3df134d2829c42b9d25c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">An audio clip of the sound made when hovering over weapons in the UI  <a href="class_weapon_manager.html#ac1dfbb05c5e3df134d2829c42b9d25c0">More...</a><br /></td></tr>
 <tr class="separator:ac1dfbb05c5e3df134d2829c42b9d25c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a013df8d312ad660d1b97a643198efca6"><td class="memItemLeft" align="right" valign="top">AudioClip&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_weapon_manager.html#a013df8d312ad660d1b97a643198efca6">selectSound</a></td></tr>
+<tr class="memdesc:a013df8d312ad660d1b97a643198efca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">An audio clip of the sound made when selecting a weapon  <a href="class_weapon_manager.html#a013df8d312ad660d1b97a643198efca6">More...</a><br /></td></tr>
 <tr class="separator:a013df8d312ad660d1b97a643198efca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00006">6</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<div class="textblock"><p>The weapon manager is partially what handles the UI and also what weapon the player is currently using. It also tracks certain elements of the players weapon selection. </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00009">9</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="acbb44dad76c1223d04b54b15be19cbb0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbb44dad76c1223d04b54b15be19cbb0">&#9670;&nbsp;</a></span>ActivateGun()</h2>
@@ -187,7 +208,15 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00201">201</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Activates the gun we want to equip. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gun</td><td>The index of the gun we are activating</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00257">257</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -214,7 +243,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00045">45</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00073">73</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -233,7 +262,10 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00234">234</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Gets the current weapon the player is holding </p>
+<dl class="section return"><dt>Returns</dt><dd>The weapon the player is holding</dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00299">299</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -260,7 +292,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00183">183</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Same as increment, but in reverse. </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00235">235</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -280,7 +314,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00221">221</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Gets the relevant weapon object from a given index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00282">282</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -307,7 +350,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00151">151</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Incremments the gun index up by one, resetting to zero and skipping over weapons we don't already have </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00195">195</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -334,7 +379,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00059">59</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>This is a function that essentially allows us to select weapons using the number keys ala Half-Life </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00090">90</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -353,7 +400,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00252">252</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00317">317</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -372,7 +419,7 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00246">246</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00311">311</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -399,7 +446,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00104">104</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Good old fashioned mouse wheel scrolling to scroll through the gun UI </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00140">140</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -426,7 +475,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00035">35</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00063">63</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -446,7 +495,15 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00172">172</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Unlocks a weapon from the gunUI weaponslots and activated the gun for us, effectively equipping on pick up. TODO: Make equip on pick up a setting </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>The index of the weapon that we are unlocking</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00221">221</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -473,7 +530,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00053">53</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00081">81</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -490,7 +547,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00012">12</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>The current weapon we have selected </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00026">26</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -514,7 +573,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00010">10</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>The current gun we have selected on the UI, relates to the guns list </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00018">18</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -538,7 +599,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00011">11</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>The current index of the weapon we are holding in our hand, relates to the guns list </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00022">22</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -554,7 +617,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00009">9</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>A list of game objects representing the physical game objects of each weapon the player has. These are tracked at all times </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00014">14</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -578,7 +643,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00015">15</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>A reference to the gun selection UI class </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00032">32</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -602,7 +669,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00021">21</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>An audio clip of the sound made when hovering over weapons in the UI </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00044">44</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -626,7 +695,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00023">23</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>An audio clip of the sound made when selecting a weapon </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00049">49</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -650,7 +721,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00018">18</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>An audio source for playing various sounds such as hovering over a weapon in the UI or selecting one </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00038">38</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>
@@ -675,7 +748,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00026">26</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
+<p>Public reference to the gun UI </p>
+
+<p class="definition">Definition at line <a class="el" href="_weapon_manager_8cs_source.html#l00054">54</a> of file <a class="el" href="_weapon_manager_8cs_source.html">WeaponManager.cs</a>.</p>
 
 </div>
 </div>

@@ -90,36 +90,36 @@ $(document).ready(function(){initNavTree('_death_volume_8cs_source.html',''); in
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Collections.Generic;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> UnityEngine;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="class_death_volume.html">    5</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_death_volume.html">DeathVolume</a> : MonoBehaviour</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">    7</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="class_fall_manager.html">FallManager</a> <a class="code" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">fm</a>;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="comment">// Start is called before the first frame update</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_death_volume.html#a17a572bd1b7422267780592da3b3490f">    9</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_death_volume.html#a17a572bd1b7422267780592da3b3490f">Start</a>()</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">fm</a> = FindObjectOfType&lt;FallManager&gt;();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// Update is called once per frame</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_death_volume.html#ac206ded1d2b09696c58601d009ea8c32">   15</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_death_volume.html#ac206ded1d2b09696c58601d009ea8c32">Update</a>()</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    }</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_death_volume.html#abf0327357808926767b74847386f854b">   20</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_death_volume.html#abf0327357808926767b74847386f854b">OnTriggerEnter</a>(Collider other)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordflow">if</span>(other.tag == <span class="stringliteral">&quot;Player&quot;</span>)</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <a class="code" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">fm</a>.<a class="code" href="class_fall_manager.html#a75e17e704cc67ef69fcbf43023bf2bf8">Die</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
-<div class="ttc" id="aclass_death_volume_html"><div class="ttname"><a href="class_death_volume.html">DeathVolume</a></div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00005">DeathVolume.cs:6</a></div></div>
-<div class="ttc" id="aclass_death_volume_html_a17a572bd1b7422267780592da3b3490f"><div class="ttname"><a href="class_death_volume.html#a17a572bd1b7422267780592da3b3490f">DeathVolume.Start</a></div><div class="ttdeci">void Start()</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00009">DeathVolume.cs:9</a></div></div>
-<div class="ttc" id="aclass_death_volume_html_a3918daf42f00a073e5faf56c269f8d93"><div class="ttname"><a href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">DeathVolume.fm</a></div><div class="ttdeci">FallManager fm</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00007">DeathVolume.cs:7</a></div></div>
-<div class="ttc" id="aclass_death_volume_html_abf0327357808926767b74847386f854b"><div class="ttname"><a href="class_death_volume.html#abf0327357808926767b74847386f854b">DeathVolume.OnTriggerEnter</a></div><div class="ttdeci">void OnTriggerEnter(Collider other)</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00020">DeathVolume.cs:20</a></div></div>
-<div class="ttc" id="aclass_death_volume_html_ac206ded1d2b09696c58601d009ea8c32"><div class="ttname"><a href="class_death_volume.html#ac206ded1d2b09696c58601d009ea8c32">DeathVolume.Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00015">DeathVolume.cs:15</a></div></div>
-<div class="ttc" id="aclass_fall_manager_html"><div class="ttname"><a href="class_fall_manager.html">FallManager</a></div><div class="ttdef"><b>Definition:</b> <a href="_fall_manager_8cs_source.html#l00005">FallManager.cs:6</a></div></div>
-<div class="ttc" id="aclass_fall_manager_html_a75e17e704cc67ef69fcbf43023bf2bf8"><div class="ttname"><a href="class_fall_manager.html#a75e17e704cc67ef69fcbf43023bf2bf8">FallManager.Die</a></div><div class="ttdeci">void Die()</div><div class="ttdef"><b>Definition:</b> <a href="_fall_manager_8cs_source.html#l00022">FallManager.cs:22</a></div></div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_death_volume.html">    8</a></span>&#160;<span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="class_death_volume.html">DeathVolume</a> : MonoBehaviour</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">   10</a></span>&#160;    <span class="keyword">private</span> <a class="code" href="class_fall_manager.html">FallManager</a> <a class="code" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">fm</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// Start is called before the first frame update</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_death_volume.html#a17a572bd1b7422267780592da3b3490f">   12</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_death_volume.html#a17a572bd1b7422267780592da3b3490f">Start</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">fm</a> = FindObjectOfType&lt;FallManager&gt;();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">// Update is called once per frame</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_death_volume.html#ac206ded1d2b09696c58601d009ea8c32">   18</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_death_volume.html#ac206ded1d2b09696c58601d009ea8c32">Update</a>()</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_death_volume.html#abf0327357808926767b74847386f854b">   23</a></span>&#160;    <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="class_death_volume.html#abf0327357808926767b74847386f854b">OnTriggerEnter</a>(Collider other)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">if</span>(other.tag == <span class="stringliteral">&quot;Player&quot;</span>)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <a class="code" href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">fm</a>.<a class="code" href="class_fall_manager.html#a75e17e704cc67ef69fcbf43023bf2bf8">Die</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="ttc" id="aclass_death_volume_html"><div class="ttname"><a href="class_death_volume.html">DeathVolume</a></div><div class="ttdoc">A script that will put the player back at the latest valid fall position if they enter this volume....</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00008">DeathVolume.cs:9</a></div></div>
+<div class="ttc" id="aclass_death_volume_html_a17a572bd1b7422267780592da3b3490f"><div class="ttname"><a href="class_death_volume.html#a17a572bd1b7422267780592da3b3490f">DeathVolume.Start</a></div><div class="ttdeci">void Start()</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00012">DeathVolume.cs:12</a></div></div>
+<div class="ttc" id="aclass_death_volume_html_a3918daf42f00a073e5faf56c269f8d93"><div class="ttname"><a href="class_death_volume.html#a3918daf42f00a073e5faf56c269f8d93">DeathVolume.fm</a></div><div class="ttdeci">FallManager fm</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00010">DeathVolume.cs:10</a></div></div>
+<div class="ttc" id="aclass_death_volume_html_abf0327357808926767b74847386f854b"><div class="ttname"><a href="class_death_volume.html#abf0327357808926767b74847386f854b">DeathVolume.OnTriggerEnter</a></div><div class="ttdeci">void OnTriggerEnter(Collider other)</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00023">DeathVolume.cs:23</a></div></div>
+<div class="ttc" id="aclass_death_volume_html_ac206ded1d2b09696c58601d009ea8c32"><div class="ttname"><a href="class_death_volume.html#ac206ded1d2b09696c58601d009ea8c32">DeathVolume.Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> <a href="_death_volume_8cs_source.html#l00018">DeathVolume.cs:18</a></div></div>
+<div class="ttc" id="aclass_fall_manager_html"><div class="ttname"><a href="class_fall_manager.html">FallManager</a></div><div class="ttdoc">This manager is what controls the particle system, sound, and teleportation of a player when they fal...</div><div class="ttdef"><b>Definition:</b> <a href="_fall_manager_8cs_source.html#l00008">FallManager.cs:9</a></div></div>
+<div class="ttc" id="aclass_fall_manager_html_a75e17e704cc67ef69fcbf43023bf2bf8"><div class="ttname"><a href="class_fall_manager.html#a75e17e704cc67ef69fcbf43023bf2bf8">FallManager.Die</a></div><div class="ttdeci">void Die()</div><div class="ttdoc">Damages the player slightly, teleports them to their last valid position.</div><div class="ttdef"><b>Definition:</b> <a href="_fall_manager_8cs_source.html#l00028">FallManager.cs:28</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

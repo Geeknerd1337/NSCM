@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('class_hurt_icons_u_i.html',''); initRe
 <div class="title">HurtIconsUI Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>This class is what holds the references to the images that make up the four hurt icons indicating where the player is being hit from. TODO: Convert the images to an array, having them be 4 separate variables is messy.  
+ <a href="class_hurt_icons_u_i.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for HurtIconsUI:</div>
 <div class="dyncontent">
@@ -102,11 +105,13 @@ Inheritance diagram for HurtIconsUI:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae7c764d9aa1af18cb87aaf4344d80bd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#ae7c764d9aa1af18cb87aaf4344d80bd9">AlertPlayer</a> (Vector3 direction, Transform t)</td></tr>
+<tr class="memdesc:ae7c764d9aa1af18cb87aaf4344d80bd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thisa function takes a direction, and a transform representing the position the damage is coming from in order to make a decision on which alpha to set to one. The dot product is used here to determine where damage is coming from.  <a href="class_hurt_icons_u_i.html#ae7c764d9aa1af18cb87aaf4344d80bd9">More...</a><br /></td></tr>
 <tr class="separator:ae7c764d9aa1af18cb87aaf4344d80bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4aa2309fda79e619b55ea4874bcb6514"><td class="memItemLeft" align="right" valign="top">AnimationCurve&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a4aa2309fda79e619b55ea4874bcb6514">alphaCurve</a></td></tr>
+<tr class="memdesc:a4aa2309fda79e619b55ea4874bcb6514"><td class="mdescLeft">&#160;</td><td class="mdescRight">The curve that the alpha uses when going back down to zero. Purely visual.  <a href="class_hurt_icons_u_i.html#a4aa2309fda79e619b55ea4874bcb6514">More...</a><br /></td></tr>
 <tr class="separator:a4aa2309fda79e619b55ea4874bcb6514"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -116,30 +121,38 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:af3158ce5eb1421125e11f8bfa4312e14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#af3158ce5eb1421125e11f8bfa4312e14">Update</a> ()</td></tr>
 <tr class="separator:af3158ce5eb1421125e11f8bfa4312e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a2d7673b33d4a374805945dc99dfbc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a7a2d7673b33d4a374805945dc99dfbc6">BringAlphasDown</a> ()</td></tr>
+<tr class="memdesc:a7a2d7673b33d4a374805945dc99dfbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases each alpha in accordance to the decay speed over time to zero.  <a href="class_hurt_icons_u_i.html#a7a2d7673b33d4a374805945dc99dfbc6">More...</a><br /></td></tr>
 <tr class="separator:a7a2d7673b33d4a374805945dc99dfbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03bb1e558eaba0959aaac85bddc9b169"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a03bb1e558eaba0959aaac85bddc9b169">SetAlphas</a> ()</td></tr>
+<tr class="memdesc:a03bb1e558eaba0959aaac85bddc9b169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the alphas of each relevant image.  <a href="class_hurt_icons_u_i.html#a03bb1e558eaba0959aaac85bddc9b169">More...</a><br /></td></tr>
 <tr class="separator:a03bb1e558eaba0959aaac85bddc9b169"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:ab1a86816e40dde5cf4a6292933f465d1"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#ab1a86816e40dde5cf4a6292933f465d1">forward</a></td></tr>
+<tr class="memdesc:ab1a86816e40dde5cf4a6292933f465d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The image for the forward direction.  <a href="class_hurt_icons_u_i.html#ab1a86816e40dde5cf4a6292933f465d1">More...</a><br /></td></tr>
 <tr class="separator:ab1a86816e40dde5cf4a6292933f465d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57fe68013283b9565fe898b7ddd8fe3d"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a57fe68013283b9565fe898b7ddd8fe3d">backward</a></td></tr>
+<tr class="memdesc:a57fe68013283b9565fe898b7ddd8fe3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The image for the backward direction.  <a href="class_hurt_icons_u_i.html#a57fe68013283b9565fe898b7ddd8fe3d">More...</a><br /></td></tr>
 <tr class="separator:a57fe68013283b9565fe898b7ddd8fe3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a0610f5ebc84055abd84c35cd128ac7"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a1a0610f5ebc84055abd84c35cd128ac7">left</a></td></tr>
+<tr class="memdesc:a1a0610f5ebc84055abd84c35cd128ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The image for the left direction  <a href="class_hurt_icons_u_i.html#a1a0610f5ebc84055abd84c35cd128ac7">More...</a><br /></td></tr>
 <tr class="separator:a1a0610f5ebc84055abd84c35cd128ac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4942be83b8d4ec3ae8804e7e8a3a255d"><td class="memItemLeft" align="right" valign="top">Image&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a4942be83b8d4ec3ae8804e7e8a3a255d">right</a></td></tr>
 <tr class="separator:a4942be83b8d4ec3ae8804e7e8a3a255d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69addd6243b540a0c6f23bab19b39d43"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a69addd6243b540a0c6f23bab19b39d43">decaySpeed</a></td></tr>
 <tr class="separator:a69addd6243b540a0c6f23bab19b39d43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cdcf09f0987517bffbcf0eae4ab152f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a8cdcf09f0987517bffbcf0eae4ab152f">directionToleranceRange</a></td></tr>
+<tr class="memdesc:a8cdcf09f0987517bffbcf0eae4ab152f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is a float determining a certain tolerance for the angle at which a player is being attacked. Some overlap is added to each direction so that if you are being attacked in a diagonal direction or damaged from all sides (like in an explosion), you will see more than one icon activate  <a href="class_hurt_icons_u_i.html#a8cdcf09f0987517bffbcf0eae4ab152f">More...</a><br /></td></tr>
 <tr class="separator:a8cdcf09f0987517bffbcf0eae4ab152f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a9a551a72e03fabbfda3dbef18c3692"><td class="memItemLeft" align="right" valign="top">float[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hurt_icons_u_i.html#a1a9a551a72e03fabbfda3dbef18c3692">alphas</a> = new float[4]</td></tr>
+<tr class="memdesc:a1a9a551a72e03fabbfda3dbef18c3692"><td class="mdescLeft">&#160;</td><td class="mdescRight">An aray holding each of the 4 alphas for each of the images  <a href="class_hurt_icons_u_i.html#a1a9a551a72e03fabbfda3dbef18c3692">More...</a><br /></td></tr>
 <tr class="separator:a1a9a551a72e03fabbfda3dbef18c3692"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00006">6</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<div class="textblock"><p>This class is what holds the references to the images that make up the four hurt icons indicating where the player is being hit from. TODO: Convert the images to an array, having them be 4 separate variables is messy. </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00010">10</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ae7c764d9aa1af18cb87aaf4344d80bd9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7c764d9aa1af18cb87aaf4344d80bd9">&#9670;&nbsp;</a></span>AlertPlayer()</h2>
@@ -167,7 +180,16 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00073">73</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>Thisa function takes a direction, and a transform representing the position the damage is coming from in order to make a decision on which alpha to set to one. The dot product is used here to determine where damage is coming from. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">direction</td><td>The direction the damage is coming from</td></tr>
+    <tr><td class="paramname">t</td><td>The transform of the thing causing the damage. This is given because sometimes, like with an explosion, you need to know where a grenade is giving you damage, and sometimes the damage is coming from an enemy, not strictly whatever they're firing.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00110">110</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -194,7 +216,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00042">42</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>Decreases each alpha in accordance to the decay speed over time to zero. </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00070">70</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -221,7 +245,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00054">54</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>Sets the alphas of each relevant image. </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00085">85</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -248,7 +274,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00026">26</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00051">51</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -275,7 +301,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00036">36</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00061">61</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -292,7 +318,9 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00023">23</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>The curve that the alpha uses when going back down to zero. Purely visual. </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00048">48</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -316,7 +344,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00021">21</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>An aray holding each of the 4 alphas for each of the images </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00043">43</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -340,7 +370,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00011">11</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>The image for the backward direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00021">21</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -364,7 +396,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00017">17</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00032">32</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -388,7 +420,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00019">19</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>This is a float determining a certain tolerance for the angle at which a player is being attacked. Some overlap is added to each direction so that if you are being attacked in a diagonal direction or damaged from all sides (like in an explosion), you will see more than one icon activate </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00038">38</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -412,7 +446,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00009">9</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>The image for the forward direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00016">16</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -436,7 +472,9 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00013">13</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p>The image for the left direction </p>
+
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00026">26</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>
@@ -460,7 +498,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00015">15</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_hurt_icons_u_i_8cs_source.html#l00029">29</a> of file <a class="el" href="_hurt_icons_u_i_8cs_source.html">HurtIconsUI.cs</a>.</p>
 
 </div>
 </div>

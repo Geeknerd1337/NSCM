@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class GunSelectionUI : MonoBehaviour
 {
-
+    /// <summary>
+    /// List of weapon slots
+    /// </summary>
     public List<WeaponSlot> weaponSlots;
+    /// <summary>
+    /// List of weapon categories
+    /// </summary>
     public List<GunCategories> weaponCategories;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
+    /// <summary>
+    /// This will select a weapon from a given index on the weapon slots list and set thatslot to be open and selected
+    /// </summary>
+    /// <param name="i">Index for the slot we are selecting</param>
+    /// <returns>Returns the relevant weapon slot</returns>
     public WeaponSlot SelectWeapon(int i)
     {
         foreach (WeaponSlot w in weaponSlots)
@@ -40,6 +39,11 @@ public class GunSelectionUI : MonoBehaviour
         return weaponSlot;
     }
 
+    /// <summary>
+    /// Checks to see if a given slot has a weapon
+    /// </summary>
+    /// <param name="i">Index for the slot we are checking</param>
+    /// <returns>Whether or not the slot has the weapon</returns>
     public bool SlotHasWeapon(int i)
     {
         WeaponSlot weaponSlot = weaponSlots[i];
@@ -51,6 +55,9 @@ public class GunSelectionUI : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Resets all the category indexes to be zero
+    /// </summary>
     public void ResetAllGunCategories()
     {
         foreach(GunCategories category in weaponCategories)
@@ -59,6 +66,11 @@ public class GunSelectionUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Gets the relevant slot index from the slot category, this is used for weapon switching
+    /// </summary>
+    /// <param name="i">The slot index within the category</param>
+    /// <returns>The index for the slot of the given category/</returns>
     public int GetSlotFromCategory(int i)
     {
         GunCategories gunCat = weaponCategories[i];
@@ -89,6 +101,9 @@ public class GunSelectionUI : MonoBehaviour
     }
 }
 
+/// <summary>
+/// This is a small class for each of the different gun categories (I.e how SMG and SHotgun are in the same category), this holds a list of weapon slots
+/// </summary>
 [System.Serializable]
 public class GunCategories{
     public List<WeaponSlot> weaponSlots;

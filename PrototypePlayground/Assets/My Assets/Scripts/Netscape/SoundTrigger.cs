@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
+/// <summary>
+/// This class will simply invoke an event system when the player enters a trigger
+/// TODO: Rename to EventTrigger
+/// </summary>
 public class SoundTrigger : MonoBehaviour
 {
 
