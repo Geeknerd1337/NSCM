@@ -290,6 +290,7 @@ public class Weapon : MonoBehaviour
             if (shotsLeft < weaponObject.clipSize && playerStats.ammoTypes[ammoType] != 0)
             {
                 weaponAnimator.Play(weaponObject.reloadAnimation);
+                weaponAnimator.SetBool("isAiming", false);
                 PlayWeaponSound(weaponObject.reloadSound);
                 if (playerStats.ammoTypes[ammoType] >= (weaponObject.clipSize - shotsLeft))
                 {
