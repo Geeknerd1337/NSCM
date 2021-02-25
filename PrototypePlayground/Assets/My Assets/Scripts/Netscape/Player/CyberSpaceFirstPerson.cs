@@ -226,8 +226,6 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
         }
 
-        
-
         if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
         {
             StartCoroutine(m_JumpBob.DoBobCycle());
@@ -252,7 +250,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
         m_PreviouslyGrounded = m_CharacterController.isGrounded;
     }
-
+    
     private void LateUpdate()
     {
 
@@ -849,7 +847,18 @@ public class CyberSpaceFirstPerson : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        Rigidbody body = hit.collider.attachedRigidbody;
+        if (hit.gameObject.layer == 16) return;
+
+        Debug.DrawRay(hit.point, transform.up);
+        if(hit.gameObject.tag == "Moving Platform")
+        {
+            print("a");
+            print(hit.transform.GetComponent<SimpleMoveTowards>().movedir);
+            transform.Translate(hit.transform.GetComponent<SimpleMoveTowards>().movedir);
+        }
+    
+
+    Rigidbody body = hit.collider.attachedRigidbody;
         //dont move the rigidbody if the character is on top of it
         if (m_CollisionFlags == CollisionFlags.Below)
         {
@@ -866,6 +875,7 @@ public class CyberSpaceFirstPerson : MonoBehaviour
             return;
         }
         body.AddForceAtPosition(m_CharacterController.velocity * 0.1f, hit.point, ForceMode.Impulse);
+
     }
 
    

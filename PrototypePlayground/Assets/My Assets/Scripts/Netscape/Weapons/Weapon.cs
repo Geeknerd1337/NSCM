@@ -213,6 +213,8 @@ public class Weapon : MonoBehaviour
     /// </summary>
     private LevelSaveDataController settings;
 
+    [SerializeField] private bool autoreloadIfEmpty = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -254,6 +256,25 @@ public class Weapon : MonoBehaviour
         HandleGunInput();
         HandleWeaponSway();
         HandleFOV();
+        if (autoreloadIfEmpty && shotsLeft == 0)
+        {
+            if (shotsLeft < weaponObject.clipSize && playerStats.ammoTypes[ammoType] != 0)
+            {
+                weaponAnimator.Play(weaponObject.reloadAnimation);
+                PlayWeaponSound(weaponObject.reloadSound);
+                if (playerStats.ammoTypes[ammoType] >= (weaponObject.clipSize - shotsLeft))
+                {
+                    playerStats.ammoTypes[ammoType] -= (weaponObject.clipSize - shotsLeft);
+                    shotsLeft = weaponObject.clipSize;
+
+                }
+                else
+                {
+                    playerStats.ammoTypes[ammoType] = 0;
+                    shotsLeft = weaponObject.clipSize;
+                }
+            }
+        }
     }
 
     private void LateUpdate()

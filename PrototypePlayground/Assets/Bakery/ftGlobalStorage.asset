@@ -400,12 +400,15 @@ MonoBehaviour:
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
-  uvOverlapAssetList: 00000000ffffffff
+  - Assets/My Assets/Models/Netscape/NPC/Enemies/Advertisement/Monitor/MonitorV2.fbx
+  - Assets/My Assets/Models/Netscape/Environments/Mail Server/MailSorter/BiggestLetterSorter.fbx
+  - Assets/My Assets/Models/Netscape/Environments/Mail Server/MailSorter/LetterSorter.fbx
+  uvOverlapAssetList: 00000000ffffffff010100000101000000000000
   xatlasWarningShown: 0
-  foundCompatibleSetup: 0
-  gpuName: 
-  runsNonRTX: 1
-  runsOptix5: 1
+  foundCompatibleSetup: 1
+  gpuName: NVIDIA GeForce RTX 3070
+  runsNonRTX: 0
+  runsOptix5: 0
   runsOptix6: 1
   runsOptix7: 1
   runsOIDN: 1
@@ -470,7 +473,7 @@ MonoBehaviour:
   renderSettingsHoleFilling: 0
   renderSettingsBeepOnFinish: 0
   renderSettingsExportTerrainAsHeightmap: 1
-  renderSettingsRTXMode: 0
+  renderSettingsRTXMode: 1
   renderSettingsLightProbeMode: 1
   renderSettingsClientMode: 0
   renderSettingsServerAddress: 127.0.0.1
