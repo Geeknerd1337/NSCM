@@ -112,6 +112,12 @@ public class Weapon : MonoBehaviour
     /// TODO: Convert this to a pooled particle system
     /// </summary>
     [SerializeField] private GameObject hitEffect;
+
+    /// <summary>
+    /// A reference to a particle system that we move around and emit when we hit an enemy. This will make for some decent blood spatter
+    /// </summary>
+    [SerializeField] private ParticleSystem bloodEffect;
+
     /// <summary>
     /// If the weapon fires projectiles, this is a transform holding the position where the projectile is spawned. 
     /// </summary>
@@ -427,7 +433,11 @@ public class Weapon : MonoBehaviour
                 EntityLimb entityLimb = hit.collider.GetComponent<EntityLimb>();
                 if(entityLimb != null)
                 {
+                    bloodEffect.transform.position = hit.point;
+                    bloodEffect.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
+                    bloodEffect.Play();
                     entityLimb.DamageEnemy(weaponObject.damage, transform.forward);
+
                 }
             }
 

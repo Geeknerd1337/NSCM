@@ -129,6 +129,7 @@ public class SphereEnemySpawner : MonoBehaviour
         ResetLines();
         sphereProgress = 0;
         isSpawning = false;
+        lightningStartPoint = 0.35f;
     }
 
     public void StartSpawn()
