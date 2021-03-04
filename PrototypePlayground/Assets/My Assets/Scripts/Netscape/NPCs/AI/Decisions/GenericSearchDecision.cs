@@ -23,7 +23,7 @@ public class GenericSearchDecision : AIDecision
             //Debug.Log(hit.transform.name);
             if (hit.collider.CompareTag("Player"))
             {
-                controller.ChaseTarget = hit.transform;
+                controller.CurrentTarget = hit.transform;
                 return true;
             }
             else

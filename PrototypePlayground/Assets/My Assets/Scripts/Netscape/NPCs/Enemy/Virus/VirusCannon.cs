@@ -54,7 +54,7 @@ public class VirusCannon : AIWeapon
     void Update()
     {
         WeaponBob();
-        player = controller.ChaseTarget;
+        player = controller.CurrentTarget;
         flareIndexLerp = Mathf.Lerp(flareIndexLerp, flareIndex, flareSpeed * Time.deltaTime);
         flare.brightness = Mathf.Lerp(flareBrightness.x, flareBrightness.y, flareIndexLerp) + extraFlare;
         extraFlare = Mathf.Lerp(0, 0.3f, fireTimer / fireTime);
