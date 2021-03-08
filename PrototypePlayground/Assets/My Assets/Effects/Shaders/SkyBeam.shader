@@ -1,7 +1,7 @@
 // Shader created with Shader Forge v1.38 
 // Shader Forge (c) Freya Holmer - http://www.acegikmo.com/shaderforge/
 // Note: Manually altering this data may prevent you from opening it in Shader Forge
-/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:False,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:4013,x:32719,y:32712,varname:node_4013,prsc:2|diff-1304-RGB,emission-277-OUT,alpha-4455-OUT;n:type:ShaderForge.SFN_Color,id:1304,x:32444,y:32712,ptovrint:False,ptlb:Color,ptin:_Color,varname:node_1304,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0,c3:0,c4:1;n:type:ShaderForge.SFN_TexCoord,id:384,x:32004,y:32977,varname:node_384,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Slider,id:80,x:31754,y:33251,ptovrint:False,ptlb:bias,ptin:_bias,varname:node_80,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1.025641,max:40;n:type:ShaderForge.SFN_Color,id:3869,x:32110,y:32822,ptovrint:False,ptlb:BeamColor,ptin:_BeamColor,varname:node_3869,prsc:2,glob:False,taghide:False,taghdr:True,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5,c2:0.5,c3:0.5,c4:1;n:type:ShaderForge.SFN_Divide,id:5323,x:32364,y:33135,varname:node_5323,prsc:2|A-3869-RGB,B-7497-OUT;n:type:ShaderForge.SFN_Multiply,id:7497,x:32139,y:33201,varname:node_7497,prsc:2|A-384-V,B-80-OUT;n:type:ShaderForge.SFN_ComponentMask,id:4455,x:32517,y:33255,varname:node_4455,prsc:2,cc1:0,cc2:-1,cc3:-1,cc4:-1|IN-5323-OUT;n:type:ShaderForge.SFN_Power,id:1872,x:32200,y:32977,varname:node_1872,prsc:2|VAL-384-V,EXP-1730-OUT;n:type:ShaderForge.SFN_Slider,id:1730,x:31847,y:33149,ptovrint:False,ptlb:powCurve,ptin:_powCurve,varname:node_1730,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1.538462,max:5;n:type:ShaderForge.SFN_OneMinus,id:3328,x:32364,y:32950,varname:node_3328,prsc:2|IN-1872-OUT;n:type:ShaderForge.SFN_Multiply,id:277,x:32546,y:33000,varname:node_277,prsc:2|A-3328-OUT,B-5323-OUT;proporder:1304-80-3869-1730;pass:END;sub:END;*/
+/*SF_DATA;ver:1.38;sub:START;pass:START;ps:flbk:,iptp:0,cusa:False,bamd:0,cgin:,lico:1,lgpr:1,limd:1,spmd:1,trmd:0,grmd:0,uamb:True,mssp:True,bkdf:False,hqlp:False,rprd:False,enco:False,rmgx:True,imps:True,rpth:0,vtps:0,hqsc:True,nrmq:1,nrsp:0,vomd:0,spxs:False,tesm:0,olmd:1,culm:0,bsrc:3,bdst:7,dpts:2,wrdp:False,dith:0,atcv:False,rfrpo:True,rfrpn:Refraction,coma:15,ufog:True,aust:True,igpj:True,qofs:0,qpre:3,rntp:2,fgom:False,fgoc:False,fgod:False,fgor:False,fgmd:0,fgcr:0.5,fgcg:0.5,fgcb:0.5,fgca:1,fgde:0.01,fgrn:0,fgrf:300,stcl:False,atwp:False,stva:128,stmr:255,stmw:255,stcp:6,stps:0,stfa:0,stfz:0,ofsf:0,ofsu:0,f2p0:False,fnsp:False,fnfb:False,fsmp:False;n:type:ShaderForge.SFN_Final,id:4013,x:32719,y:32712,varname:node_4013,prsc:2|diff-1304-RGB,emission-277-OUT,alpha-4455-OUT;n:type:ShaderForge.SFN_Color,id:1304,x:32444,y:32712,ptovrint:False,ptlb:Color,ptin:_Color,varname:node_1304,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,c1:0,c2:0,c3:0,c4:1;n:type:ShaderForge.SFN_TexCoord,id:384,x:32004,y:32977,varname:node_384,prsc:2,uv:0,uaff:False;n:type:ShaderForge.SFN_Slider,id:80,x:31754,y:33251,ptovrint:False,ptlb:bias,ptin:_bias,varname:node_80,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1.025641,max:40;n:type:ShaderForge.SFN_Color,id:3869,x:32110,y:32822,ptovrint:False,ptlb:BeamColor,ptin:_BeamColor,varname:node_3869,prsc:2,glob:False,taghide:False,taghdr:True,tagprd:False,tagnsco:False,tagnrm:False,c1:0.5,c2:0.5,c3:0.5,c4:1;n:type:ShaderForge.SFN_Divide,id:5323,x:32250,y:33086,varname:node_5323,prsc:2|A-3869-RGB,B-7497-OUT;n:type:ShaderForge.SFN_Multiply,id:7497,x:32139,y:33201,varname:node_7497,prsc:2|A-384-V,B-80-OUT;n:type:ShaderForge.SFN_ComponentMask,id:4455,x:32515,y:33190,varname:node_4455,prsc:2,cc1:0,cc2:-1,cc3:-1,cc4:-1|IN-277-OUT;n:type:ShaderForge.SFN_Power,id:1872,x:32200,y:32977,varname:node_1872,prsc:2|VAL-384-V,EXP-1730-OUT;n:type:ShaderForge.SFN_Slider,id:1730,x:31847,y:33149,ptovrint:False,ptlb:powCurve,ptin:_powCurve,varname:node_1730,prsc:2,glob:False,taghide:False,taghdr:False,tagprd:False,tagnsco:False,tagnrm:False,min:0,cur:1.538462,max:5;n:type:ShaderForge.SFN_OneMinus,id:3328,x:32364,y:32950,varname:node_3328,prsc:2|IN-1872-OUT;n:type:ShaderForge.SFN_Multiply,id:277,x:32459,y:33056,varname:node_277,prsc:2|A-3328-OUT,B-5323-OUT;proporder:1304-80-3869-1730;pass:END;sub:END;*/
 
 Shader "Shader Forge/SkyBeam" {
     Properties {
@@ -77,11 +77,11 @@ Shader "Shader Forge/SkyBeam" {
                 float3 diffuseColor = _Color.rgb;
                 float3 diffuse = (directDiffuse + indirectDiffuse) * diffuseColor;
 ////// Emissive:
-                float3 node_5323 = (_BeamColor.rgb/(i.uv0.g*_bias));
-                float3 emissive = ((1.0 - pow(i.uv0.g,_powCurve))*node_5323);
+                float3 node_277 = ((1.0 - pow(i.uv0.g,_powCurve))*(_BeamColor.rgb/(i.uv0.g*_bias)));
+                float3 emissive = node_277;
 /// Final Color:
                 float3 finalColor = diffuse + emissive;
-                fixed4 finalRGBA = fixed4(finalColor,node_5323.r);
+                fixed4 finalRGBA = fixed4(finalColor,node_277.r);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
@@ -149,8 +149,8 @@ Shader "Shader Forge/SkyBeam" {
                 float3 diffuse = directDiffuse * diffuseColor;
 /// Final Color:
                 float3 finalColor = diffuse;
-                float3 node_5323 = (_BeamColor.rgb/(i.uv0.g*_bias));
-                fixed4 finalRGBA = fixed4(finalColor * node_5323.r,0);
+                float3 node_277 = ((1.0 - pow(i.uv0.g,_powCurve))*(_BeamColor.rgb/(i.uv0.g*_bias)));
+                fixed4 finalRGBA = fixed4(finalColor * node_277.r,0);
                 UNITY_APPLY_FOG(i.fogCoord, finalRGBA);
                 return finalRGBA;
             }
