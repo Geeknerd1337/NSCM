@@ -6,13 +6,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HubScrape5
+  m_Name: Barge
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 1107867024397973260}
+    m_StateMachine: {fileID: 1107776562644773502}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,14 +22,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &1102020049882494806
+--- !u!1102 &1102193903638966034
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TheHubLevelDoorOPen
+  m_Name: BargeTour
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,20 +42,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cf56d0277487d22488b041fb4594f8fb, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3e5bee3e3fe15f7448db69e1dba34239, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102585893977957378
+--- !u!1102 &1102452540584587070
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TheHubLevelDoorIdle
+  m_Name: BargeIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -68,13 +68,13 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7badcdfa8a80f40438e556b4b3ae69f6, type: 2}
+  m_Motion: {fileID: 7400000, guid: c0d236097acfd9a489ac677cf5746d4e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1107 &1107867024397973260
+--- !u!1107 &1107776562644773502
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -84,11 +84,11 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1102020049882494806}
-    m_Position: {x: 288, y: 120, z: 0}
+    m_State: {fileID: 1102452540584587070}
+    m_Position: {x: 276, y: 108, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102585893977957378}
-    m_Position: {x: 323, y: 185, z: 0}
+    m_State: {fileID: 1102193903638966034}
+    m_Position: {x: 311, y: 173, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -98,4 +98,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102585893977957378}
+  m_DefaultState: {fileID: 1102452540584587070}
