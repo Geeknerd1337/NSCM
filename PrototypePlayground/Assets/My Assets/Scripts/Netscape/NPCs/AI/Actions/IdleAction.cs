@@ -16,6 +16,8 @@ public class IdleAction : AIAction
 
     private void Idle(AIEntity controller)
     {
+        // This was causing some errors that flooded the console.
+        /*
         timer += Time.deltaTime;
         if(timer > idleTimeActual)
         {
@@ -35,5 +37,6 @@ public class IdleAction : AIAction
         {
             
         }
+        */
     }
 }
