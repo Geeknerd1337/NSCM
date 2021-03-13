@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Actions/Idle")]
 public class IdleAction : AIAction
 {
-
     private float timer;
     public Vector2 idleTime;
     private float idleTimeActual;

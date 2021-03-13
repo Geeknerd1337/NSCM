@@ -400,15 +400,25 @@ MonoBehaviour:
   assetList:
   - Assets/Bakery/examples/content/sponza/bush.FBX
   - Assets/Bakery/examples/content/floor_lamp.FBX
-  - Assets/My Assets/Models/Netscape/NPC/Enemies/Advertisement/Monitor/MonitorV2.fbx
-  - Assets/My Assets/Models/Netscape/Environments/Mail Server/MailSorter/BiggestLetterSorter.fbx
-  - Assets/My Assets/Models/Netscape/Environments/Mail Server/MailSorter/LetterSorter.fbx
-  uvOverlapAssetList: 00000000ffffffff010100000101000000000000
+  - Assets/My Assets/Models/Netscape/NPC/Enemies/Mouse/Mouse_Enemy_V1.fbx
+  - Assets/My Assets/Models/Netscape/Environments/Misc Props/CyberTree/Tree2.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/HubScraper01/HubSraper01.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/GFXBuilding/GFXBuilding.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Hubscraper02/HubScraper02.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Hubscaper03/HubScraper3.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Hubscraper04/HubScraper4.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/HubScraper5/HubScrape5.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Car/CyberCar.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/bARGE/Barge.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Hubscraper08/Hubscraper8.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Hubscraper07/Hubscraper7.fbx
+  - Assets/My Assets/Models/Netscape/Environments/The Hub/JoshBuildings/HubScrapers/Hubscraper06/Hubscraper06.fbx
+  uvOverlapAssetList: 00000000ffffffff00000000010100000101000001010000010100000101000001010000010100000101000001010000010100000101000001010000
   xatlasWarningShown: 0
-  foundCompatibleSetup: 1
-  gpuName: NVIDIA GeForce RTX 3070
-  runsNonRTX: 0
-  runsOptix5: 0
+  foundCompatibleSetup: 0
+  gpuName: 
+  runsNonRTX: 1
+  runsOptix5: 1
   runsOptix6: 1
   runsOptix7: 1
   runsOIDN: 1
@@ -473,7 +483,7 @@ MonoBehaviour:
   renderSettingsHoleFilling: 0
   renderSettingsBeepOnFinish: 0
   renderSettingsExportTerrainAsHeightmap: 1
-  renderSettingsRTXMode: 1
+  renderSettingsRTXMode: 0
   renderSettingsLightProbeMode: 1
   renderSettingsClientMode: 0
   renderSettingsServerAddress: 127.0.0.1
