@@ -19680,6 +19680,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 0
+  autoreloadIfEmpty: 0
 --- !u!1 &775253093206177910
 GameObject:
   m_ObjectHideFlags: 0
@@ -29718,6 +29719,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 0
 --- !u!114 &775253093738106704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30131,6 +30133,7 @@ MonoBehaviour:
   zoomSpeed: 350
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 0
 --- !u!114 &775253093565441747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35507,6 +35510,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 0
 --- !u!1 &775253094116929614
 GameObject:
   m_ObjectHideFlags: 0
@@ -40401,6 +40405,7 @@ MonoBehaviour:
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
   useTracers: 1
+  autoreloadIfEmpty: 0
 --- !u!82 &775253093511625624
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40537,6 +40542,7 @@ MonoBehaviour:
   zoomSpeed: 0
   minMaxFOV: {x: 0, y: 0}
   useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!1 &1803643194995627181
 GameObject:
   m_ObjectHideFlags: 0
@@ -64868,14 +64874,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 400028, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98021
-      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f04c50329e17214469014c557fc2ecba, type: 2}
+    - target: {fileID: 400028, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98021
+      objectReference: {fileID: 0}
     - target: {fileID: 400206, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.00089476316
@@ -72405,6 +72411,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7d16325727f215041a40e27c64ef3893, type: 2}
     - target: {fileID: 400218, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0
@@ -72413,10 +72423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -89.98021
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 7d16325727f215041a40e27c64ef3893, type: 2}
     - target: {fileID: 400206, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.022149408
