@@ -19377,6 +19377,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 255259529}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
   tracerSystem: {fileID: 0}
   maxTracers: 0
@@ -19526,6 +19527,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1782734088}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
   tracerSystem: {fileID: 0}
   maxTracers: 0
@@ -29296,8 +29298,8 @@ MonoBehaviour:
   - {fileID: 0}
   nextWaypoint: 0
   strafeMod: 1
-  EntityAnimator: {fileID: 0}
   fleePoint: {x: 0, y: 0, z: 0}
+  EntityAnimator: {fileID: 0}
 --- !u!195 &741726663
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -35294,6 +35296,7 @@ MonoBehaviour:
   originRotation: {x: 0, y: 0, z: 0, w: 0}
   muzzleFlash: {fileID: 723500355}
   hitEffect: {fileID: 0}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
   tracerSystem: {fileID: 0}
   maxTracers: 0
@@ -36228,6 +36231,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 337192956}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
   tracerSystem: {fileID: 0}
   maxTracers: 0
@@ -40092,6 +40096,10 @@ PrefabInstance:
     - target: {fileID: 100022, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 100218, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 100028, guid: ecf82e522d3e7d54fad98f6cafef652b, type: 3}
       propertyPath: m_Layer
@@ -59052,7 +59060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &2036404874
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -59588,7 +59596,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 7f1058d21c2ee09468f5a87b536befef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e33e08d8f0c1e07448037ea9b47046c8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
