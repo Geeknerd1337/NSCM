@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_Sun: {fileID: 185764461}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11461,7 +11461,10 @@ MonoBehaviour:
   originRotation: {x: 0, y: 0, z: 0, w: 0}
   muzzleFlash: {fileID: 5126899401684337433}
   hitEffect: {fileID: 0}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
+  tracerSystem: {fileID: 0}
+  maxTracers: 0
   ammoType: 0
   bulletLayerMask:
     serializedVersion: 2
@@ -11477,6 +11480,8 @@ MonoBehaviour:
   smoothAimTrans: 0
   zoomSpeed: 0
   minMaxFOV: {x: 0, y: 0}
+  useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!23 &5126899401084581589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23217,7 +23222,10 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5126899402147787293}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
+  tracerSystem: {fileID: 0}
+  maxTracers: 0
   ammoType: 3
   bulletLayerMask:
     serializedVersion: 2
@@ -23244,6 +23252,8 @@ MonoBehaviour:
   smoothAimTrans: 1
   zoomSpeed: 350
   minMaxFOV: {x: 60, y: 30}
+  useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!82 &5126899401199269007
 AudioSource:
   m_ObjectHideFlags: 0
@@ -28457,11 +28467,13 @@ MonoBehaviour:
   hackRayThickness: 1
   iconMoveSpeed: 2000
   fillImage: {fileID: 0}
+  myElementImage: {fileID: 0}
   hackTime: 2
   rotateSpeed: 0
   fullyFilledImage: {fileID: 0}
   filledAlphaSpeed: 10
   riseSound: {fileID: 438078297771456461}
+  typeSound: {fileID: 0}
   successSound: {fileID: 3414799647677052912}
   pitchCurve:
     serializedVersion: 2
@@ -28487,6 +28499,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  hackCostText: {fileID: 0}
+  hackHandAnimator: {fileID: 0}
+  enableHackAnimations: 0
 --- !u!124 &5126899401414789118
 Behaviour:
   m_ObjectHideFlags: 0
@@ -41616,7 +41631,10 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5126899401323959964}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
+  tracerSystem: {fileID: 0}
+  maxTracers: 0
   ammoType: 0
   bulletLayerMask:
     serializedVersion: 2
@@ -41632,6 +41650,8 @@ MonoBehaviour:
   smoothAimTrans: 1
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
+  useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!114 &5126899401983508192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45716,7 +45736,10 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5126899402526998483}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 5126899401295988783}
+  tracerSystem: {fileID: 0}
+  maxTracers: 0
   ammoType: 4
   bulletLayerMask:
     serializedVersion: 2
@@ -45743,6 +45766,8 @@ MonoBehaviour:
   smoothAimTrans: 1
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
+  useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!114 &5126899402113204180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50537,7 +50562,10 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5126899403115456185}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
+  tracerSystem: {fileID: 0}
+  maxTracers: 0
   ammoType: 2
   bulletLayerMask:
     serializedVersion: 2
@@ -50553,6 +50581,8 @@ MonoBehaviour:
   smoothAimTrans: 1
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
+  useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!82 &5126899402154716813
 AudioSource:
   m_ObjectHideFlags: 0
@@ -60307,7 +60337,10 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5126899403016913084}
   hitEffect: {fileID: 7285323274758679186, guid: a7fda61a2cb7af94b881c54a76271208,
     type: 3}
+  bloodEffect: {fileID: 0}
   projectileOrigin: {fileID: 0}
+  tracerSystem: {fileID: 0}
+  maxTracers: 0
   ammoType: 1
   bulletLayerMask:
     serializedVersion: 2
@@ -60334,6 +60367,8 @@ MonoBehaviour:
   smoothAimTrans: 1
   zoomSpeed: 200
   minMaxFOV: {x: 60, y: 30}
+  useTracers: 0
+  autoreloadIfEmpty: 1
 --- !u!82 &5126899402665250879
 AudioSource:
   m_ObjectHideFlags: 0
@@ -64752,6 +64787,7 @@ MonoBehaviour:
     smooth: 0
     smoothTime: 5
     lockCursor: 1
+    xAdjust: 0
   m_UseFovKick: 0
   m_FovKick:
     Camera: {fileID: 0}
@@ -64873,6 +64909,7 @@ MonoBehaviour:
   maxHealth: 100
   maxShield: 100
   weaponManager: {fileID: 0}
+  maxHack: 0
   ammoTypes: 6400000064000000640000006400000064000000
 --- !u!143 &5126899402929195838
 CharacterController:
@@ -64905,7 +64942,7 @@ Transform:
   m_Children:
   - {fileID: 5126899401259731757}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5126899403016913057
 GameObject:
