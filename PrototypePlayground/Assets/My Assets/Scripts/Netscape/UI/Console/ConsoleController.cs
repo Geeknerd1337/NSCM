@@ -29,11 +29,11 @@ public class ConsoleController : MonoBehaviour
     private void Start()
     {
         // Collect a list of existing prefabs in the project.
-        string[] assetsPaths = AssetDatabase.GetAllAssetPaths();
-        foreach (var asset in assetsPaths)
-        {
-            prefabList.Add(asset);
-        }
+        //string[] assetsPaths = AssetDatabase.GetAllAssetPaths();
+        //foreach (var asset in assetsPaths)
+       //{
+       //     prefabList.Add(asset);
+      // }
     }
 
     void OnEnable()

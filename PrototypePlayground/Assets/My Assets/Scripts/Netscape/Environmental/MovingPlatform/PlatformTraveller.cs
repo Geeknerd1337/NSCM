@@ -13,6 +13,8 @@ public class PlatformTraveller : MonoBehaviour
     /// </summary>
     public Vector3 dirMag;
 
+    public Vector3 moveDir;
+
     /// <summary>
     /// A calculated vector holding the 'velocity' of the object. Used for giving the player velocity when they leave the platform
     /// </summary>
@@ -33,6 +35,7 @@ public class PlatformTraveller : MonoBehaviour
     /// A variable denoting the speed the object moves if we move with programatic movement instead of using an animator.
     /// </summary>
     public float speed;
+
     
     // Start is called before the first frame update
     void Start()
@@ -58,8 +61,9 @@ public class PlatformTraveller : MonoBehaviour
         previousPosition = transform.position;
 
         //I couldn't really tell you why, but this has to be here. Even if the speed is zero for whatever, if we want this to work with animators this needs to be here
-        dirMag = (transform.up + transform.forward) * speed * Time.fixedDeltaTime;
-        parentTransform.position += dirMag;
+        dirMag = (transform.up + transform.forward) * Time.fixedDeltaTime;
+        parentTransform.position += moveDir * speed * Time.fixedDeltaTime;
+        Physics.SyncTransforms();
     }
 
 

@@ -304,6 +304,11 @@ public class Weapon : MonoBehaviour
         {
             FireGun();
         }
+		
+		bool b = true;
+		b = !b;
+		//Set b to be false;
+		
 
         if (Input.GetButtonDown("Fire2") && allowAim)
         {
