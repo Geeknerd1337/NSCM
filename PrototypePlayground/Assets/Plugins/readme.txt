@@ -1,0 +1,1 @@
+This contains the Discord Game SDK integration. This HAS to be here and it HAS to be named like this to work. Please don't mess with it unless you know what you're doing, thanks! 💚
