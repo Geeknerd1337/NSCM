@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class LogicInput : MonoBehaviour
+public class Relay : LogicNode
 {
-    
 
-    
 }
