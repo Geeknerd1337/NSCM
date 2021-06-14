@@ -10,9 +10,14 @@ public class ANDRelay : Relay
 
     void Update()
     {
-        bool check = (int)validValue == 1 ? true : false;
+        FireInput();
+    }
 
-        output = (inputNode2.output == check && inputNode.output == false);
+    public override void FireInput()
+    {
+        bool check = (int)validValue == 1 ? false : true;
+
+        output = (inputNode2.output == check && inputNode.output == check);
     }
 
     public override void OnDrawGizmos()
