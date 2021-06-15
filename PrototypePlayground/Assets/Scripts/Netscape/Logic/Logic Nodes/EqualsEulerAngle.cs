@@ -60,7 +60,9 @@ public class EqualsEulerAngle : LogicNode
         base.OnDrawGizmos();
         if(targetTransform != this.transform && targetTransform != null)
         {
+            Gizmos.color = Color.white;
             Gizmos.DrawLine(transform.position, targetTransform.position);
+            Gizmos.color = Color.white;
         }
     }
 }
