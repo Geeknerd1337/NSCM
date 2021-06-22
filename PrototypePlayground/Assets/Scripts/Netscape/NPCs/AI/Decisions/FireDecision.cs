@@ -7,22 +7,24 @@ public class FireDecision : AIDecision
 {
     public override bool Decide(AIEntity controller)
     {
-        bool targetVisible = Fire(controller);
         if (controller.FireTimer == 0f)
         {
             Vector2 v = controller.EnemyStats.fireCooldown;
             controller.FireTimer = Random.Range(v.x, v.y);
+            return false;
         }
         else
         {
             controller.FireTimer -= Time.deltaTime;
             if(controller.FireTimer <= 0)
             {
-                controller.Weapon.FireWeapon();
-                controller.FireTimer = 0f;
+                
+                
+                return true;
             }
         }
-        return targetVisible;
+        return false;
+
         
     }
 

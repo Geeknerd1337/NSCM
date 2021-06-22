@@ -77,14 +77,14 @@ public class VirusCannon : AIWeapon
         RotateToPlayer();
 
     }
-    public override void FireWeapon()
+    public override void FireWeapon(int shots, float time)
     {
-        base.FireWeapon();
-        StartCoroutine("Fire");
+        base.FireWeapon(shots, time);
+        StartCoroutine(Fire(shots, time));
 
     }
 
-    IEnumerator Fire()
+    IEnumerator Fire(int shots, float time)
     {
 
         
@@ -94,13 +94,19 @@ public class VirusCannon : AIWeapon
             yield return null;
         }
         fireTimer = 0;
-        GameObject g = Instantiate(projectile);
-        g.transform.rotation = firePosition.rotation;
-        g.transform.position = firePosition.position;
-        g.GetComponent<EntityProjectile>().creator = transform;
+        for (int i = 0; i < shots; i++)
+        {
+            GameObject g = Instantiate(projectile);
+            g.transform.rotation = firePosition.rotation;
+            g.transform.position = firePosition.position;
+            g.GetComponent<EntityProjectile>().creator = transform;
+            
+            extraFlare = 0f;
+            sound.PlayOneShot(sound.clip);
+            yield return new WaitForSeconds(time);
+        }
         cannonExtraTurn += cannonRecoil;
-        extraFlare = 0f;
-        sound.Play();
+
         yield return null;
 
     }

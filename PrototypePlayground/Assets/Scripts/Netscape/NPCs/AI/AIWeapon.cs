@@ -6,5 +6,5 @@ public class AIWeapon : MonoBehaviour
 {
     public AIEntity controller;
 
-    public virtual void FireWeapon() { }
+    public virtual void FireWeapon(int count, float time) { }
 }
