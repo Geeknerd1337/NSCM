@@ -38,7 +38,7 @@ public class EqualsEulerAngle : LogicNode
     {
         if (targetTransform != null)
         {
-            float ang = Quaternion.Angle(Quaternion.Euler(targetTransform.eulerAngles), Quaternion.Euler(targetEuler));
+            float ang = Quaternion.Angle(Quaternion.Euler(targetTransform.localEulerAngles), Quaternion.Euler(targetEuler));
 
             if (ang < tolerance)
             {

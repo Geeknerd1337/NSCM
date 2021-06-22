@@ -27,7 +27,7 @@ public class OutputMaterialPropertySet : OutputNode
         }
         foreach(Renderer r in rend)
         {
-            r.materials[materialIndex].SetColor("_EmissionColor", (inputNode.output == true) ? onColor : offColor);
+            r.materials[materialIndex].SetColor(property, (inputNode.output == true) ? onColor : offColor);
         }
     }
 
