@@ -9,7 +9,7 @@ public class ConsoleSystemTest
     public static float awesome { get; set; } = 25;
 
     [ConsoleCmd("test")]
-    public static void Test([ParameterDesc("Does something awesome")] int test)
+    public static void Test([ParameterDesc("First")] int test, int test2, [ParameterDesc("third")] int test3)
     {
         Debug.Log(test);
     }

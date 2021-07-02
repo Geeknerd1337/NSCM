@@ -14,8 +14,6 @@ namespace Armadillo.Netscape.Console
         {
             foreach (var item in AppDomain.CurrentDomain.GetAssemblies())
                 CommandFactory.AddAssembly(item);
-
-            InvokeCommand("swag", null);
         }
 
         internal static void AddCommand(ConsoleCommand command)
