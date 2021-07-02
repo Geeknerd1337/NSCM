@@ -15,7 +15,9 @@ namespace Armadillo.Netscape.Console
             foreach (var item in AppDomain.CurrentDomain.GetAssemblies())
                 CommandFactory.AddAssembly(item);
 
-            InvokeCommand("test", "25");
+            InvokeCommand("var_test", null);
+            InvokeCommand("var_test", "60");
+            InvokeCommand("var_test", null);
         }
 
         internal static void AddCommand(ConsoleCommand command)
@@ -39,7 +41,11 @@ namespace Armadillo.Netscape.Console
                 return false;
             }
 
-            consoleCommand.OnInvoke.Invoke(CommandInterpreter.ConvertArgs(CommandInterpreter.GetParameterTypes(consoleCommand.Info), args));
+            if (args != null && args.Length > 0)
+                consoleCommand.OnInvoke.Invoke(CommandInterpreter.ConvertArgs(CommandInterpreter.GetParameterTypes(consoleCommand.Info), args));
+            else
+                consoleCommand.OnInvoke.Invoke(null);
+
             return true;
         }
     }
