@@ -10,7 +10,6 @@ namespace Armadillo.Netscape
 
         public string Description { get => description; }
 
-        // This is a positional argument
         public ParameterDescAttribute(string description)
         {
             this.description = description;

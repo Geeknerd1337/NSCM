@@ -11,7 +11,6 @@ namespace Armadillo.Netscape
         public string Command { get => command; }
         public string Help { get; set; }
 
-        // This is a positional argument
         public ConsoleCmdAttribute(string command)
         {
             this.command = command;
