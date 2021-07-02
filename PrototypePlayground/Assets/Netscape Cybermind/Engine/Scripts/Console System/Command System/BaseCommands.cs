@@ -6,19 +6,19 @@ namespace Armadillo.Netscape
     public static class BaseCommands
     {
         [ConsoleCmd("quit", Help = "Quits the game.")]
-        private static void QuitGame()
+        public static void QuitGame()
         {
             Application.Quit();
         }
 
         [ConsoleCmd("echo", Help = "Echos the inputted string")]
-        private static void EchoMessage(string input)
+        public static void EchoMessage([ParameterDesc("What to echo")] string input)
         {
             Debug.Log(input);
         }
 
         [ConsoleCmd("clear", Help = "Clears the console log")]
-        private static void ClearConsoleLog()
+        public static void ClearConsoleLog()
         {
             throw new NotImplementedException();
         }

@@ -24,7 +24,7 @@ namespace Armadillo.Netscape.Console
         public static bool InvokeCommand(string commandLine)
         {
             var command = commandLine.Split(' ').First();
-            var args = commandLine.Substring(1).SplitArguments();
+            var args = commandLine.Substring(command.Length).SplitArguments();
 
             return InvokeCommand(command, args);
         }
