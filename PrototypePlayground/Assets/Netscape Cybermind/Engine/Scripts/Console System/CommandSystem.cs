@@ -10,14 +10,12 @@ namespace Armadillo.Netscape.Console
         private static Dictionary<string, ConsoleCommand> commands = new Dictionary<string, ConsoleCommand>();
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        public static void Initialize()
+        internal static void Initialize()
         {
             foreach (var item in AppDomain.CurrentDomain.GetAssemblies())
                 CommandFactory.AddAssembly(item);
 
-            InvokeCommand("var_test", null);
-            InvokeCommand("var_test", "60");
-            InvokeCommand("var_test", null);
+            InvokeCommand("swag", null);
         }
 
         internal static void AddCommand(ConsoleCommand command)
@@ -37,7 +35,7 @@ namespace Armadillo.Netscape.Console
         {
             if (!commands.TryGetValue(command, out var consoleCommand))
             {
-                Debug.Log($"Couldn't find command {command}");
+                Debug.Log($"Couldn't find command \"{command}\"");
                 return false;
             }
 

@@ -8,7 +8,7 @@ namespace Armadillo.Netscape.Console
 {
 	internal static class CommandInterpreter
 	{
-		public static object[] ConvertArgs(Type[] paramters, string[] args)
+		internal static object[] ConvertArgs(Type[] paramters, string[] args)
 		{
 			List<object> finalArgs = new List<object>();
 
@@ -20,7 +20,7 @@ namespace Armadillo.Netscape.Console
 			return finalArgs.ToArray();
 		}
 
-		public static Type[] GetParameterTypes(MemberInfo info)
+		internal static Type[] GetParameterTypes(MemberInfo info)
 		{
 			List<Type> paramteres = new List<Type>();
 
@@ -36,7 +36,7 @@ namespace Armadillo.Netscape.Console
 			return paramteres.ToArray();
 		}
 
-		public static string[] SplitArguments(this string commandLine)
+		internal static string[] SplitArguments(this string commandLine)
 		{
 			var parmChars = commandLine.ToCharArray();
 			var inSingleQuote = false;

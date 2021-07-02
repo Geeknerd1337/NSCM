@@ -29,7 +29,10 @@ namespace Armadillo.Netscape
                 OnInvoke = (parameters) =>
                 {
                     if (parameters != null && parameters.Length > 0)
+                    {
                         info.SetValue(null, parameters[0]);
+                        UnityEngine.Debug.Log($"{Command} is now {info.GetValue(null)}");
+                    }
                     else
                         UnityEngine.Debug.Log($"{Command} = {info.GetValue(null)}");
                 },
