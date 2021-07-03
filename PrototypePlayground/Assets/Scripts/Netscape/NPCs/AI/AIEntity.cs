@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 /// <summary>
 /// This is the base class that controls the states of our AI Entityies in game, this contains multiple things that help track stats, stats, and various references.
 /// </summary>
@@ -105,6 +106,10 @@ public class AIEntity : MonoBehaviour
     private float stoppingDistance;
     public float StoppingDistance { get { return stoppingDistance; } set { stoppingDistance = value; } }
     public Vector3 fleePoint;
+    //A general timer we can use to do things like animations or special permuations on the movement of an enemy
+    public float timer;
+    //A general timer we can use to track how long we've been in a state
+    public float stateTimer;
 
     /// <summary>
     /// Reference to the entity's animator
@@ -159,7 +164,8 @@ public class AIEntity : MonoBehaviour
         else
         {
             currentState.UpdateState(this);
-            
+            timer += Time.deltaTime;
+            stateTimer += Time.deltaTime;
         }
     }
 
@@ -186,7 +192,9 @@ public class AIEntity : MonoBehaviour
         }
         //Set the stopping distance for the enemy
         StoppingDistance = Random.Range(enemyStats.stoppingDistance.x, enemyStats.stoppingDistance.y);
-        
+
+        //Set the phase of the timer
+         timer = Random.Range(0, 100f);
 
         if (aiActive)
         {
@@ -259,5 +267,17 @@ public class AIEntity : MonoBehaviour
     void ResetAIData()
     {
         fleePoint = Vector3.zero;
+        stateTimer = 0f;
     }
+
+    public IEnumerator RunFunctionXTimes(float time, int calls, System.Action<AIEntity> method)
+    {
+        for(int i = 0; i < calls; i++)
+        {
+            method(this);
+            yield return new WaitForSeconds(time);
+        }
+        yield return null;
+    }
+
 }

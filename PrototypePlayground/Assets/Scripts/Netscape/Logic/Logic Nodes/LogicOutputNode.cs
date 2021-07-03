@@ -6,6 +6,7 @@ using UnityEngine.Events;
 /// <summary>
 /// This class will trigger a unity event whenever all the inputs evlauate to their selected boolean value
 /// </summary>
+[System.Serializable]
 public class LogicOutputNode : LogicNode
 {
     /// <summary>
@@ -13,7 +14,8 @@ public class LogicOutputNode : LogicNode
     /// </summary>
     public UnityEvent outputEvents;
 
-    public List<LogicInput> inputs = new List<LogicInput>();
+    [SerializeField]
+    public List<LogicNode> inputs = new List<LogicNode>();
 
     private bool triggered;
 
@@ -35,6 +37,24 @@ public class LogicOutputNode : LogicNode
         }
 
 
+    }
+
+    public override void OnDrawGizmos()
+    {
+        // Draws the Light bulb icon at position of the object.
+        // Because we draw it inside OnDrawGizmos the icon is also pickable
+        // in the scene view.
+        Gizmos.DrawIcon(transform.position, "Logic/OutputNode.png", true);
+        for (int i = 0; i < inputs.Count; i++)
+        {
+
+            if (inputs[i] != null)
+            {
+                Gizmos.DrawLine(transform.position, inputs[i].transform.position);
+            }
+
+        }
+       
     }
 }
 
