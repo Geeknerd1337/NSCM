@@ -6,6 +6,7 @@ namespace Armadillo.Netscape
 {
     public class MapManager
     {
+        [ConsoleCmd("changemap", Help = "Changes the map to the map at the given path")]
         public static async void LoadMap(string mapPath)
         {
             var map = await Map.GetMap(mapPath);
