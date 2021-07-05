@@ -27,7 +27,7 @@ public class FlyingNode : MonoBehaviour
     /// The max amount of neighbors we're allowed to have
     /// </summary>
     [SerializeField]
-    private int maxNeighbors = 6; 
+    private int maxNeighbors = 6;
 
     [HideInInspector]
     public bool drawWireSpheres = true;
@@ -46,6 +46,29 @@ public class FlyingNode : MonoBehaviour
     /// </summary>
     [SerializeField]
     private LayerMask neighborMask;
+
+    /// <summary>
+    /// The gCost of this node
+    /// </summary>
+    public float gCost;
+
+    /// <summary>
+    /// The hcost of this node
+    /// </summary>
+    public float hCost;
+
+    /// <summary>
+    /// The fcost of this node
+    /// </summary>
+    public float fCost{
+        get
+        {
+            return gCost + hCost;
+        }
+    }
+
+    public FlyingNode parent;
+
 
     // Start is called before the first frame update
     void Start()
