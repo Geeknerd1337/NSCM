@@ -13,6 +13,9 @@ public class FlyingNodeManager : MonoBehaviour
     [SerializeField]
     List<FlyingNode> Nodes = new List<FlyingNode>();
 
+    FlyingNode starter;
+    FlyingNode end;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,11 @@ public class FlyingNodeManager : MonoBehaviour
     {
         FlyingNode startNode = NodeFromWorldPoint(start);
         FlyingNode targetNode = NodeFromWorldPoint(target);
+
+        starter = startNode;
+        end = targetNode;
+
+
 
         List<FlyingNode> openSet = new List<FlyingNode>();
         HashSet<FlyingNode> closedSet = new HashSet<FlyingNode>();
@@ -171,6 +179,19 @@ public class FlyingNodeManager : MonoBehaviour
         foreach (FlyingNode n in Nodes)
         {
             n.drawWireSpheres = !n.drawWireSpheres;
+        }
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        if (starter != null)
+        {
+            Gizmos.DrawWireSphere(starter.transform.position, 3f);
+        }
+        if (end != null)
+        {
+            Gizmos.DrawWireSphere(end.transform.position, 3f);
         }
     }
 }

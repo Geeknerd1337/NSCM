@@ -87,18 +87,28 @@ public class FlyingNode : MonoBehaviour
         List<Collider> localNeighbors = Physics.OverlapBox(transform.position,Vector3.one *  searchRadius / 2f,transform.rotation,lm).OrderBy(c => (transform.position - c.transform.position).sqrMagnitude).ToList();
         Neighbors.Clear();
         int curNeighbors = 0;
-        Debug.Log(name + " " + localNeighbors.Count.ToString());
+        Debug.Log(name + ": " + localNeighbors.Count.ToString());
         for (int i = 0; i < localNeighbors.Count; i++)
         {
-            
+            RaycastHit myHit;
             Transform t = localNeighbors[i].transform;
-            Ray ray = new Ray(transform.position, (t.position - transform.position));
-            bool hit = Physics.SphereCast(ray, searchThickness, searchRadius / 2,neighborMask);
-            if (!hit && curNeighbors < maxNeighbors)
+            Ray ray = new Ray(transform.position, (t.position - transform.position).normalized);
+            float range = Mathf.Min(Vector3.Distance(t.position, transform.position), searchRadius / 2);
+
+            bool hit = Physics.SphereCast(ray, searchThickness, out myHit,range,neighborMask);
+            if (!hit && curNeighbors < maxNeighbors && localNeighbors[i].name != name)
             {
+                Debug.Log($"{name}: WE DIDNT HIT IT");
                 curNeighbors++;
                 Neighbors.Add(localNeighbors[i].GetComponent<FlyingNode>());
             }
+
+            if (hit)
+            {
+                Debug.Log($"WE HIT IT {name}: {myHit.transform.name}");
+            }
+
+            
             
         }
     }
