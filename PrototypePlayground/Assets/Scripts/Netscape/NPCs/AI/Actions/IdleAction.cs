@@ -5,9 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "AI/Actions/Idle")]
 public class IdleAction : AIAction
 {
-    private float timer;
+    
     public Vector2 idleTime;
-    private float idleTimeActual;
     public float movementRange;
     public override void Act(AIEntity controller)
     {
@@ -17,17 +16,17 @@ public class IdleAction : AIAction
     private void Idle(AIEntity controller)
     {
         // This was causing some errors that flooded the console.
-        /*
-        timer += Time.deltaTime;
-        if(timer > idleTimeActual)
+        
+
+        if(controller.Timers[0] > controller.Floats[0])
         {
             Vector3 initialPosition = controller.transform.position;
             initialPosition += controller.transform.forward * Random.Range(-movementRange, movementRange);
             initialPosition += controller.transform.right * Random.Range(-movementRange, movementRange);
             controller.Agent.destination = initialPosition;
             controller.Agent.isStopped = false;
-            timer = 0;
-            idleTimeActual = Random.Range(idleTime.x, idleTime.y);
+            controller.Timers[0] = 0;
+            controller.Floats[0] = Random.Range(idleTime.x, idleTime.y);
 
 
         }
@@ -37,6 +36,6 @@ public class IdleAction : AIAction
         {
             
         }
-        */
+        
     }
 }

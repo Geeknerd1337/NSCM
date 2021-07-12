@@ -116,8 +116,29 @@ public class AIEntity : MonoBehaviour
     /// </summary>
     [Header("Utility")]
     public Animator EntityAnimator;
-    
-    
+
+    ///TODO:
+    ///The Below is a very bad way to handle this, ideally this would be handled by a subclass called 'AI Info' that contains a float,
+    ///integer, and timer. The reason I'm using this now is because AI states are created using scriptable objects. Meaning if I need to store a temporary
+    ///time variable or need a timer, it will affect every instance of that SO being used by ALL ai. Example being if a virus has an idleTimer that goes up by Time.Deltatime
+    ///all viruses will have the same timer. We should look into a better system for this, but this *technically* works.
+
+    /// <summary>
+    /// An array of timers that can be used to handle various things in our classes.
+    /// </summary>
+    public float[] Timers = new float[10];
+
+    /// <summary>
+    /// An array of ints that can be used by states to store information and data temporarily.
+    /// </summary>
+    public int[] Integers = new int[10];
+
+    /// <summary>
+    /// An array of floats that can be used by states to store information and data temporarily.
+    /// </summary>
+    public float[] Floats = new float[10];
+
+
 
     #region Private members
     /// <summary>
@@ -180,6 +201,11 @@ public class AIEntity : MonoBehaviour
             currentState.UpdateState(this);
             timer += Time.deltaTime;
             stateTimer += Time.deltaTime;
+
+            for (int i = 0; i < Timers.Length; i++)
+            {
+                Timers[i] += Time.deltaTime;
+            }
         }
     }
 
@@ -209,6 +235,8 @@ public class AIEntity : MonoBehaviour
 
         //Set the phase of the timer
          timer = Random.Range(0, 100f);
+
+        
 
         if (aiActive)
         {

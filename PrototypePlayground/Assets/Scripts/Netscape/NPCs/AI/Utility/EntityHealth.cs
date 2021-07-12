@@ -95,7 +95,10 @@ public class EntityHealth : MonoBehaviour
     {
         if (controller != null)
         {
-            controller.Agent.enabled = false;
+            if (controller.Agent != null)
+            {
+                controller.Agent.enabled = false;
+            }
             controller.enabled = false;
         }
         foreach (Rigidbody rb in ragdoll)
