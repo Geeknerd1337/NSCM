@@ -43,6 +43,12 @@ public class Weapon : MonoBehaviour
     /// A reference to the player stats class.
     /// </summary>
     private PlayerStats playerStats;
+
+    /// <summary>
+    /// A timer showing how long it has been since the last shot
+    /// </summary>
+    private float TimeSinceShot;
+
     #endregion
 
     #region Booleans
@@ -63,8 +69,7 @@ public class Weapon : MonoBehaviour
     private bool CanFire { get
         {
 
-           return !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.fireAnimation) &&
-           !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.aimFireAnimation) &&
+           return (TimeSinceShot >= 1/weaponObject.fireRate) &&
            !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.reloadAnimation) &&
            !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.aimDryFireAnimation) &&
            !weaponAnimator.GetCurrentAnimatorStateInfo(0).IsName(weaponObject.dryFireAnimation) &&
@@ -259,9 +264,15 @@ public class Weapon : MonoBehaviour
         {
             return;
         }
+        
         HandleGunInput();
         HandleWeaponSway();
         HandleFOV();
+        
+    }
+
+    public void HandleAutoReload()
+    {
         if (autoreloadIfEmpty && shotsLeft == 0)
         {
             if (shotsLeft < weaponObject.clipSize && playerStats.ammoTypes[ammoType] != 0)
@@ -294,6 +305,7 @@ public class Weapon : MonoBehaviour
     /// </summary>
     void HandleGunInput()
     {
+        TimeSinceShot += Time.deltaTime;
 
         bool IsFiring = Input.GetButtonDown("Fire1");
         if (fullAuto)
@@ -349,12 +361,13 @@ public class Weapon : MonoBehaviour
     {
         if (CanFire && !isBusy)
         {
+            TimeSinceShot = 0;
             //Play the fire animation if we press the fire button
             if (!weaponAnimator.GetBool("isAiming"))
             {
                 if (shotsLeft > 0)
                 {
-                    weaponAnimator.Play(weaponObject.fireAnimation);
+                    weaponAnimator.Play(weaponObject.fireAnimation,-1,0f);
                     //Fire a projectile if the weapon is configured to do so, otherwise use raycast bullet
                     if (weaponObject.firesProjectile)
                     {

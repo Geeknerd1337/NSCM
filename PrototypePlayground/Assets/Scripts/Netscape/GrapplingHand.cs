@@ -31,6 +31,8 @@ public class GrapplingHand : MonoBehaviour
     [SerializeField]
     private float rotationSpeed;
 
+    
+
     public AudioSource sound;
 
     [SerializeField]

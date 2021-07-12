@@ -121,15 +121,27 @@ public class AIEntity : MonoBehaviour
 
     #region Private members
     /// <summary>
-    /// Referencew to the enemies nav mesh agent.
+    /// Reference to the enemies nav mesh agent.
     /// </summary>
     private NavMeshAgent navMeshAgent;
+
+    /// <summary>
+    /// Reference to the enemies flying agent
+    /// </summary>
+    private FlyingNavigator flyingAgent;
     /// <summary>
     /// Public reference to the enemies nav mesh agent
     /// </summary>
     public NavMeshAgent Agent
     {
         get { return navMeshAgent; }
+    }
+    /// <summary>
+    /// A public reference to the enemies flying agent
+    /// </summary>
+    public FlyingNavigator FlyingAgent
+    {
+        get { return flyingAgent; }
     }
     /// <summary>
     /// A boolean showing whether or not the AI is activated
@@ -143,6 +155,8 @@ public class AIEntity : MonoBehaviour
     {
         //Get the nav mesh agent
         navMeshAgent = GetComponent<NavMeshAgent>();
+        //Get the flying agent
+        flyingAgent = GetComponent<FlyingNavigator>();
         //Set up the AI
         SetUpAI(true);
     }
@@ -198,12 +212,18 @@ public class AIEntity : MonoBehaviour
 
         if (aiActive)
         {
-            navMeshAgent.enabled = true;
-            navMeshAgent.speed = enemyStats.moveSpeed;
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = true;
+                navMeshAgent.speed = enemyStats.moveSpeed;
+            }
         }
         else
         {
-            navMeshAgent.enabled = false;
+            if (navMeshAgent != null)
+            {
+                navMeshAgent.enabled = false;
+            }
         }
     }
 

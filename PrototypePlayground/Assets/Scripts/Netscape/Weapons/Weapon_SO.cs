@@ -22,6 +22,7 @@ public class Weapon_SO : ScriptableObject
     [Range(0, 30)]
     public float maxFireAngle;
     public float effectiveRange;
+    public float fireRate;
 
     [Range(0, 1)]
     public float shakeAmmount;

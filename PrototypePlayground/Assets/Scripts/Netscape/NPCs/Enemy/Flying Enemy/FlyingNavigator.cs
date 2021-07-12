@@ -23,7 +23,7 @@ public class FlyingNavigator : MonoBehaviour
             
         }
 
-        MyPath = Manager.FindPath(transform.position, fps.transform.position);
+        
     }
 
     private void OnDrawGizmos()
