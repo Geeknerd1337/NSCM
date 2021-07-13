@@ -40474,3 +40474,54 @@ Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/FirstTestLevel_
 Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/FirstTestLevel_LMA2_final_HDR.lz4" "F:/Portfolio Projects/Josh/NSCM/PrototypePlayground/Assets/BakeryLightmaps/FirstTestLevel_LMA2_final.hdr"
 Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/FirstTestLevel_LMA8_final_HDR.lz4" "F:/Portfolio Projects/Josh/NSCM/PrototypePlayground/Assets/BakeryLightmaps/FirstTestLevel_LMA8_final.hdr"
 Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/FirstTestLevel_LMA9_final_HDR.lz4" "F:/Portfolio Projects/Josh/NSCM/PrototypePlayground/Assets/BakeryLightmaps/FirstTestLevel_LMA9_final.hdr"
+2021-7-13
+Rendering UV GBuffer for Debug Arena_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Debug Arena_LMA1 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for Debug Arena_LMA2 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftraceRTX fixpos12 "C:\Users\flixt\AppData\Local\Temp\frender" "uvpos_Debug Arena_LM0.lz4" 2 0 0 0
+Running ftraceRTX fixpos12 "C:\Users\flixt\AppData\Local\Temp\frender" "uvpos_Debug Arena_LMA2.lz4" 2 0 2 0
+Running ftraceRTX fixpos12 "C:\Users\flixt\AppData\Local\Temp\frender" "uvpos_Debug Arena_LMA1.lz4" 2 0 1 0
+Running ftraceRTX addmul "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LM0" 4 0 0 comp_0.bin
+Running ftraceRTX addmul "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA2" 4 0 2 comp_2.bin
+Running ftraceRTX addmul "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA1" 4 0 1 comp_1.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LM0_diffuse" 4 16 0 "gi_Debug Arena_LM00.bin" "Debug Arena_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA2_diffuse" 4 16 2 "gi_Debug Arena_LMA20.bin" "Debug Arena_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA1_diffuse" 4 16 1 "gi_Debug Arena_LMA10.bin" "Debug Arena_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LM0_diffuse" 4 16 0 "gi_Debug Arena_LM01.bin" "Debug Arena_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA2_diffuse" 4 16 2 "gi_Debug Arena_LMA21.bin" "Debug Arena_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA1_diffuse" 4 16 1 "gi_Debug Arena_LMA11.bin" "Debug Arena_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LM0_diffuse" 4 16 0 "gi_Debug Arena_LM02.bin" "Debug Arena_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA2_diffuse" 4 16 2 "gi_Debug Arena_LMA22.bin" "Debug Arena_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA1_diffuse" 4 16 1 "gi_Debug Arena_LMA12.bin" "Debug Arena_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LM0_diffuse" 4 16 0 "gi_Debug Arena_LM03.bin" "Debug Arena_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA2_diffuse" 4 16 2 "gi_Debug Arena_LMA23.bin" "Debug Arena_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA1_diffuse" 4 16 1 "gi_Debug Arena_LMA13.bin" "Debug Arena_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LM0_final" 4 16 0 "gi_Debug Arena_LM04.bin" "Debug Arena_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA2_final" 4 16 2 "gi_Debug Arena_LMA24.bin" "Debug Arena_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftraceRTX texgi "C:\Users\flixt\AppData\Local\Temp\frender" "Debug Arena_LMA1_final" 4 16 1 "gi_Debug Arena_LMA14.bin" "Debug Arena_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running denoiserOIDN c "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LM0_final_HDR.lz4" "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LM0_final_HDR.lz4" 4096 0
+Running seamfixer "C:\Users\flixt\AppData\Local\Temp\frender" "0" "Debug Arena_LM0_final_HDR.lz4"
+Running denoiserOIDN c "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LMA2_final_HDR.lz4" "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LMA2_final_HDR.lz4" 4096 0
+Running seamfixer "C:\Users\flixt\AppData\Local\Temp\frender" "2" "Debug Arena_LMA2_final_HDR.lz4"
+Running denoiserOIDN c "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LMA1_final_HDR.lz4" "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LMA1_final_HDR.lz4" 4096 0
+Running seamfixer "C:\Users\flixt\AppData\Local\Temp\frender" "1" "Debug Arena_LMA1_final_HDR.lz4"
+Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LM0_final_HDR.lz4" "F:/Portfolio Projects/Josh/NSCM/PrototypePlayground/Assets/BakeryLightmaps/Debug Arena_LM0_final.hdr"
+Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LMA2_final_HDR.lz4" "F:/Portfolio Projects/Josh/NSCM/PrototypePlayground/Assets/BakeryLightmaps/Debug Arena_LMA2_final.hdr"
+Running halffloat2hdr "C:\Users\flixt\AppData\Local\Temp\frender/Debug Arena_LMA1_final_HDR.lz4" "F:/Portfolio Projects/Josh/NSCM/PrototypePlayground/Assets/BakeryLightmaps/Debug Arena_LMA1_final.hdr"

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: MouseIdleState
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 11400000, guid: 99b11655a8964024096993636fc4a322, type: 2}
-  transitions: []
+  - {fileID: 11400000, guid: bf8890a40f01ae247873019821c5cd7d, type: 2}
+  transitions:
+  - decision: {fileID: 11400000, guid: 81a31ecd75624eb4f89c28f180a6e460, type: 2}
+    trueState: {fileID: 11400000, guid: fe5642b0f71c80e448eabe2252f8fd3e, type: 2}
+    falseState: {fileID: 11400000, guid: c88525790bb5fea4b972c8479334d841, type: 2}
   sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
